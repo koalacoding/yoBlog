@@ -11,7 +11,7 @@
 		<form action="registration_check.php" method="post">
 			Username : <input type="text" name="username" />
 			<br /><br />
-			Password : <input type="text" name="password" />
+			Password : <input type="password" name="password" />
 			<br /><br />
 			Re-enter password : <input type="text" name="password_confirmation" />
 			<br /><br />
