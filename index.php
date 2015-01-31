@@ -14,7 +14,9 @@
 				{
 
 				    echo 'Welcome ' . $_SESSION['username'] . '.';
-				    echo '<br /><br /><a href="logout.php">Logout</a>';
+				    echo '<br /><br /><a href="logout.php">Logout</a>
+				    	 <br /><br />
+				    	 <a href="manage_blog/index.php">Manage your blog</a>';
 				}
 
 				else {

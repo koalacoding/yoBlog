@@ -37,14 +37,13 @@
 		$email = mysql_real_escape_string($_POST['email']);
 
 		$request = $bdd->prepare
-		('INSERT INTO users(username, password, email, registration_date)
-		VALUES(:username, :password, :email, NOW())');
+			('INSERT INTO users(username, password, email, registration_date)
+			VALUES(:username, :password, :email, NOW())');
 
 		$request->execute(array(
-		'username'=>$username, 'password'=>$password,
-		'email'=>$email));
-
-		//$request->closeCursor();
+			'username'=>$username, 
+			'password'=>$password,
+			'email'=>$email));
 
 		echo '<center>Account successfully added.
 		 Redirection in 3 seconds.</center>';
