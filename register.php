@@ -6,7 +6,7 @@
 	</head>
 
 	<body>
-
+	<a href="index.php">< Return to index</a>
 	<center>
 		<form action="registration_check.php" method="post">
 			Username : <input type="text" name="username" />

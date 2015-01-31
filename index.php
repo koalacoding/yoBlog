@@ -6,8 +6,24 @@
 	</head>
 
 	<body>
-		<a href="register.php">Register a new account</a>
-		<a href="login.php">Login to an account</a>
+		<center>
+			<?php
+				session_start();
+				// If the user is connected to an account.
+				if (isset($_SESSION['id']) AND isset($_SESSION['username']))
+				{
 
+				    echo 'Welcome ' . $_SESSION['username'] . '.';
+				    echo '<br /><br /><a href="logout.php">Logout</a>';
+				}
+
+				else {
+					echo '<a href="login.php">Login to an account</a>
+						  <br /><br />
+						  <a href="register.php">Register a new account</a>';
+				}
+			?>
+			<br /><br />
+		</center>
 	</body>
 </html>

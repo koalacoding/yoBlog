@@ -25,6 +25,10 @@
 		$fetch = $request->fetch();
 
 		if ($password == $fetch['password']) {
+			session_start();
+			$_SESSION['id'] = $fetch['id'];
+			$_SESSION['username'] = mysql_real_escape_string($_POST['username']);
+
 			echo 'You are now connected. Redirection in 2 seconds.';
 			header("refresh:2;url=index.php");
 		}
