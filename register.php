@@ -7,14 +7,19 @@
 
 	<body>
 
-	<form action="registration_check.php" method="post">
-		Username : <input type="text" name="username" />
-		<br /><br />
-		Password : <input type="text" name="password" />
-		Re-enter password : <input type="text" name="password_confirmation" />
-		Email : <input type="text" name="email" />
-		<input type="submit" value="OK" />
-	</form>
+	<center>
+		<form action="registration_check.php" method="post">
+			Username : <input type="text" name="username" />
+			<br /><br />
+			Password : <input type="text" name="password" />
+			<br /><br />
+			Re-enter password : <input type="text" name="password_confirmation" />
+			<br /><br />
+			Email : <input type="text" name="email" />
+			<br /><br />
+			<input type="submit" value="OK" />
+		</form>
+	</center>
 
 	</body>
 </html>

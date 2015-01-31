@@ -6,8 +6,8 @@
 	</head>
 
 	<body>
-
-
+		<a href="register.php">Register a new account</a>
+		<a href="login.php">Login to an account</a>
 
 	</body>
 </html>

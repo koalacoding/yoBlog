@@ -6,13 +6,15 @@
 	</head>
 
 	<body>
-
-	<form action="" method="post">
-		Username : <input type="text" name="username" />
-		<br /><br />
-		Password : <input type="text" name="password" />
-	</form>
-
+		<center>
+		<form action="login_check.php" method="post">
+			Username : <input type="text" name="username" />
+			<br /><br />
+			Password : <input type="text" name="password" />
+			<br /><br />
+			<input type="submit" value="OK" />
+		</form>
+		</center>
 
 	</body>
 </html>
