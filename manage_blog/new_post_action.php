@@ -19,9 +19,13 @@
 				posts(author, title, post, post_date)
 				VALUES(:author, :title, :post, NOW())");
 
-			$request->execute(array('author'=>$_SESSION['username'],
-				'title'=>$_POST['title'],
-				'post'=>$_POST['post']));
+			$username = $_SESSION['username'];
+			$title = $_POST['title'];
+			$post = $_POST['post'];
+
+			$request->execute(array('author'=>$username,
+				'title'=>$title,
+				'post'=>$post));
 
 			echo 'New blog entry successfully posted. Redirection in 2 seconds...';
 			header("refresh:2;url=index.php");

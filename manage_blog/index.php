@@ -53,9 +53,11 @@
 					 	</tr>';
 				while ($posts = $request->fetch()) {
 					echo '<tr>
-						 	<th class="data">' . $posts['title'] . '</th>
-						 	<th class="data">' . $posts['post'] . '</th>
+						 	<th class="data">' . htmlspecialchars($posts['title']) . '</th>
+						 	<th class="data">' . htmlspecialchars($posts['post']) . '</th>
 						 	<th class="data">' . $posts['post_date'] . '</th>
+						 	<th class="data"><a href="modify_post.php?id=' . $posts['id'] .
+						 	'">Modify</a></th>
 						  </tr>';
 				}
 				echo '</table>
@@ -64,7 +66,7 @@
 
 			else {
 				echo 'You must be connected to access this page. Redirection in 2 seconds...';
-				header("refresh:2;url=../login.php");
+				header("refresh:2;url=../index.php");
 			}
 		?>
 	</body>
