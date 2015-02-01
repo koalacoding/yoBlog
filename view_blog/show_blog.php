@@ -89,10 +89,29 @@
 
 			#right_core {
 				float: right;
+				max-width: 14%;
+
+				border-left: solid 1px #D5D5D5;
+				padding: 20px;
+			}
+
+			.right_core_group {
+				padding-bottom: 25px;
+			}
+
+			.right_core_title {
+				display: block;
+				margin-bottom: 25px;
+
+				color: #444;
+				font-size: 1.4em;
+				font-weight: normal;
+				letter-spacing: -1px;
 			}
 
 			#left_core {
 				float: left;
+				width: 70%;
 			}
 
 			.entry {
@@ -108,6 +127,8 @@
 			}
 
 			.post_date {
+				background-image: url("../images/clock.png");
+
 				font-size: 0.8em;
 				color: #bbb;
 				letter-spacing: .07em;
@@ -152,10 +173,28 @@
 						</div>
 
 						<div id="right_core">
-							<div id="comments">
-							Comments
+							<div class="right_core_group">
+								<span class="right_core_title">Last comments</span>
+								<p>John : GOod blog</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+								<p>Mike : About 33 ?</p>
+							</div>
+
+							<div class="right_core_group">
+								<span class="right_core_title">Archives</span>
 							</div>
 						</div>
+
 
 						<div id="left_core">
 		<?php
