@@ -1,6 +1,5 @@
 <?php
 	include('../to_include.php');
-	session_start();
 	// We allow the user to post a new post only if he is connected.
 	if (isset($_SESSION['username'])) {
 		if (isset($_POST['title'], $_POST['post'])) {

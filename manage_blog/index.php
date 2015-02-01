@@ -66,7 +66,7 @@
 				<center>
 					<div id="menu">
 						<a href="new_post.php" class="menu_element">Write a new post</a>
-						<a href="../show_blog.php?username=<?php echo $_SESSION['username'] ?>" 
+						<a href="../view_blog/show_blog.php?username=<?php echo $_SESSION['username'] ?>" 
 						class="menu_element">See your blog</a>						
 					</div>
 					<br /><br />
