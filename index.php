@@ -10,7 +10,7 @@
 			<?php
 				session_start();
 				// If the user is connected to an account.
-				if (isset($_SESSION['id']) AND isset($_SESSION['username']))
+				if (isset($_SESSION['username']))
 				{
 
 				    echo 'Welcome ' . $_SESSION['username'] . '.';

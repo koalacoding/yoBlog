@@ -26,12 +26,13 @@
 	<body>
 		<?php
 			session_start();
-			if (isset($_SESSION['username'])) {
-				echo '<a href="../index.php">Return to index</a>
-					  <center>
-					  	<a href="new_post.php">Write a new post</a>
-						<br /><br />';
-
+			if (isset($_SESSION['username'])) { ?>
+				<a href="../index.php">Return to index</a>
+				<center>
+					<a href="new_post.php">Write a new post</a>
+					<br /><br />
+					<h3><u>Your blog entries :</u></h3>
+		<?php
 				// We try to connect to the SQL database.
 				try {
 					$bdd = new PDO('mysql:host=localhost;
@@ -49,7 +50,7 @@
 					 	<tr class="column_name">
 					 		<th>Title</th>
 					 		<th>Post</th>
-					 		<th>Date</th>
+					 		<th>Date posted</th>
 					 	</tr>';
 				while ($posts = $request->fetch()) {
 					echo '<tr>

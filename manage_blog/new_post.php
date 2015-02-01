@@ -6,7 +6,7 @@
 	</head>
 
 	<body>
-		<a href="index.php">Return to manage your blog</a>
+		<a href="index.php">Return to the blog manager</a>
 		<center>
 			<form action="new_post_action.php" method="post">
 				Title : <input type="text" name="title" />

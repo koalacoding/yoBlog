@@ -6,14 +6,14 @@
 	</head>
 
 	<body>
-	<a href="index.php">< Return to index</a>
+	<a href="index.php">Return to index</a>
 	<center>
 		<form action="registration_check.php" method="post">
 			Username : <input type="text" name="username" />
 			<br /><br />
 			Password : <input type="password" name="password" />
 			<br /><br />
-			Re-enter password : <input type="text" name="password_confirmation" />
+			Re-enter password : <input type="password" name="password_confirmation" />
 			<br /><br />
 			Email : <input type="text" name="email" />
 			<br /><br />
