@@ -1,4 +1,5 @@
 <?php
+	include('../to_include.php');
 	session_start();
 	// We allow the user to post a new post only if he is connected.
 	if (isset($_SESSION['username'])) {
@@ -31,6 +32,11 @@
 				$request->execute(array('title'=>$title, 'post'=>$post, 'id'=>$id));
 
 				echo 'Update successful. Redirection in 2 seconds...';
+				header("refresh:2;url=index.php");
+			}
+
+			else { // If the author of the entry ID is not the user which is connected to the current session, we restrict the access.
+				echo 'Wrong article ID. Redirection in 2 seconds...';
 				header("refresh:2;url=index.php");
 			}
 		}

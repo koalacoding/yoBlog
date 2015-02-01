@@ -1,4 +1,5 @@
 <?php
+	include('to_include.php');
 	$error = 0;
 
 	if (isset($_POST['password'], $_POST['password_confirmation'])) {

@@ -1,3 +1,4 @@
+<?php include('../to_include.php'); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,8 +29,6 @@
 					$id = $_GET['id'];
 					$username = $_SESSION['username'];
 
-					echo $username;
-					echo $id;
 					$request = $bdd->prepare("SELECT * FROM posts WHERE id=? AND author=?");
 					$request->execute(array($id, $username));
 
