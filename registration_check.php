@@ -57,16 +57,16 @@
 				'email'=>$email));
 
 			echo '<center>Account successfully added.
-			 Redirection in 3 seconds.</center>';
-			// We redirect the user to index.php after 3 seconds.
-			header("refresh:3;url=index.php");
+			 Redirection in 2 seconds...</center>';
+			// We redirect the user to index.php after 2 seconds.
+			header("refresh:2;url=index.php");
 		}
 	}
 
 	/* If a field is empty, an error message is shown
 	and the user is redirect to register.php. */
 	else {
-		echo 'Please fill every field.';
-		header("refresh:3;url=register.php");
+		echo 'Please fill every field. Redirection in 2 seconds...';
+		header("refresh:2;url=register.php");
 	}
 ?>
