@@ -7,6 +7,12 @@
 		<style>
 			body {
 				background-color: #EDEDED;
+				font-family: "Lucida Grande", Verdana, Arial, Sans-Serif;
+				font-size: 80%;
+			}
+
+			a:visited {
+				color: #FFFFFF;
 			}
 
 			#core {
@@ -15,8 +21,36 @@
 				margin-left: auto;
 				margin-right: auto;
 				text-align: center;
+				border: 1px solid #ddd;
 
 				background-color: #FFFFFF;
+			}
+
+			#header {
+				height: 200px;
+			}
+
+			#banner {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+
+				font-size: 400%;
+			}
+
+			#menu {
+				height: 30px;
+				margin-bottom: 30px;
+				background-color: #000000;
+
+				text-decoration: none;
+				color: #FFFFFF;
+			}
+
+			.menu_element_right {
+				margin-right: 5px;
+
+				text-align: right;
 			}
 
 			table {
@@ -37,9 +71,16 @@
 				if ($request->rowCount() > 0) {
 		?>
 					<div id="core">
-						<div id="header">Blog of</div>
-						<a href="index.php">Return to index</a>
-
+						<div id="header">
+							<div id="banner">
+							Blog of <?php echo $_GET['username']?>
+							</div>
+						</div>
+						<div id="menu">
+							<div class="menu_element_right">
+								<a href="index.php">Return to index</a>
+							</div>
+						</div>
 		<?php
 								// Getting all the posts where the author is $_GET['username']
 								$request = $bdd->prepare("SELECT * FROM posts WHERE author=:username");
