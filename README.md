@@ -9,4 +9,4 @@ Blog interface coded in PHP.
 ## To commit
 1. Added a clock icon in show_blog.php at the left of the date the article was posted.
 2. show_blog.php now shows the blog author in the title.
-3. Now every blog entry has a link to see the full article. The (<title>) will be the first 44 characters of the entry's title, followed by 3 points.
+3. Now every blog entry has a link to see the full article. The \<title> will be the first 44 characters of the entry's title, followed by 3 points.
