@@ -80,6 +80,7 @@
 					 		<th>Title</th>
 					 		<th>Post</th>
 					 		<th>Date posted</th>
+					 		<th colspan="2">Actions</th>
 					 	</tr>';
 				while ($posts = $request->fetch()) {
 					echo '<tr>
@@ -89,6 +90,8 @@
 						 	<th class="data">' . $posts['post_date'] . '</th>
 						 	<th class="data"><a href="modify_post.php?id=' . $posts['id'] .
 						 	'">Modify</a></th>
+						 	<th class="data"><a href="delete_post.php?id=' . $posts['id'] .
+						 	'">Delete</a></th>						 	
 						  </tr>';
 				}
 				echo '</table>
