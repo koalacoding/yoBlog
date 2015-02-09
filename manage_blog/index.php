@@ -84,7 +84,8 @@
 				while ($posts = $request->fetch()) {
 					echo '<tr>
 						 	<th class="data">' . htmlspecialchars($posts['title']) . '</th>
-						 	<th class="data">' . htmlspecialchars($posts['post']) . '</th>
+						 	<th class="data">' . mb_substr(htmlspecialchars($posts['post']), 0,
+						 								   164) . '...</th>
 						 	<th class="data">' . $posts['post_date'] . '</th>
 						 	<th class="data"><a href="modify_post.php?id=' . $posts['id'] .
 						 	'">Modify</a></th>

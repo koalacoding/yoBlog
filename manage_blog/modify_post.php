@@ -10,7 +10,6 @@
 		<a href="index.php">Return to the blog manager</a>
 		<center>
 			<?php
-				session_start();
 				// If the user is connected to an account.
 				if (isset($_SESSION['username'], $_GET['id']))
 				{ 
