@@ -67,7 +67,8 @@
 						<div id="welcome_message">You are not connected</div>
 						<div id="right_buttons">
 							<a href="login.php" class="right_buttons_element">Login to an account</a>						  
-						  	<a href="register.php" class="right_buttons_element">Register a new account</a>
+						  	<a href="register/register.php" 
+						  		class="right_buttons_element">Register a new account</a>
 						 </div>
 					</div>
 			<?php

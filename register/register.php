@@ -1,4 +1,4 @@
-<?php include('to_include.php'); ?>
+<?php include('../to_include.php'); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,7 +9,7 @@
 	<body>
 	<a href="index.php">Return to index</a>
 	<center>
-		<form action="registration_check.php" method="post">
+		<form action="register_check.php" method="post">
 			Username : <input type="text" name="username" />
 			<br /><br />
 			Password : <input type="password" name="password" />
