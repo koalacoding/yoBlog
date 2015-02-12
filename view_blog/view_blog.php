@@ -66,7 +66,10 @@
 								while ($posts = $request->fetch()) {
 		?>
 									<div class="entry">
-										<span class="title">Title : <?php echo htmlspecialchars($posts['title']) ?></span>
+										<span class="title">
+											<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
+												Title : <?php echo htmlspecialchars($posts['title']) ?></a>
+										</span>
 										<span class="post_date"><br />Published : <?php echo $posts['post_date'] ?></span>
 										<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
 									</div>

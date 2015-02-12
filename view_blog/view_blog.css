@@ -119,6 +119,10 @@ a:visited {
 	letter-spacing: -1px;
 }
 
+.title a {
+	color: #444;
+}
+
 .post_date {
 	background-image: url("../images/clock.png");
 
