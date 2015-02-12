@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../view_blog.css">
+		<link rel="stylesheet" type="text/css" href="view_post.css">
 		<meta charset="utf-8" />
 		<title>Blog</title>
 	</head>
@@ -64,6 +65,24 @@
 								<span class="post_date"><br />Published : <?php echo $data['post_date']; ?></span>
 								<span class="post"><?php echo htmlspecialchars($data['post']); ?><br /></span>
 							</div>
+
+							<div id="comments">
+								<div id="post_comment">
+									<span class="title">Leave a comment</span>
+									<br /><br />
+									<form action="post_comment_check.php"method="post">
+										Name : <input type="text" name="name" />
+										<br /><br />
+										Email : <input type="text" name="email" />
+										<br /><br />
+										<textarea name="comment" rows="10" cols="50" id="comment"></textarea>
+										<br /><br />
+										<input type="submit" id="post_comment_button" value="Post Comment" />
+									</form>
+								</div>
+							</div>
+						</div>
+
 
 		<?php
 				}
