@@ -70,7 +70,8 @@
 								<div id="post_comment">
 									<span class="title">Leave a comment</span>
 									<br /><br />
-									<form action="post_comment_check.php"method="post">
+									<form action="post_comment_check.php" method="post">
+										<input type="hidden" name="post_id" value="<?php echo $_GET['id']; ?>">
 										Name : <input type="text" name="name" />
 										<br /><br />
 										Email : <input type="text" name="email" />
@@ -78,6 +79,7 @@
 										<textarea name="comment" rows="10" cols="50" id="comment"></textarea>
 										<br /><br />
 										<input type="submit" id="post_comment_button" value="Post Comment" />
+
 									</form>
 								</div>
 							</div>
