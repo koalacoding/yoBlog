@@ -70,7 +70,15 @@
 											<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
 												Title : <?php echo htmlspecialchars($posts['title']) ?></a>
 										</span>
-										<span class="post_date"><br />Published : <?php echo $posts['post_date'] ?></span>
+										<div class="post_date">
+											<br />
+											<div class="post_date_clock_image">
+												<img src="../images/clock.png" height="15px" width="15px"/>
+											</div>
+											<div class="post_date_content">
+												Published : <?php echo $posts['post_date']; ?>
+											</div>
+										</div>
 										<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
 									</div>
 		<?php					

@@ -1,9 +1,41 @@
 #comments {
-	padding-top: 10px;
+	padding-top: 30px;
 	border-top: solid 1px #D5D5D5;
 }
 
-#comment {
+#show_comments {
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-bottom: 30px;
+}
+
+.comment_author {
+	font-size: 1.5em;
+	font-weight: bold;
+	letter-spacing: -1px;
+	color: #27d;
+}
+
+.comment_post_date {
+	font-size: 0.9em;
+	color: #848484;
+	letter-spacing: .09em;
+}
+
+.comment_post_date_clock_image {
+	height: 13px;
+	width: 13px;
+}
+
+.comment_content {
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	font-size: 1.2em;
+	line-height: 1.8em;
+}
+
+#post_comment_textarea {
 	background-color: #FAFAFA;
 	resize: none;
 }

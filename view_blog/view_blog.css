@@ -1,7 +1,6 @@
 body {
 	background-color: #EDEDED;
-	font-family: "Lucida Grande", Verdana, Arial, Sans-Serif;
-	font-size: 70%;
+	font: 62.5% 'Lucida Grande', Verdana, Arial, Sans-Serif;
 }
 
 a {
@@ -123,12 +122,18 @@ a:visited {
 	color: #444;
 }
 
-.post_date {
-	background-image: url("../images/clock.png");
+.post_date {	
+	font-size: 0.9em;
+	color: #848484;
+	letter-spacing: .09em;
+}
 
-	font-size: 0.8em;
-	color: #bbb;
-	letter-spacing: .07em;
+.post_date_clock_image {
+	display: inline-block;
+}
+
+.post_date_content {
+	display: inline-block;
 }
 
 .post {

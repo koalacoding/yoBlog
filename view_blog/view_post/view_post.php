@@ -67,6 +67,41 @@
 							</div>
 
 							<div id="comments">
+								<span class="title"> <!-- Number of comments -->
+									<?php 
+										// We count the number of comments to display it.
+										$request = $bdd->query("SELECT COUNT(*) FROM comments");
+										$number_of_comments = $request->fetchColumn(); 
+
+										echo $number_of_comments;
+									?> comments for "<?php echo htmlspecialchars($data['title']); ?>"
+								</span>
+
+								<div id="show_comments">
+									<?php
+
+										// Getting all the comments.
+										$request = $bdd->query("SELECT * FROM comments");
+
+										// While loop to display all the comments.
+										while ($comments = $request->fetch()) {
+									?>
+											<span class="comment_author">
+												<?php echo htmlspecialchars($comments['author']); ?>
+											</span>
+											<span class="comment_post_date">
+												<br />
+												<img src="../../images/clock.png" class="comment_post_date_clock_image"/>
+												<?php echo $comments['post_date']; ?>
+											</span>
+											<div class="comment_content">
+												<?php echo htmlspecialchars($comments['comment']); ?>
+											</div>
+									<?php
+										}
+									?>
+								</div>
+
 								<div id="post_comment">
 									<span class="title">Leave a comment</span>
 									<br /><br />
@@ -76,7 +111,7 @@
 										<br /><br />
 										Email : <input type="text" name="email" />
 										<br /><br />
-										<textarea name="comment" rows="10" cols="50" id="comment"></textarea>
+										<textarea name="comment" rows="10" cols="50" id="post_comment_textarea"></textarea>
 										<br /><br />
 										<input type="submit" id="post_comment_button" value="Post Comment" />
 
