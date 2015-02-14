@@ -9,6 +9,23 @@
 	padding-bottom: 30px;
 }
 
+.comment {
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+
+.comment_background0, .comment_background1 {
+	padding-top: 10px;
+}
+
+.comment_background0 { /* White background comment. */
+	background-color: #FFFFFF;
+}
+
+.comment_background1 { /* Grey background comment. */
+	background-color: #EDEDED;
+}
+
 .comment_author {
 	font-size: 1.5em;
 	font-weight: bold;

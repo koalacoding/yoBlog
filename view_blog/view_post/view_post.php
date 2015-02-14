@@ -83,19 +83,33 @@
 										// Getting all the comments.
 										$request = $bdd->query("SELECT * FROM comments");
 
+										$background = 1; // Color background of the comment. 0 = white, 1 = grey.
+
 										// While loop to display all the comments.
 										while ($comments = $request->fetch()) {
+											 // If the background of the last comment was grey, we change it to white for the next comment.
+											if ($background == 1) {
+												$background = 0;
+											}
+
+											else {
+												$background = 1;
+											}
 									?>
-											<span class="comment_author">
-												<?php echo htmlspecialchars($comments['author']); ?>
-											</span>
-											<span class="comment_post_date">
-												<br />
-												<img src="../../images/clock.png" class="comment_post_date_clock_image"/>
-												<?php echo $comments['post_date']; ?>
-											</span>
-											<div class="comment_content">
-												<?php echo htmlspecialchars($comments['comment']); ?>
+											<div class="comment_background<?php echo $background; ?>">
+												<div class="comment">
+													<span class="comment_author">
+														<?php echo htmlspecialchars($comments['author']); ?>
+													</span>
+													<span class="comment_post_date">
+														<br />
+														<img src="../../images/clock.png" class="comment_post_date_clock_image"/>
+														<?php echo $comments['post_date']; ?>
+													</span>
+													<div class="comment_content">
+														<?php echo htmlspecialchars($comments['comment']); ?>
+													</div>
+												</div>
 											</div>
 									<?php
 										}
