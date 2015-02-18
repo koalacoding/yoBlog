@@ -50,17 +50,7 @@
 	<body>
 		<?php
 			if (isset($_SESSION['username'])) { 
-				// We try to connect to the SQL database.
-				try {
-					$bdd = new PDO('mysql:host=localhost;
-						dbname=blog;charset=utf8', 'root', '');
-					$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-					$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				}
-				// In case of error.
-				catch(Exception $e) {
-			        die('Error : '.$e->getMessage());
-				}	
+				include_once('../sql_connexion.php');
 		?>
 				<a href="../index.php">Return to index</a>
 				<center>
@@ -74,28 +64,41 @@
 		<?php
 				$author = $_SESSION['username'];
 				$request = $bdd->query("SELECT * FROM posts WHERE author='$author'");
-
-				echo '<table>
-					 	<tr class="column_name">
-					 		<th>Title</th>
-					 		<th>Post</th>
-					 		<th>Date posted</th>
-					 		<th colspan="2">Actions</th>
-					 	</tr>';
+		?>
+				<table>
+					<tr class="column_name">
+				 		<th>Title</th>
+				 		<th>Post</th>
+				 		<th>Date posted</th>
+				 		<th colspan="2">Actions</th>
+					 </tr>
+		<?php
 				while ($posts = $request->fetch()) {
-					echo '<tr>
-						 	<th class="data">' . htmlspecialchars($posts['title']) . '</th>
-						 	<th class="data">' . mb_substr(htmlspecialchars($posts['post']), 0,
-						 								   164) . '...</th>
-						 	<th class="data">' . $posts['post_date'] . '</th>
-						 	<th class="data"><a href="modify_post.php?id=' . $posts['id'] .
-						 	'">Modify</a></th>
-						 	<th class="data"><a href="delete_post.php?id=' . $posts['id'] .
-						 	'">Delete</a></th>						 	
-						  </tr>';
+		?>
+					<tr>
+					 	<th class="data"><?php echo htmlspecialchars($posts['title']) ?></th>
+					 	<th class="data"><?php
+					 						if (strlen($posts['post']) > 164) {
+					 							echo mb_substr(htmlspecialchars($posts['post']), 0,
+					 										164) . '...';					 							
+					 						}
+
+					 						else {
+					 							echo htmlspecialchars($posts['post']);
+					 						}
+										?></th>
+					 	<th class="data"><?php $posts['post_date'] ?></th>
+					 	<th class="data"><a href="modify_post.php?id=<?php echo $posts['id']; ?>">
+					 						Modify</a></th>
+					 	<th class="data"><a href="delete_post.php?id=<?php echo $posts['id']; ?>">
+					 						Delete</a></th>						 	
+					</tr>
+		<?php
 				}
-				echo '</table>
-					</center>';
+		?>
+				</table>
+				</center>
+		<?php
 			}
 
 			else {
