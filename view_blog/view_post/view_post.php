@@ -31,7 +31,7 @@
 								<a href="" class="menu_element_left">Contact</a>
 							</div>
 							<div class="menu_element_right">
-								<a href="../../index.php">Return to index</a>
+								<a href="../view_blog.php?username=<?php echo $data['author']; ?>">Return to blog</a>
 							</div>
 						</div>
 
@@ -70,7 +70,9 @@
 								<span class="title"> <!-- Number of comments -->
 									<?php 
 										// We count the number of comments to display it.
-										$request = $bdd->query("SELECT COUNT(*) FROM comments");
+										$request = $bdd->prepare("SELECT COUNT(*) FROM comments WHERE post_id=?");
+										$request->execute(array($_GET['id']));
+
 										$number_of_comments = $request->fetchColumn(); 
 
 										echo $number_of_comments;
@@ -80,8 +82,9 @@
 								<div id="show_comments">
 									<?php
 
-										// Getting all the comments.
-										$request = $bdd->query("SELECT * FROM comments");
+										// Getting all the comments linked to the id of the actual post.
+										$request = $bdd->prepare("SELECT * FROM comments WHERE post_id=?");
+										$request->execute(array($_GET['id']));
 
 										$background = 1; // Color background of the comment. 0 = white, 1 = grey.
 
@@ -99,7 +102,14 @@
 											<div class="comment_background<?php echo $background; ?>">
 												<div class="comment">
 													<span class="comment_author">
-														<?php echo htmlspecialchars($comments['author']); ?>
+														<?php 
+															echo htmlspecialchars($comments['author']);
+
+															// If the user has entered an email.
+															if (strlen($comments['email']) > 0) {
+																echo ' (' . htmlspecialchars($comments['email']) . ')';
+															}
+														?>
 													</span>
 													<span class="comment_post_date">
 														<br />
@@ -128,7 +138,6 @@
 										<textarea name="comment" rows="10" cols="50" id="post_comment_textarea"></textarea>
 										<br /><br />
 										<input type="submit" id="post_comment_button" value="Post Comment" />
-
 									</form>
 								</div>
 							</div>

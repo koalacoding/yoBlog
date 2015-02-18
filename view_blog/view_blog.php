@@ -36,19 +36,6 @@
 						<div id="right_core">
 							<div class="right_core_group">
 								<span class="right_core_title">Last comments</span>
-								<p>John : GOod blog</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
 							</div>
 
 							<div class="right_core_group">
