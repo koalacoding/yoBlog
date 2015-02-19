@@ -36,6 +36,21 @@
 						<div id="right_core">
 							<div class="right_core_group">
 								<span class="right_core_title">Last comments</span>
+		<?php
+									$request = $bdd->prepare("SELECT posts.title, posts.id, comments.author FROM posts, comments WHERE posts.id = comments.post_id AND posts.author = ?");
+									$request->execute(array($_GET['username']));
+
+									while ($data = $request->fetch()) {
+		?>
+										<span class="last_comment"><?php echo htmlspecialchars($data['author']) .
+												' in <a href="view_post/view_post.php?id=' . $data['id'] . '">' .
+												htmlspecialchars($data['title']) . '</a>'; ?>
+											<br /><br />
+										</span>
+		<?php
+									} $request->closeCursor();
+		?>
+
 							</div>
 
 							<div class="right_core_group">

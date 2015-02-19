@@ -75,16 +75,15 @@ a:visited {
 	background-color: #FFFFFF;
 }
 
-#right_core, #left_core {
-	margin: 20px;
-}
-
 #right_core {
 	float: right;
-	max-width: 14%;
+	max-width: 20%;
+	min-width: 20%;
 
-	border-left: solid 1px #D5D5D5;
-	padding: 20px;
+	margin-right: 25px;
+
+	/*border-left: solid 1px #D5D5D5;
+	padding: 20px;*/
 }
 
 .right_core_group {
@@ -96,14 +95,26 @@ a:visited {
 	margin-bottom: 25px;
 
 	color: #444;
-	font-size: 1.4em;
+	font-size: 1.6em;
 	font-weight: normal;
 	letter-spacing: -1px;
+}
+
+.last_comment {
+	font-size: 1.12em;
+}
+
+.last_comment a {
+	text-decoration: none;
+
+	color: #27D;
 }
 
 #left_core {
 	float: left;
 	width: 70%;
+
+	margin-left: 25px;
 }
 
 .entry {
