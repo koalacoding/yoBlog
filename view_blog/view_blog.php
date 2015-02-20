@@ -9,7 +9,7 @@
 	<body>
 		<?php
 			if (isset($_GET['username'])) {
-				include ('../sql_connexion.php');
+				include_once ('../sql_connexion.php');
 
 				$request = $bdd->prepare("SELECT username FROM users WHERE username=:username");
 				$request->execute(array('username'=>$_GET['username']));
@@ -65,8 +65,8 @@
 						<div id="left_core">
 		<?php
 								// Getting all the posts where the author is $_GET['username']
-								$request = $bdd->prepare("SELECT * FROM posts WHERE author=:username");
-								$request->execute(array('username'=>$_GET['username']));
+								$request = $bdd->prepare("SELECT * FROM posts WHERE author=? ORDER BY time_since_unix_epoch DESC");
+								$request->execute(array($_GET['username']));
 
 								while ($posts = $request->fetch()) {
 		?>

@@ -3,29 +3,13 @@
 	// We allow the user to post a new post only if he is connected.
 	if (isset($_SESSION['username'])) {
 		if (isset($_POST['title'], $_POST['post'])) {
-			// We try to connect to the SQL database.
-			try
-			{
-				$bdd = new PDO('mysql:host=localhost;
-								dbname=blog;charset=utf8', 'root', '');
-			}
-			// In case of error.
-			catch(Exception $e)
-			{
-			        die('Error : '.$e->getMessage());
-			}
+			include_once ('../sql_connexion.php');
 
-			$request = $bdd->prepare("INSERT INTO
-				posts(author, title, post, post_date)
-				VALUES(:author, :title, :post, NOW())");
-
-			$username = $_SESSION['username'];
-			$title = $_POST['title'];
-			$post = $_POST['post'];
-
-			$request->execute(array('author'=>$username,
-				'title'=>$title,
-				'post'=>$post));
+			// Inserting the new post into the database.
+			$request = $bdd->prepare("INSERT INTO posts(author, title, post, post_date,
+														time_since_unix_epoch)
+										VALUES(?, ?, ?, NOW(), ?)");
+			$request->execute(array($_SESSION['username'], $_POST['title'], $_POST['post'], time()));
 
 			echo 'New blog entry successfully posted. Redirection in 2 seconds...';
 			header("refresh:2;url=index.php");

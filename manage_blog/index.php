@@ -62,8 +62,8 @@
 					<br /><br />
 					<h3>Your blog entries :</h3>
 		<?php
-				$author = $_SESSION['username'];
-				$request = $bdd->query("SELECT * FROM posts WHERE author='$author'");
+				$request = $bdd->prepare("SELECT * FROM posts WHERE author=? ORDER BY time_since_unix_epoch DESC");
+				$request->execute(array($_SESSION['username']));
 		?>
 				<table>
 					<tr class="column_name">
@@ -87,7 +87,7 @@
 					 							echo htmlspecialchars($posts['post']);
 					 						}
 										?></th>
-					 	<th class="data"><?php $posts['post_date'] ?></th>
+					 	<th class="data"><?php echo $posts['post_date'] ?></th>
 					 	<th class="data"><a href="modify_post.php?id=<?php echo $posts['id']; ?>">
 					 						Modify</a></th>
 					 	<th class="data"><a href="delete_post.php?id=<?php echo $posts['id']; ?>">
