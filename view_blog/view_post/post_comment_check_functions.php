@@ -1,7 +1,15 @@
 <?php
 
 function is_username_empty($username) {
-	if (!preg_match("#^.+$#", $username)) {
+	if (!preg_match("#^[a-zA-Z0-9_-]+$#", $username)) {
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+function is_comment_empty($username) {
+	if (!preg_match("#\S+#", $username)) {
 		return TRUE;
 	}
 

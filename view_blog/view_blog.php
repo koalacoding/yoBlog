@@ -13,6 +13,7 @@
 
 				$request = $bdd->prepare("SELECT username FROM users WHERE username=:username");
 				$request->execute(array('username'=>$_GET['username']));
+				$request->closeCursor();
 
 				if ($request->rowCount() > 0) {
 		?>
@@ -37,7 +38,9 @@
 							<div class="right_core_group">
 								<span class="right_core_title">Last comments</span>
 		<?php
-									$request = $bdd->prepare("SELECT posts.title, posts.id, comments.author FROM posts, comments WHERE posts.id = comments.post_id AND posts.author = ?");
+									$request = $bdd->prepare("SELECT posts.title, posts.id, comments.author FROM posts, comments
+																WHERE posts.id = comments.post_id AND posts.author = ?
+																ORDER BY comments.time_since_unix_epoch DESC LIMIT 0,5");
 									$request->execute(array($_GET['username']));
 
 									while ($data = $request->fetch()) {

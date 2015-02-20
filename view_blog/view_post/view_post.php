@@ -17,6 +17,10 @@
 
 				if ($request->rowCount() > 0) {
 					$data = $request->fetch();
+
+					$blog_post_author = $data['author'];
+
+					$request->closeCursor();
 		?>
 					<div id="core">
 						<div id="header">
@@ -38,19 +42,23 @@
 						<div id="right_core">
 							<div class="right_core_group">
 								<span class="right_core_title">Last comments</span>
-								<p>John : GOod blog</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
-								<p>Mike : About 33 ?</p>
+		<?php
+									// Getting all the comments on the blog posts of the blog owner.
+									$request = $bdd->prepare("SELECT posts.title, posts.id, comments.author FROM posts, comments
+																WHERE posts.id = comments.post_id AND posts.author = ?
+																ORDER BY comments.time_since_unix_epoch DESC LIMIT 0,5");
+									$request->execute(array($blog_post_author));
+
+									while ($data = $request->fetch()) {
+		?>
+										<span class="last_comment"><?php echo htmlspecialchars($data['author']) .
+												' in <a href="view_post/view_post.php?id=' . $data['id'] . '">' .
+												htmlspecialchars($data['title']) . '</a>'; ?>
+											<br /><br />
+										</span>
+		<?php
+									} $request->closeCursor();			
+		?>
 							</div>
 
 							<div class="right_core_group">
@@ -60,6 +68,14 @@
 
 
 						<div id="left_core">
+							<?php
+								$request = $bdd->prepare("SELECT * FROM posts WHERE id=?");
+								$request->execute(array($_GET['id']));
+
+								$data = $request->fetch();
+
+								$post_title = $data['title'];
+							?>
 							<div class="entry">
 								<span class="title">Title : <?php echo htmlspecialchars($data['title']); ?></span>
 								<span class="post_date"><br />Published : <?php echo $data['post_date']; ?></span>
@@ -76,7 +92,7 @@
 										$number_of_comments = $request->fetchColumn(); 
 
 										echo $number_of_comments;
-									?> comments for "<?php echo htmlspecialchars($data['title']); ?>"
+									?> comments for "<?php echo htmlspecialchars($post_title); ?>"
 								</span>
 
 								<div id="show_comments">
@@ -117,7 +133,7 @@
 														<?php echo $comments['post_date']; ?>
 													</span>
 													<div class="comment_content">
-														<?php echo htmlspecialchars($comments['comment']); ?>
+														<?php echo nl2br(htmlspecialchars($comments['comment'])); ?>
 													</div>
 												</div>
 											</div>

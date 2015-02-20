@@ -6,7 +6,7 @@
 
 	if (isset($_POST['post_id']) && isset($_POST['name']) && isset($_POST['comment'])) {
 		// If the username or the message the user sent is empty, there is an error.
-		if (is_username_empty($_POST['name']) || is_username_empty($_POST['comment'])) {
+		if (is_username_empty($_POST['name']) || is_comment_empty($_POST['comment'])) {
 			$error = TRUE;
 		}
 
@@ -24,10 +24,11 @@
 
 			else { // If the user's email has not been posted, or if it is empty.
 				// Inserting into the database the new comment.
-				$request = $bdd->prepare("INSERT INTO comments(post_id, author, comment, post_date)
-											VALUES(?, ?, ?, NOW())");
+				$request = $bdd->prepare("INSERT INTO comments(post_id, author, comment, post_date, time_since_unix_epoch)
+											VALUES(?, ?, ?, NOW(), ?)");
 				// Executing the prepared request.
-				$request->execute(array($_POST['post_id'], $_POST['name'], $_POST['comment']));
+				$request->execute(array($_POST['post_id'], $_POST['name'], $_POST['comment'],
+										time()));
 			}
 
 			/* The user's comment has been posted,
