@@ -73,7 +73,7 @@
 									<div class="entry">
 										<span class="title">
 											<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
-												Title : <?php echo htmlspecialchars($posts['title']) ?></a>
+												<?php echo htmlspecialchars($posts['title']) ?></a>
 										</span>
 										<div class="post_date">
 											<br />

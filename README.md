@@ -13,9 +13,8 @@ Blog interface coded in PHP.
 8. Last comments are also shown in "view_post.php".
 9. In view_blog.php, show the most recent blog posts first.
 10. The most recent comments of "Last comments" are now shown first.
-  
-## To do.
+11. In the blog manager when deleting a post, if it has comments, also delete the comments related to that post.
 
-1. In the blog manager when deleting a post, if it has comments, also delete the comments related to that post.
+## To do.
 
 ## To commit.

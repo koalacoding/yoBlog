@@ -15,13 +15,22 @@
 					the GET variable, and with the username of the current user's session. */
 					$request = $bdd->prepare("SELECT null FROM posts WHERE id=? AND author=?");
 					$request->execute(array($_GET['id'], $_SESSION['username']));
+					$request->closeCursor();
 
 					if ($request->rowCount() > 0) { // If a post has been found.
 						// If the user has confirmed that he wants to delete the post.
 						if (isset($_GET['delete_confirmation']))
 						{
+							// Deleting the blog post.
 							$request = $bdd->prepare("DELETE FROM posts WHERE id=?");
 							$request->execute(array($_GET['id']));
+							$request->closeCursor();
+
+							// Deleting all the comments related to the blog post.
+							$request = $bdd->prepare("DELETE FROM comments WHERE post_id=?");
+							$request->execute(array($_GET['id']));
+							$request->closeCursor();
+							
 							echo 'Post deleted. Redirection in 2 seconds...';
 							header("refresh:2;url=index.php");								
 						}
