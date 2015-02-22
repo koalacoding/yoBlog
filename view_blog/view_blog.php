@@ -57,36 +57,93 @@
 							</div>
 
 							<div class="right_core_group">
+								<!-- Months and years categories. -->
 								<span class="right_core_title">Archives</span>
+		<?php
+									$request = $bdd->query("SELECT * FROM archives_months ORDER BY year DESC, month DESC");
+
+									while ($data = $request->fetch()) {
+										// Transforming the month numbers into month name.
+										$month_number = $data['month'];
+										$date_object = DateTime::createFromFormat
+																	('!m', $month_number);
+										$month_name = $date_object->format('F');
+
+										echo '<span class="month_archive">';
+										echo '<a href="view_blog.php?username=' . $_GET['username'] . '&month=' . $data['month'] . '&year=' . $data['year'] . '">' . $month_name . ' ' . $data['year'] . '</a>';
+										echo '</span>';
+										echo '<br />';
+									}
+
+									$request->closeCursor();
+		?>
 							</div>
 						</div>
 
 
 						<div id="left_core">
 		<?php
-								// Getting all the posts where the author is $_GET['username']
-								$request = $bdd->prepare("SELECT * FROM posts WHERE author=? ORDER BY time_since_unix_epoch DESC");
-								$request->execute(array($_GET['username']));
+								/* If a wanted month and year has been specified,
+								and if it is both numeric,
+								we get the blog posts from this month and year. */
+								if (isset($_GET['month']) && isset($_GET['year'])
+									&& is_numeric($_GET['month']) && is_numeric($_GET['year'])) {
+									// Adding a zero if the month is lower than 10.
+									if ($_GET['month'] < 10) {
+										$_GET['month'] = "0" . $_GET['month'];
+									}
 
-								while ($posts = $request->fetch()) {
+									$regex = $_GET['year'] . '-' . $_GET['month'];
+									$request = $bdd->query("SELECT * FROM posts WHERE post_date LIKE '%$regex%'");
+									while ($posts = $request->fetch()) {
 		?>
-									<div class="entry">
-										<span class="title">
-											<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
-												<?php echo htmlspecialchars($posts['title']) ?></a>
-										</span>
-										<div class="post_date">
-											<br />
-											<div class="post_date_clock_image">
-												<img src="../images/clock.png" height="15px" width="15px"/>
+										<div class="entry">
+											<span class="title">
+												<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
+													<?php echo htmlspecialchars($posts['title']) ?></a>
+											</span>
+											<div class="post_date">
+												<br />
+												<div class="post_date_clock_image">
+													<img src="../images/clock.png" height="15px" width="15px"/>
+												</div>
+												<div class="post_date_content">
+													Published : <?php echo $posts['post_date']; ?>
+												</div>
 											</div>
-											<div class="post_date_content">
-												Published : <?php echo $posts['post_date']; ?>
-											</div>
+											<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
 										</div>
-										<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
-									</div>
+		<?php
+									} $request->closeCursor();
+								}
+
+								 /* If no specific month and year has been specified,
+								or if it is typed incorrectly. */
+								else {
+									// Getting all the posts where the author is $_GET['username']
+									$request = $bdd->prepare("SELECT * FROM posts WHERE author=? ORDER BY time_since_unix_epoch DESC");
+									$request->execute(array($_GET['username']));
+
+									while ($posts = $request->fetch()) {
+		?>
+										<div class="entry">
+											<span class="title">
+												<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
+													<?php echo htmlspecialchars($posts['title']) ?></a>
+											</span>
+											<div class="post_date">
+												<br />
+												<div class="post_date_clock_image">
+													<img src="../images/clock.png" height="15px" width="15px"/>
+												</div>
+												<div class="post_date_content">
+													Published : <?php echo $posts['post_date']; ?>
+												</div>
+											</div>
+											<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
+										</div>
 		<?php					
+									}
 								}
 		?>
 						</div>

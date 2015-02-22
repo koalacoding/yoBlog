@@ -110,6 +110,16 @@ a:visited {
 	color: #27D;
 }
 
+.month_archive {
+	font-size: 1.12em;
+}
+
+.month_archive a {
+	text-decoration: none;
+
+	color: #27D;
+}
+
 #left_core {
 	float: left;
 	width: 70%;
