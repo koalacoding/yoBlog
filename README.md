@@ -15,6 +15,8 @@ Blog interface coded in PHP.
 10. The most recent comments of "Last comments" are now shown first.
 11. In the blog manager when deleting a post, if it has comments, also delete the comments related to that post.
 12. In view_blog.php, the module archives is now functional : it offers links to see blog posts of each month of a year.
+13. Added a blog options page in the manage blog module to modify the about of our blog.
+14. The about of each blog is now shown.
 
 ## To do.
 

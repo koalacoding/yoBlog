@@ -36,6 +36,18 @@
 
 						<div id="right_core">
 							<div class="right_core_group">
+								<span class="right_core_title">About</span>
+		<?php
+									$request = $bdd->prepare("SELECT about
+																FROM about_blog
+																WHERE username = ?");
+									$request->execute(array($_GET['username']));
+									$about = $request->fetch();
+									echo $about['about'];
+									echo '<br /><br />';
+		?>
+							</div>
+							<div class="right_core_group">
 								<span class="right_core_title">Last comments</span>
 		<?php
 									$request = $bdd->prepare("SELECT posts.title, posts.id, comments.author FROM posts, comments
@@ -53,7 +65,6 @@
 		<?php
 									} $request->closeCursor();
 		?>
-
 							</div>
 
 							<div class="right_core_group">

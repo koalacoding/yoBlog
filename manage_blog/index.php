@@ -57,7 +57,9 @@
 					<div id="menu">
 						<a href="new_post.php" class="menu_element">Write a new post</a>
 						<a href="../view_blog/view_blog.php?username=<?php echo $_SESSION['username'] ?>" 
-						class="menu_element">See your blog</a>						
+						class="menu_element">See your blog</a>
+						<a href="blog_options/blog_options.php" class="menu_element">
+							Blog options</a>					
 					</div>
 					<br /><br />
 					<h3>Your blog entries :</h3>
