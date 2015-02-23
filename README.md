@@ -17,7 +17,13 @@ Blog interface coded in PHP.
 12. In view_blog.php, the module archives is now functional : it offers links to see blog posts of each month of a year.
 13. Added a blog options page in the manage blog module to modify the about of our blog.
 14. The about of each blog is now shown.
+15. If the about of a blog already exists, blog options modifications will modify it.
 
 ## To do.
+
+1. Add "About" in view_post.php.
+2. "About" page.
+3. "Contact" page.
+4. Categories module in the right core.
 
 ## To commit.

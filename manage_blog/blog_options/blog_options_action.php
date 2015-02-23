@@ -6,9 +6,26 @@
 		if (isset($_POST['about'])) {
 			include_once ('../../sql_connexion.php');
 
-			$request = $bdd->prepare("INSERT INTO about_blog(username, about) VALUES(?, ?)");
-			$request->execute(array($_SESSION['username'], $_POST['about']));
-			$request->closeCursor();
+			// Checking if the user has already posted an about of his blog.
+			$request = $bdd->prepare("SELECT COUNT(*) FROM about_blog WHERE username=?");
+			$request->execute(array($_SESSION['username']));
+
+			// If the user has already posted an about of his blog, we update the about.
+			if ($request->fetchColumn() == 1) {
+				$request->closeCursor();
+
+				$request = $bdd->prepare("UPDATE about_blog SET about=? WHERE username=?");
+				$request->execute(array($_POST['about'], $_SESSION['username']));
+				$request->closeCursor();
+			}
+
+			// If the user has not posted an about of his blog yet, we add it to the database.
+			else {
+				$request = $bdd->prepare("INSERT INTO about_blog(username, about) VALUES(?, ?)");
+				$request->execute(array($_SESSION['username'], $_POST['about']));
+				$request->closeCursor();				
+			}
+
 
 			echo 'Options successfully modified. Redirection in 2 seconds...';
 			header("refresh:2;url=../index.php");			

@@ -43,7 +43,7 @@
 																WHERE username = ?");
 									$request->execute(array($_GET['username']));
 									$about = $request->fetch();
-									echo $about['about'];
+									echo nl2br(htmlspecialchars($about['about']));
 									echo '<br /><br />';
 		?>
 							</div>
