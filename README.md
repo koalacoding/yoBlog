@@ -18,12 +18,13 @@ Blog interface coded in PHP.
 13. Added a blog options page in the manage blog module to modify the about of our blog.
 14. The about of each blog is now shown.
 15. If the about of a blog already exists, blog options modifications will modify it.
+16. Add "About" in view_post.php.
+17. If the user already posted his blog's options, the fields in "blog_options.php" page are now automatically filled with what the user posted. 
 
 ## To do.
 
-1. Add "About" in view_post.php.
-2. "About" page.
-3. "Contact" page.
-4. Categories module in the right core.
+1. "About" page.
+2. "Contact" page.
+3. Categories module in the right core.
 
 ## To commit.

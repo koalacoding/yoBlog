@@ -38,12 +38,8 @@
 							<div class="right_core_group">
 								<span class="right_core_title">About</span>
 		<?php
-									$request = $bdd->prepare("SELECT about
-																FROM about_blog
-																WHERE username = ?");
-									$request->execute(array($_GET['username']));
-									$about = $request->fetch();
-									echo nl2br(htmlspecialchars($about['about']));
+									include_once ('view_blog_functions.php');
+									show_short_about($bdd, $_GET['username']);
 									echo '<br /><br />';
 		?>
 							</div>

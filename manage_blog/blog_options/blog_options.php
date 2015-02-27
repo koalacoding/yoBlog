@@ -1,4 +1,4 @@
-<?php include('../../to_include.php'); ?>
+<?php include_once('../../to_include.php'); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,15 +8,28 @@
 
 	<?php
 		if (isset($_SESSION['username'])) {
+			include_once ('../../sql_connexion.php');
+			include_once('blog_options_functions.php');
 	?>
 		<body>
-			<a href="index.php">Return to the blog manager</a>
+			<a href="../index.php">Return to the blog manager</a>
 			<center>
 				<form action="blog_options_action.php" method="post">
-					About your blog :
+					Short description of your blog :
 					<br />
-					<textarea name="about" rows="20" cols="50" style="resize:none"/></textarea>
+					<textarea name="short_about" rows="10" cols="50" style="resize:none"/><?php 
+							if (user_has_already_posted_options($bdd, $_SESSION['username'])
+								== TRUE) {
+								echo get_short_about_data($bdd, $_SESSION['username']);
+						?></textarea>
 					<br /><br />
+					Description of your blog :
+					<br />
+					<textarea name="about" rows="20" cols="50" style="resize:none"/><?php 
+								echo get_about_data($bdd, $_SESSION['username']);
+							}
+						?></textarea>
+					<br /><br />					
 					<input type="submit" value="OK" />
 				</form>
 			</center>

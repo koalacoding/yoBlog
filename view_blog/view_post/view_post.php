@@ -41,6 +41,12 @@
 
 						<div id="right_core">
 							<div class="right_core_group">
+								<span class="right_core_title">About</span>
+		<?php
+									include_once ('../view_blog_functions.php');
+									show_short_about($bdd, $data['author']);
+									echo '<br /><br />';
+		?>
 								<span class="right_core_title">Last comments</span>
 		<?php
 									// Getting all the comments on the blog posts of the blog owner.

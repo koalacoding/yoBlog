@@ -1,29 +1,22 @@
 <?php
 	include_once('../../to_include.php');
+	include_once('blog_options_functions.php');
 
-	// We allow the user to write about his blog only if he is connected.
+	// We allow the user to modify his blog's options only if he is connected.
 	if (isset($_SESSION['username'])) {
-		if (isset($_POST['about'])) {
+		if (isset($_POST['short_about']) && isset($_POST['about'])) {
 			include_once ('../../sql_connexion.php');
 
-			// Checking if the user has already posted an about of his blog.
-			$request = $bdd->prepare("SELECT COUNT(*) FROM about_blog WHERE username=?");
-			$request->execute(array($_SESSION['username']));
-
-			// If the user has already posted an about of his blog, we update the about.
-			if ($request->fetchColumn() == 1) {
-				$request->closeCursor();
-
-				$request = $bdd->prepare("UPDATE about_blog SET about=? WHERE username=?");
-				$request->execute(array($_POST['about'], $_SESSION['username']));
-				$request->closeCursor();
+			// If the user has already posted his blog's options, we update it.
+			if (user_has_already_posted_options($bdd, $_SESSION['username'])) {
+				update_blog_options($bdd, $_POST['short_about'], $_POST['about'],
+									$_SESSION['username']);
 			}
 
-			// If the user has not posted an about of his blog yet, we add it to the database.
+			// If the user has not posted his blog options yet, we insert it to the database.
 			else {
-				$request = $bdd->prepare("INSERT INTO about_blog(username, about) VALUES(?, ?)");
-				$request->execute(array($_SESSION['username'], $_POST['about']));
-				$request->closeCursor();				
+				insert_blog_options($bdd, $_SESSION['username'], $_POST['short_about'],
+									$_POST['about']);
 			}
 
 
