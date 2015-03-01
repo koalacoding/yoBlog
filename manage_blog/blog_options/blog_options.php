@@ -26,10 +26,16 @@
 					Description of your blog :
 					<br />
 					<textarea name="about" rows="20" cols="50" style="resize:none"/><?php 
-								echo get_about_data($bdd, $_SESSION['username']);
+								echo get_about_data($bdd, $_SESSION['username']); ?>
+					</textarea>
+					<br /><br />
+					Give information about how your readers can contact you :
+					<br />
+					<textarea name="contact" rows="20" cols="50" style="resize:none"/><?php 
+								echo get_contact_data($bdd, $_SESSION['username']);
 							}
 						?></textarea>
-					<br /><br />					
+					<br /><br />								
 					<input type="submit" value="OK" />
 				</form>
 			</center>

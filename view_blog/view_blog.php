@@ -10,12 +10,11 @@
 		<?php
 			if (isset($_GET['username'])) {
 				include_once ('../sql_connexion.php');
+				include_once ('view_blog_functions.php');
 
-				$request = $bdd->prepare("SELECT username FROM users WHERE username=:username");
-				$request->execute(array('username'=>$_GET['username']));
-				$request->closeCursor();
+				$blog_exists = check_if_blog_exists($bdd, $_GET['username']);
 
-				if ($request->rowCount() > 0) {
+				if ($blog_exists == TRUE) {
 		?>
 					<div id="core">
 						<div id="header">
@@ -26,8 +25,8 @@
 						<div id="menu">
 							<div>
 								<span class="menu_element_left actual_page">Blog</span>
-								<a href="" class="menu_element_left">About</a>
-								<a href="" class="menu_element_left">Contact</a>
+								<a href="about/about.php?username=<?php echo $_GET['username']; ?>" class="menu_element_left">About</a>
+								<a href="contact/contact.php?username=<?php echo $_GET['username']; ?>" class="menu_element_left">Contact</a>
 							</div>
 							<div class="menu_element_right">
 								<a href="../index.php">Return to index</a>
@@ -160,13 +159,13 @@
 
 				else {
 					echo "This blog doesn't exist. Redirection in 2 seconds...";
-					header("refresh:2;url=index.php");
+					header("refresh:2;url=../index.php");
 				}
 			}
 
 			else {
 				echo "No blog name specified. Redirection in 2 seconds...";
-				header("refresh:2;url=index.php");
+				header("refresh:2;url=../index.php");
 			}
 		?>
 	</body>

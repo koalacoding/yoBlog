@@ -4,19 +4,19 @@
 
 	// We allow the user to modify his blog's options only if he is connected.
 	if (isset($_SESSION['username'])) {
-		if (isset($_POST['short_about']) && isset($_POST['about'])) {
+		if (isset($_POST['short_about']) && isset($_POST['about']) && isset($_POST['contact'])) {
 			include_once ('../../sql_connexion.php');
 
 			// If the user has already posted his blog's options, we update it.
 			if (user_has_already_posted_options($bdd, $_SESSION['username'])) {
 				update_blog_options($bdd, $_POST['short_about'], $_POST['about'],
-									$_SESSION['username']);
+									$_POST['contact'], $_SESSION['username']);
 			}
 
 			// If the user has not posted his blog options yet, we insert it to the database.
 			else {
 				insert_blog_options($bdd, $_SESSION['username'], $_POST['short_about'],
-									$_POST['about']);
+									$_POST['about'], $_POST['contact']);
 			}
 
 

@@ -29,6 +29,18 @@
 		$data = $request->fetch();
 		$request->closeCursor();
 		return $data['about'];
+	}
+
+	/*---------------------------------------
+	----------GETTING "CONTACT" DATA---------
+	---------------------------------------*/
+
+	function get_contact_data($bdd, $username) {
+		$request = $bdd->prepare("SELECT contact FROM blog_options WHERE username=?");
+		$request->execute(array($username));
+		$data = $request->fetch();
+		$request->closeCursor();
+		return $data['contact'];
 	}	
 
 
@@ -69,10 +81,10 @@
 	----------UPDATING BLOG OPTIONS-------
 	------------------------------------*/
 
-	function update_blog_options($bdd, $short_about, $about, $username) {
-				$request = $bdd->prepare("UPDATE blog_options SET short_about=?, about=?
+	function update_blog_options($bdd, $short_about, $about, $contact, $username) {
+				$request = $bdd->prepare("UPDATE blog_options SET short_about=?, about=?, contact=?
 											WHERE username=?");
-				$request->execute(array($short_about, $about, $username));
+				$request->execute(array($short_about, $about, $contact, $username));
 				$request->closeCursor();
 	}
 
@@ -80,10 +92,10 @@
 	---------INSERTING BLOG OPTIONS-------
 	------------------------------------*/
 
-	function insert_blog_options($bdd, $username, $short_about, $about) {
-		$request = $bdd->prepare("INSERT INTO blog_options(username, short_about, about)
-									VALUES(?, ?, ?)");
-		$request->execute(array($username, $short_about, $about));
+	function insert_blog_options($bdd, $username, $short_about, $about, $contact) {
+		$request = $bdd->prepare("INSERT INTO blog_options(username, short_about, about, contact)
+									VALUES(?, ?, ?, ?)");
+		$request->execute(array($username, $short_about, $about, $contact));
 		$request->closeCursor();		
 	}
 
