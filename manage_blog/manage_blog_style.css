@@ -1,0 +1,39 @@
+table, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th {
+    padding: 5px;
+}
+
+.column_name {
+  background-color: rgb(86, 86, 86);
+  color: #FFFFFF;
+}
+
+.data {
+  font-weight:normal;
+}
+
+#menu {
+
+}
+
+.menu_element {
+  background-color: rgb(86, 86, 86);
+  color: #FFFFFF;
+
+  font-size: 25px;
+  text-decoration: none;
+
+  border-bottom: 3px solid rgb(60, 60, 60);
+
+  padding-bottom: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 7px;
+}
+
+.menu_element:hover {
+  background-color: rgb(96, 96, 96)
+}

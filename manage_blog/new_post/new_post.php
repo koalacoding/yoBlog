@@ -1,4 +1,4 @@
-<?php include('../to_include.php'); ?>
+<?php include_once('../../to_include.php'); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,9 +10,24 @@
 		if (isset($_SESSION['username'])) {
 	?>
 		<body>
-			<a href="index.php">Return to the blog manager</a>
+			<a href="../index.php">Return to the blog manager</a>
 			<center>
 				<form action="new_post_action.php" method="post">
+					Category :
+					<select>
+						<?php
+							include_once ('../../sql_connexion.php');
+							include_once('new_post_functions.php');
+							$data_array = get_categories_list($bdd, $_SESSION['username']);
+
+							foreach ($data_array as $element) {
+								echo '<option value="' . $element . '">' . $element . '</option>';
+							}
+						?>
+					</select>
+					<br />
+					<a href="">(Click here to manage your categories)</a>
+					<br /><br />
 					Title : <input type="text" name="title" />
 					<br /><br />
 					Post : <br />
@@ -27,7 +42,7 @@
 
 		else { // If the user is not connected to an account.
 			echo 'You must be connected to post a new blog entry. Redirection in 2 seconds...';
-			header("refresh:2;url=../login.php");
+			header("refresh:2;url=../../login.php");
 		}
 	?>
 </html>
