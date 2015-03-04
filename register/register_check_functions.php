@@ -24,9 +24,11 @@ function check_if_username_already_taken($username) {
 	$request->execute(array($username));
 
 	if ($request->rowCount() > 0) { // If the username is already used in the database.
+		$request->closeCursor();
 		return TRUE;
 	}
 
+	$request->closeCursor();
 	return FALSE;
 }
 

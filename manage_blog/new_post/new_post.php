@@ -26,7 +26,7 @@
 						?>
 					</select>
 					<br />
-					<a href="">(Click here to manage your categories)</a>
+					<a href="manage_categories/manage_categories.php">(Click here to manage your categories)</a>
 					<br /><br />
 					Title : <input type="text" name="title" />
 					<br /><br />
