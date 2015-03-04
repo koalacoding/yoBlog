@@ -111,11 +111,30 @@
 	}
 
 	/*---------------------------------------
+	--GET AND PRINT POSTS BY MONTH AND YEAR--
+	---------------------------------------*/
+
+	function print_posts_by_month_and_year($month, $year, $bdd) {
+		// Adding a zero if the month is lower than 10.
+		if ($month < 10) {
+			$month = "0" . $month;
+		}
+
+		$regex = $year . '-' . $month; // Transforming the date into this format : YYYY-MM.
+
+		$request = $bdd->query("SELECT * FROM posts WHERE post_date LIKE '%$regex%'
+														ORDER BY time_since_unix_epoch DESC");
+
+		print_posts($request);
+	}
+
+	/*---------------------------------------
 	------GET AND PRINT POSTS BY CATEGORY----
 	---------------------------------------*/
 
 	function print_posts_by_category($bdd, $username, $category) {
-		$request = $bdd->prepare("SELECT * FROM posts WHERE author=? AND category=?");
+		$request = $bdd->prepare("SELECT * FROM posts WHERE author=? AND category=?
+															ORDER BY time_since_unix_epoch DESC");
 		$request->execute(array($username, $category));
 
 		print_posts($request);

@@ -24,7 +24,7 @@
 						</div>
 						<div id="menu">
 							<div>
-								<span class="menu_element_left actual_page">Blog</span>
+								<a href="view_blog.php?username=<?php echo $_GET['username']; ?>" class="menu_element_left">Blog</a>
 								<a href="about/about.php?username=<?php echo $_GET['username']; ?>" class="menu_element_left">About</a>
 								<a href="contact/contact.php?username=<?php echo $_GET['username']; ?>" class="menu_element_left">Contact</a>
 							</div>
@@ -99,33 +99,7 @@
 								we get the blog posts from this month and year. */
 								if (isset($_GET['month']) && isset($_GET['year'])
 									&& is_numeric($_GET['month']) && is_numeric($_GET['year'])) {
-									// Adding a zero if the month is lower than 10.
-									if ($_GET['month'] < 10) {
-										$_GET['month'] = "0" . $_GET['month'];
-									}
-
-									$regex = $_GET['year'] . '-' . $_GET['month'];
-									$request = $bdd->query("SELECT * FROM posts WHERE post_date LIKE '%$regex%'");
-									while ($posts = $request->fetch()) {
-		?>
-										<div class="entry">
-											<span class="title">
-												<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
-													<?php echo htmlspecialchars($posts['title']) ?></a>
-											</span>
-											<div class="post_date">
-												<br />
-												<div class="post_date_clock_image">
-													<img src="../images/clock.png" height="15px" width="15px"/>
-												</div>
-												<div class="post_date_content">
-													Published : <?php echo $posts['post_date']; ?>
-												</div>
-											</div>
-											<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
-										</div>
-		<?php
-									} $request->closeCursor();
+										print_posts_by_month_and_year($_GET['month'], $_GET['year'], $bdd);
 								}
 
 								else if (isset($_GET['category'])) {
