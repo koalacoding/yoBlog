@@ -8,11 +8,11 @@
 			#top_block {
 				float: right;
 
-				font-family: 'Source Sans Pro', sans-serif;				
+				font-family: 'Source Sans Pro', sans-serif;
 			}
 
 			#welcome_message {
-				font-weight: bold;	
+				font-weight: bold;
 				padding-right: 7px;
 			}
 
@@ -21,7 +21,7 @@
 			}
 
 			.right_buttons_element {
-				
+
 				background-color: rgb(86, 86, 86);
 				color: rgb(255, 255, 255);
 
@@ -33,7 +33,7 @@
 				padding-bottom: 7px;
 				padding-left: 7px;
 				padding-right: 7px;
-				padding-top: 7px;				
+				padding-top: 7px;
 			}
 
 			.right_buttons_element:hover {
@@ -52,13 +52,13 @@
 				    <div id="top_block">
 				    	<div id="welcome_message">Welcome <?php echo $_SESSION['username'] ?></div>
 						<div id="right_buttons">
-							<a href="manage_blog/index.php" class="right_buttons_element">
+							<a href="manage_blog/manage_blog.php" class="right_buttons_element">
 							Manage your blog</a>
 						    <a href="logout.php" class="right_buttons_element">Logout</a>
-					    </div>					    
+					    </div>
 				    </div>
-				    
-			<?php  
+
+			<?php
 				}
 
 				else {
@@ -66,8 +66,8 @@
 					<div id="top_block">
 						<div id="welcome_message">You are not connected</div>
 						<div id="right_buttons">
-							<a href="login.php" class="right_buttons_element">Login to an account</a>						  
-						  	<a href="register/register.php" 
+							<a href="login.php" class="right_buttons_element">Login to an account</a>
+						  	<a href="register/register.php"
 						  		class="right_buttons_element">Register a new account</a>
 						 </div>
 					</div>

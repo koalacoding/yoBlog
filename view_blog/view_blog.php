@@ -128,33 +128,14 @@
 									} $request->closeCursor();
 								}
 
-								 /* If no specific month and year has been specified,
-								or if it is typed incorrectly. */
-								else {
-									// Getting all the posts where the author is $_GET['username']
-									$request = $bdd->prepare("SELECT * FROM posts WHERE author=? ORDER BY time_since_unix_epoch DESC");
-									$request->execute(array($_GET['username']));
+								else if (isset($_GET['category'])) {
+									print_posts_by_category($bdd, $_GET['username'], $_GET['category']);
+								}
 
-									while ($posts = $request->fetch()) {
-		?>
-										<div class="entry">
-											<span class="title">
-												<a href="view_post/view_post.php?id=<?php echo $posts['id'] ?>">
-													<?php echo htmlspecialchars($posts['title']) ?></a>
-											</span>
-											<div class="post_date">
-												<br />
-												<div class="post_date_clock_image">
-													<img src="../images/clock.png" height="15px" width="15px"/>
-												</div>
-												<div class="post_date_content">
-													Published : <?php echo $posts['post_date']; ?>
-												</div>
-											</div>
-											<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
-										</div>
-		<?php
-									}
+								/* If no specific month and year has been specified,
+								or if it is typed incorrectly, or if no category has been specified. */
+								else {
+									print_all_posts($bdd, $_GET['username']);
 								}
 		?>
 						</div>

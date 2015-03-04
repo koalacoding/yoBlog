@@ -41,7 +41,7 @@
 		$data = $request->fetch();
 		$request->closeCursor();
 		return $data['contact'];
-	}	
+	}
 
 
 	/*----------------------------------------
@@ -56,7 +56,7 @@
 	------------------------------------------------------------*/
 
 	// Checking if the user has already posted the options of his blog.
-	function user_has_already_posted_options($bdd, $username) { 
+	function user_has_already_posted_options($bdd, $username) {
 		$request = $bdd->prepare("SELECT COUNT(*) FROM blog_options WHERE username=?");
 		$request->execute(array($username));
 
@@ -96,7 +96,7 @@
 		$request = $bdd->prepare("INSERT INTO blog_options(username, short_about, about, contact)
 									VALUES(?, ?, ?, ?)");
 		$request->execute(array($username, $short_about, $about, $contact));
-		$request->closeCursor();		
+		$request->closeCursor();
 	}
 
 ?>
