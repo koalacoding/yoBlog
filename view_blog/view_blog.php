@@ -84,6 +84,11 @@
 									$request->closeCursor();
 		?>
 							</div>
+
+							<div class="right_core_group">
+								<span class="right_core_title">Categories</span>
+								<?php print_categories_link($bdd, $_GET['username']); ?>
+							</div>
 						</div>
 
 
@@ -148,7 +153,7 @@
 											</div>
 											<span class="post"><?php echo htmlspecialchars($posts['post']) ?><br /></span>
 										</div>
-		<?php					
+		<?php
 									}
 								}
 		?>
