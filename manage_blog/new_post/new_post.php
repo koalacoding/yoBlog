@@ -21,7 +21,7 @@
 							$data_array = get_categories_list($bdd, $_SESSION['username']);
 
 							foreach ($data_array as $element) {
-								echo '<option value="' . $element . '">' . $element . '</option>';
+								echo '<option value="' . $element . '">' . htmlspecialchars($element) . '</option>';
 							}
 						?>
 					</select>

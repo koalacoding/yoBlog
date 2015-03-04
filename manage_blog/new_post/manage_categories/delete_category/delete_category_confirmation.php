@@ -11,7 +11,9 @@
 	?>
 		<body>
 			<center>
-        Do you really want to delete the category "<?php echo $_GET['category_name']; ?>" ?
+        Do you really want to delete the category "<?php
+				echo htmlspecialchars($_GET['category_name']);
+				?>" ?
         <br /><br />
         <a href="../manage_categories.php">No</a>
         <br />

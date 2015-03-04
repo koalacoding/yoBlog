@@ -13,6 +13,14 @@
 		<body>
 			<a href="../new_post.php">Return to "Write a new post"</a>
 			<center>
+        Add a new category :
+        <form action="new_category/new_category_action.php" method="post">
+          <input type="text" name="category" />
+          <input type="submit" value="OK" />
+        </form>
+        <br /><br />
+        Your categories :
+        <br /><br />
         <table>
           <?php
             include_once ('../../../sql_connexion.php');
@@ -22,7 +30,7 @@
 
             foreach ($data_array as $element) {
               echo '<tr>
-                      <td>' . $element . '</td>
+                      <td>' . htmlspecialchars($element) . '</td>
                       <td>
                           <a href="delete_category/delete_category_confirmation.php?category_name='
                                     . $element . '">
