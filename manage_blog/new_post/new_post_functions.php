@@ -6,6 +6,7 @@
 	------------------------------------------
 	----------------------------------------*/
 
+
   // Get all the post categories of an user.
   function get_categories_list($bdd, $username) {
     $request = $bdd->prepare("SELECT category_name FROM post_categories WHERE username=?");
@@ -21,5 +22,4 @@
 
     return $data_array;
   }
-
 ?>

@@ -29,6 +29,7 @@
 		?>
 				<table>
 					<tr class="column_name">
+						<th>Category</th>
 				 		<th>Title</th>
 				 		<th>Post</th>
 				 		<th>Date posted</th>
@@ -38,6 +39,7 @@
 				while ($posts = $request->fetch()) {
 		?>
 					<tr>
+						<th class="data"><?php echo htmlspecialchars($posts['category']) ?></th>
 					 	<th class="data"><?php echo htmlspecialchars($posts['title']) ?></th>
 					 	<th class="data"><?php
 					 						if (strlen($posts['post']) > 164) {

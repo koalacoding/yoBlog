@@ -14,7 +14,8 @@
 			<center>
 				<form action="new_post_action.php" method="post">
 					Category :
-					<select>
+					<select name="category">
+						<option value="No category" selected>No category</option>
 						<?php
 							include_once ('../../sql_connexion.php');
 							include_once('new_post_functions.php');
@@ -31,7 +32,7 @@
 					Title : <input type="text" name="title" />
 					<br /><br />
 					Post : <br />
-					<textarea name="post" rows="20" cols="50" style="resize:none"/></textarea>
+					<textarea name="post_content" rows="20" cols="50" style="resize:none"/></textarea>
 					<br /><br />
 					<input type="submit" value="OK" />
 				</form>
