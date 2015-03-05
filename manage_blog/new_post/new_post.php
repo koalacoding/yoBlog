@@ -10,7 +10,7 @@
 		if (isset($_SESSION['username'])) {
 	?>
 		<body>
-			<a href="../index.php">Return to the blog manager</a>
+			<a href="../manage_blog.php">Return to the blog manager</a>
 			<center>
 				<form action="new_post_action.php" method="post">
 					Category :

@@ -83,13 +83,15 @@
 				</span>
 
 				<div class="post_date">
-					<br />
 					<div class="post_date_clock_image">
 						<img src="../images/clock.png" height="15px" width="15px"/>
 					</div>
 					<div class="post_date_content">
 						Published : ' . $posts['post_date'] .
 					'</div>
+				</div>
+				<div class="post_categories">
+					<a href="view_blog.php?category=' . $posts['category'] . '">' . $posts['category'] . '</a>
 				</div>
 				<span class="post">' . htmlspecialchars($posts['post']) . '<br /></span>
 			</div>';
