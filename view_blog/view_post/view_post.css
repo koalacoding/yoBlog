@@ -60,6 +60,8 @@
 #post_comment_button { /* The button of which we must click to send a comment. */
 	float: right;
 	margin-right: 180px;
+	margin-bottom: 15px;
+
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;

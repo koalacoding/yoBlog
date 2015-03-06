@@ -72,7 +72,7 @@
 	-------PRINT POSTS (POSTS TEMPLATE)------
 	---------------------------------------*/
 
-	function print_posts($request) {
+	function print_posts($request, $bdd) {
 		while ($posts = $request->fetch()) {
 			echo '
 			<div class="entry">
@@ -83,9 +83,6 @@
 				</span>
 
 				<div class="post_date">
-					<div class="post_date_clock_image">
-						<img src="../images/clock.png" height="15px" width="15px"/>
-					</div>
 					<div class="post_date_content">
 						Published : ' . $posts['post_date'] .
 					'</div>
@@ -93,6 +90,10 @@
 				<div class="post_categories">
 					<a href="view_blog.php?category=' . $posts['category'] . '">' . $posts['category'] . '</a>
 				</div>
+
+				<div class="number_of_comments">'
+				. print_post_number_of_comments($bdd, $posts['id']) .
+				'</div>
 				<span class="post">' . htmlspecialchars($posts['post']) . '<br /></span>
 			</div>';
 		}
@@ -109,7 +110,7 @@
 																																					DESC");
 		$request->execute(array($username));
 
-		print_posts($request);
+		print_posts($request, $bdd);
 	}
 
 	/*---------------------------------------
@@ -127,7 +128,7 @@
 		$request = $bdd->query("SELECT * FROM posts WHERE post_date LIKE '%$regex%'
 														ORDER BY time_since_unix_epoch DESC");
 
-		print_posts($request);
+		print_posts($request, $bdd);
 	}
 
 	/*---------------------------------------
@@ -139,6 +140,23 @@
 															ORDER BY time_since_unix_epoch DESC");
 		$request->execute(array($username, $category));
 
-		print_posts($request);
+		print_posts($request, $bdd);
+	}
+
+	/*---------------------------------------
+	----GET THE POST'S NUMBER OF COMMENTS----
+	---------------------------------------*/
+
+	function print_post_number_of_comments($bdd, $post_id) {
+		$request = $bdd->prepare("SELECT COUNT(*) FROM comments WHERE post_id=?");
+		$request->execute(array($post_id));
+
+		// Printing a small chat icon and the number of comments for the post.
+		$string = '<span class="number_of_comments_text"><a href="view_post/view_post.php?id='
+					. $post_id . '#comments">' . $request->fetchColumn() . ' comments</a></span>';
+
+		$request->closeCursor();
+
+		return $string;
 	}
 ?>
