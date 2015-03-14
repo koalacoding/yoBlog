@@ -6,5 +6,5 @@
 	}
 
 	catch(Exception $e) { // In case of error.
-	    die('Error : '.$e->getMessage());
+	    die('Error : ' . $e->getMessage());
 	}
