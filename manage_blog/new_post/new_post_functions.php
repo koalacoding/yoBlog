@@ -22,4 +22,3 @@
 
     return $data_array;
   }
-?>

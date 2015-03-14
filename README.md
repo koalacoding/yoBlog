@@ -22,9 +22,8 @@ Blog interface coded in PHP.
 17. If the user already posted his blog's options, the fields in "blog_options.php" page are now automatically filled with what the user posted.
 18. "About" page added.
 19. "Contact" page added.
+20. Categories module in the right core.
 
 ## To do.
-
-3. Categories module in the right core.
 
 ## To commit.
