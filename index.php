@@ -8,7 +8,12 @@
 	</head>
 
 	<body>
+		<div id="header"></div>
+
 		<center>
+			<br />
+			<h1>PHP Blog</h1>
+			<h2>An easy way to make your own blog.</h2>
 			<?php
 				include_once('index_functions.php');
 

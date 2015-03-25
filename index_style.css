@@ -1,12 +1,19 @@
-#top_block {
-  float: right;
+body {
+  margin: 0px;
 
-  font-family: 'Source Sans Pro', sans-serif;
+  font: 16px/1.7 "Helvetica Neue",Helvetica,arial,freesans,clean,sans-serif;
 }
 
-#welcome_message {
-  font-weight: bold;
-  padding-right: 7px;
+#header {
+  min-height: 43px;
+
+  background-color: #000000;
+}
+
+h1 {
+  line-height: 1.2;
+  font-size: 40px;
+  font-weight: 300;
 }
 
 #right_buttons {
@@ -14,21 +21,41 @@
 }
 
 .right_buttons_element {
-
-  background-color: rgb(86, 86, 86);
+  background-image: linear-gradient(rgb(117, 187, 128), rgb(104, 166, 114));
+  border-bottom-color: rgb(213, 213, 213);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-right-color: rgb(213, 213, 213);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(213, 213, 213);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-shadow: rgba(81, 167, 232, 0.498039) 0px 0px 5px 0px;
   color: rgb(255, 255, 255);
-
-  font-size: 14px;
-  text-decoration: none;
-
-  border-bottom: 3px solid rgb(60, 60, 60);
-
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+  outline-color: rgb(255, 255, 255);
   padding-bottom: 7px;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
   padding-top: 7px;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
+  width: 167.203125px;
 }
 
 .right_buttons_element:hover {
-  background-color: rgb(96, 96, 96);
+  background-color: rgb(91, 154, 101);
+  background-image: linear-gradient(rgb(100, 179, 112), rgb(91, 154, 101));
+  background-repeat: repeat-x;
+  border-bottom-color: rgb(91, 154, 101);
+  border-left-color: rgb(91, 154, 101);
+  border-right-color: rgb(91, 154, 101);
+  border-top-color: rgb(91, 154, 101);
 }

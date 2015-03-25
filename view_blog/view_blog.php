@@ -1,4 +1,4 @@
-<?php include('../to_include.php'); ?>
+<?php include('../include/session.php'); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,7 +9,7 @@
 	<body>
 		<?php
 			if (isset($_GET['username'])) {
-				include_once ('../sql_connexion.php');
+				include_once ('../sql/sql_connexion.php');
 				include_once ('view_blog_functions.php');
 
 				$blog_exists = check_if_blog_exists($bdd, $_GET['username']);
