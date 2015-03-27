@@ -7,7 +7,7 @@
 	</head>
 
 	<body>
-		<a href="../index.php">Return to index</a>
+		<a id="return_to_index" href="../index.php">< Return to index</a>
 
 		<center>
 			<form id="form" action="login_action.php" method="post">
@@ -19,7 +19,7 @@
 					Password <br />
 					<input type="password" name="password" />
 					<br /><br />
-					<input type="submit" value="OK" />
+					<input id="OK" type="submit" value="OK" />
 				</div>
 			</form>
 		</center>
