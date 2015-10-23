@@ -26,4 +26,8 @@ Blog interface coded in PHP.
 
 ## To do.
 
+* Originally limit the number of posts shown on a blog page. If the user scrolls down, more posts are shown. jQuery and / or Javascript will be used for this.
+* Modify the register page design, and add live input verification.
+* Add live input verification to the login page.
+
 ## To commit.

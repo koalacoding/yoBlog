@@ -1,4 +1,22 @@
 <?php
+  /*---------------------------------------------------
+  -----------------------------------------------------
+  ---------------HANDLE CONNECTED OR NOT---------------
+  -----------------------------------------------------
+  ---------------------------------------------------*/
+
+  // Show a different content whether the user is connected or not.
+  function handleConnectedOrNot($session) {
+    if (isset($session['username'])) { // If the user is connected to an account.
+      showConnectedButtons($session['username']);
+    }
+
+    else {
+      showNotConnectedButtons();
+    }    
+  }
+
+
   /*----------------------------------------
   ------------------------------------------
   ---------------SHOW BUTTONS---------------
@@ -10,26 +28,20 @@
   ------SHOW CONNECTED BUTTONS----
   ------------------------------*/
 
-  function show_connected_buttons($username) {
-    echo
-      '<div id="top_block">
-        <div id="right_buttons">
-          <a href="manage_blog/manage_blog.php" class="right_buttons_element">Manage your blog</a>
-          <a href="login/logout.php" class="right_buttons_element">Logout</a>
-        </div>
-      </div>';
+  function showConnectedButtons($username) {
+    echo '<div id="loginAndRegisterButtons">
+            <a href="manage_blog/manage_blog.php" class="right_buttons_element">Manage your blog</a>
+            <a href="login/logout.php" class="right_buttons_element">Logout</a>
+          </div>';
   }
 
   /*------------------------------
   ---SHOW NOT CONNECTED BUTTONS---
   ------------------------------*/
 
-  function show_not_connected_buttons() {
-    echo
-    '<div id="top_block">
-      <div id="right_buttons">
-        <a href="login/login.php" class="right_buttons_element">Login to an account</a>
-        <a href="register/register.php" class="right_buttons_element">Register a new account</a>
-      </div>
-    </div>';
+  function showNotConnectedButtons() {
+    echo '<div id="loginAndRegisterButtons">
+            <span class="loginAndRegisterButtons">Login to an account</span>
+            <span class="loginAndRegisterButtons">Register a new account</span>
+          </div>';
   }
