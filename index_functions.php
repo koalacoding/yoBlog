@@ -13,7 +13,7 @@
 
     else {
       showNotConnectedButtons();
-    }    
+    }
   }
 
 
@@ -40,8 +40,18 @@
   ------------------------------*/
 
   function showNotConnectedButtons() {
-    echo '<div id="loginAndRegisterButtons">
-            <span class="loginAndRegisterButtons">Login to an account</span>
-            <span class="loginAndRegisterButtons">Register a new account</span>
-          </div>';
+    echo '<span class="loginAndRegisterButton" id="login_button">Login to an account</span>
+          <span class="loginAndRegisterButton">Register a new account</span>
+
+          <form id="login_form" action="login_action.php" method="post">
+    				<div class="form_content">
+    					Username <br />
+    					<input type="text" class="form_field" name="username" />
+    					<br /><br />
+    					Password <br />
+    					<input type="password" class="form_field" name="password" />
+    					<br /><br />
+    					<input id="OK" type="submit" value="OK" />
+    				</div>
+    			</form>';
   }

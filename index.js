@@ -1,12 +1,13 @@
-/*-------------------------------------------------------------------
----------------------------------------------------------------------
----------------HANDLE LOGIN AND REGISTER BUTTONS CLICK---------------
----------------------------------------------------------------------
--------------------------------------------------------------------*/
+/*---------------------------------------------
+-----------------------------------------------
+--------------LOGIN BUTTON CLICK---------------
+-----------------------------------------------
+---------------------------------------------*/
 
-function handleLoginAndRegisterButtonsClick() {
-	$('.loginAndRegisterButtons').click(function() {
-		$(this).fadeOut();
+function handleLoginButtonClick() {
+	$('#login_button').click(function() {
+		$('#login_button').css('box-shadow', 'rgba(0, 0, 0, 0.4) 0px 0px 20px 0px');
+		$('#login_form').fadeIn();
 	});
 }
 
@@ -17,5 +18,6 @@ function handleLoginAndRegisterButtonsClick() {
 --------------------------------*/
 
 $(function() {
-	handleLoginAndRegisterButtonsClick();
+	$('#login_form').hide();
+	handleLoginButtonClick();
 });
