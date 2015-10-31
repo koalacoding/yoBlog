@@ -5,7 +5,7 @@
 	// We allow the user to modify his blog's options only if he is connected.
 	if (isset($_SESSION['username'])) {
 		if (isset($_POST['short_about']) && isset($_POST['about']) && isset($_POST['contact'])) {
-			include_once ('../../sql_connexion.php');
+			require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
 
 			// If the user has already posted his blog's options, we update it.
 			if (user_has_already_posted_options($bdd, $_SESSION['username'])) {
@@ -21,7 +21,7 @@
 
 
 			echo 'Options successfully modified. Redirection in 2 seconds...';
-			header("refresh:2;url=../index.php");			
+			header("refresh:2;url=../index.php");
 		}
 
 		else { // If $_POST['about'] is not defined.

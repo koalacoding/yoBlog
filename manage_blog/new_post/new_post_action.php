@@ -3,7 +3,7 @@
 	// We allow the user to post a new post only if he is connected.
 	if (isset($_SESSION['username'])) {
 		if (isset($_POST['category'], $_POST['title'], $_POST['post_content'])) {
-			include_once ('../../sql_connexion.php');
+			require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
 			include_once ('new_post_action_functions.php');
 
 			/* Check if the month and year category of the post date

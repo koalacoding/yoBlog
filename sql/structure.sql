@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2015 at 01:33 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Oct 31, 2015 at 07:50 PM
+-- Server version: 10.0.17-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `blog`
@@ -26,11 +26,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `archives_months`
 --
 
-CREATE TABLE IF NOT EXISTS `archives_months` (
-`id` int(11) NOT NULL,
+CREATE TABLE `archives_months` (
+  `id` int(11) NOT NULL,
   `month` int(11) NOT NULL,
   `year` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `archives_months`
@@ -47,13 +47,13 @@ INSERT INTO `archives_months` (`id`, `month`, `year`) VALUES
 -- Table structure for table `blog_options`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_options` (
-`id` int(11) NOT NULL,
+CREATE TABLE `blog_options` (
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `short_about` text NOT NULL,
   `about` text NOT NULL,
   `contact` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `blog_options`
@@ -68,15 +68,15 @@ INSERT INTO `blog_options` (`id`, `username`, `short_about`, `about`, `contact`)
 -- Table structure for table `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
-`id` int(11) NOT NULL,
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `comment` text NOT NULL,
   `post_date` datetime NOT NULL,
   `time_since_unix_epoch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comments`
@@ -94,15 +94,15 @@ INSERT INTO `comments` (`id`, `post_id`, `author`, `email`, `comment`, `post_dat
 -- Table structure for table `posts`
 --
 
-CREATE TABLE IF NOT EXISTS `posts` (
-`id` int(11) NOT NULL,
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `category` varchar(36) NOT NULL,
   `title` varchar(255) NOT NULL,
   `post` text NOT NULL,
   `post_date` datetime NOT NULL,
   `time_since_unix_epoch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
@@ -135,11 +135,11 @@ INSERT INTO `posts` (`id`, `author`, `category`, `title`, `post`, `post_date`, `
 -- Table structure for table `post_categories`
 --
 
-CREATE TABLE IF NOT EXISTS `post_categories` (
-`id` int(11) NOT NULL,
+CREATE TABLE `post_categories` (
+  `id` int(11) NOT NULL,
   `username` varchar(17) NOT NULL,
   `category_name` varchar(36) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post_categories`
@@ -158,25 +158,25 @@ INSERT INTO `post_categories` (`id`, `username`, `category_name`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id` int(11) NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
   `registration_date` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `registration_date`) VALUES
-(7, 'admin', '7a42703f64598e83e7c579112cb80f254b27b53b089c8a7cd14badc6165e78aa', 'admin@me.com', '2015-01-31 07:59:24'),
-(13, 'admin2', '7a42703f64598e83e7c579112cb80f254b27b53b089c8a7cd14badc6165e78aa', 'mp', '2015-02-01 01:56:24'),
-(14, 'koooooooooooooooo', 'c2f42a4d2a709a412b612ce9c6930676904c7c96d07602d5b57a046ee4f69a82', 'lolo', '2015-02-10 13:38:08'),
-(15, 'jean', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', 'test@test.fr', '2015-02-10 16:40:50'),
-(16, 'BIGBOSS88', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', 'test@test.fr', '2015-02-10 16:42:35'),
-(17, 'jeang', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', 'test@cococococococ.fr', '2015-02-10 16:43:39');
+INSERT INTO `users` (`id`, `username`, `password`, `registration_date`) VALUES
+(7, 'admin', '7a42703f64598e83e7c579112cb80f254b27b53b089c8a7cd14badc6165e78aa', '2015-01-31 07:59:24'),
+(13, 'admin2', '7a42703f64598e83e7c579112cb80f254b27b53b089c8a7cd14badc6165e78aa', '2015-02-01 01:56:24'),
+(14, 'koooooooooooooooo', 'c2f42a4d2a709a412b612ce9c6930676904c7c96d07602d5b57a046ee4f69a82', '2015-02-10 13:38:08'),
+(15, 'jean', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', '2015-02-10 16:40:50'),
+(16, 'BIGBOSS88', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', '2015-02-10 16:42:35'),
+(17, 'jeang', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', '2015-02-10 16:43:39'),
+(18, 'aaa', '762503e2956ac247028bad519eeee457238baec2c5f66ffb34f9b98bfe1157b1', '2015-10-31 19:47:11');
 
 --
 -- Indexes for dumped tables
@@ -186,37 +186,37 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `registration_date`)
 -- Indexes for table `archives_months`
 --
 ALTER TABLE `archives_months`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blog_options`
 --
 ALTER TABLE `blog_options`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `post_categories`
 --
 ALTER TABLE `post_categories`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -226,32 +226,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `archives_months`
 --
 ALTER TABLE `archives_months`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `blog_options`
 --
 ALTER TABLE `blog_options`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `post_categories`
 --
 ALTER TABLE `post_categories`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

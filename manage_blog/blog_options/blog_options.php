@@ -8,7 +8,7 @@
 
 	<?php
 		if (isset($_SESSION['username'])) {
-			include_once ('../../sql_connexion.php');
+			require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
 			include_once('blog_options_functions.php');
 	?>
 		<body>

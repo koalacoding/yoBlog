@@ -53,21 +53,24 @@
     					<br /><br />
     					<button id="login_form_submit_button">OK</button>
     				</div>
+
             <p id="login_error_message" style="color: red;"></p>
     			</div>
 
           <div id="register_form" class="form">
     				<div class="form_content">
     					Username <br />
-    					<input type="text" class="form_field" name="username" />
+    					<input type="text" class="form_field" name="register_username" />
     					<br /><br />
     					Password <br />
-    					<input type="password" class="form_field" name="password" />
+    					<input type="password" class="form_field" name="register_password" />
     					<br /><br />
               Password confirmation<br />
-    					<input type="password" class="form_field" name="password_confirmation" />
+    					<input type="password" class="form_field" name="register_password_confirmation" />
     					<br /><br />
-    					<button id="register_form_submit_button" value="OK" />
+    					<button id="register_form_submit_button">OK</button>
     				</div>
+
+            <p id="register_error_message" style="color: red;"></p>
     			</div>';
   }

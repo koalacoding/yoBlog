@@ -44,8 +44,8 @@ function check_password($username, $password) {
 
 require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/include/session.php');
 
-if (isset($_POST['username'], $_POST['password'], $_SESSION)) {
-  if (check_password($_POST['username'], $_POST['password']) == TRUE) {
+if (isset($_POST['username'], $_POST['password'])) {
+  if (check_password($_POST['username'], $_POST['password'])) {
     //$_SESSION['username'] = $_POST['username'];
     echo 'ok';
   }

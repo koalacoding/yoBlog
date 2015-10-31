@@ -10,7 +10,7 @@
 	<body>
 		<?php
 			if (isset($_SESSION['username'])) {
-				include_once('../sql/sql_connexion.php');
+				require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
 		?>
 				<a href="../index.php">Return to index</a>
 				<center>
