@@ -43,19 +43,20 @@
     echo '<span class="loginAndRegisterButton" id="login_button">Login to an account</span>
           <span class="loginAndRegisterButton" id="register_button">Register a new account</span>
 
-          <form id="login_form" action="login_action.php" method="post">
+          <div id="login_form" class="form">
     				<div class="form_content">
     					Username <br />
-    					<input type="text" class="form_field" name="username" />
+    					<input type="text" class="form_field" name="login_username" />
     					<br /><br />
     					Password <br />
-    					<input type="password" class="form_field" name="password" />
+    					<input type="password" class="form_field" name="login_password" />
     					<br /><br />
-    					<input id="OK" type="submit" value="OK" />
+    					<button id="login_form_submit_button">OK</button>
     				</div>
-    			</form>
+            <p id="login_error_message" style="color: red;"></p>
+    			</div>
 
-          <form id="register_form" action="login_action.php" method="post">
+          <div id="register_form" class="form">
     				<div class="form_content">
     					Username <br />
     					<input type="text" class="form_field" name="username" />
@@ -66,7 +67,7 @@
               Password confirmation<br />
     					<input type="password" class="form_field" name="password_confirmation" />
     					<br /><br />
-    					<input id="OK" type="submit" value="OK" />
+    					<button id="register_form_submit_button" value="OK" />
     				</div>
-    			</form>';
+    			</div>';
   }

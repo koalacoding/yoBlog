@@ -1,27 +1,52 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="login_style.css">
-		<title>Blog : Login</title>
-	</head>
+<?php
+/*----------------------------------------
+------------------------------------------
+-----------------PASSWORD-----------------
+------------------------------------------
+----------------------------------------*/
 
-	<body>
-		<a id="return_to_index" href="../index.php">< Return to index</a>
 
-		<center>
-			<form id="form" action="login_action.php" method="post">
-				<div id="form_header"><span id="form_header_title">Login</span></div>
-				<div id="form_fields">
-					Username <br />
-					<input type="text" name="username" />
-					<br /><br />
-					Password <br />
-					<input type="password" name="password" />
-					<br /><br />
-					<input id="OK" type="submit" value="OK" />
-				</div>
-			</form>
-		</center>
-	</body>
-</html>
+/*------------------------------
+-----------HASH PASSWORD--------
+------------------------------*/
+
+function hash_password($password) {
+  // Returning password + salt, hashed in SHA-256.
+  return hash('sha256', 'er4t94e4r5' . $password);
+}
+
+/*------------------------------
+----------CHECK PASSWORD--------
+------------------------------*/
+
+// Check if the password matches the username's password.
+function check_password($username, $password) {
+  require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
+  // Getting the username's password.
+  $request = $bdd->prepare("SELECT password FROM users WHERE username=?");
+  $request->execute(array($username));
+  $fetch = $request->fetch();
+  $request->closeCursor();
+
+  if ($fetch['password'] == $password) { // If the passwords match.
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+
+/*------------------------------------
+--------------------------------------
+-----------------MAIN-----------------
+--------------------------------------
+------------------------------------*/
+
+require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/include/session.php');
+
+if (isset($_POST['username'], $_POST['password'], $_SESSION)) {
+  if (check_password($_POST['username'], $_POST['password']) == TRUE) {
+    //$_SESSION['username'] = $_POST['username'];
+    echo 'ok';
+  }
+}

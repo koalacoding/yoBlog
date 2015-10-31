@@ -55,7 +55,7 @@ h1 {
 ---------------------------------*/
 
 
-  form {
+  .form {
     display: none;
     margin-top: 3vh;
   }

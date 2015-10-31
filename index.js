@@ -8,9 +8,10 @@ var allowClick = true;
 ---------------------------------------
 -------------------------------------*/
 
-function hideForms() {
+function hideElements() {
 	$('#login_form').hide();
 	$('#register_form').hide();
+	$('#login_error_message').hide();
 }
 
 /*---------------------------------------
@@ -46,6 +47,31 @@ function hideForms() {
 		});
 	}
 
+	/*---------------------------------------------
+	----------LOGIN FORM SUBMIT BUTTON CLICK-------
+	---------------------------------------------*/
+
+	function loginFormSubmitButtonClick() {
+		$('#login_form_submit_button').click(function() {
+			var username = $('[name="login_username"]').val();
+			var password = $('[name="login_password"]').val();
+			$.post("login/login.php",
+							{
+							  username: username,
+								password: password
+							},
+							function(data, status){
+							  if (data == 'ok') {
+									alert('ok');
+								}
+
+								else {
+									$('#login_error_message').stop(true);
+									$('#login_error_message').text('Wrong credentials').fadeIn().delay(1000).fadeOut();
+								}
+			});
+		});
+	}
 
 /*--------------------------------
 ----------------------------------
@@ -54,8 +80,10 @@ function hideForms() {
 --------------------------------*/
 
 $(function() {
-	hideForms();
+	hideElements();
 
 	handleButtonsClick('login', 'register');
 	handleButtonsClick('register', 'login');
+
+	loginFormSubmitButtonClick();
 });
