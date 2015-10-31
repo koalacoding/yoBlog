@@ -41,7 +41,7 @@
 
   function showNotConnectedButtons() {
     echo '<span class="loginAndRegisterButton" id="login_button">Login to an account</span>
-          <span class="loginAndRegisterButton">Register a new account</span>
+          <span class="loginAndRegisterButton" id="register_button">Register a new account</span>
 
           <form id="login_form" action="login_action.php" method="post">
     				<div class="form_content">
@@ -50,6 +50,21 @@
     					<br /><br />
     					Password <br />
     					<input type="password" class="form_field" name="password" />
+    					<br /><br />
+    					<input id="OK" type="submit" value="OK" />
+    				</div>
+    			</form>
+
+          <form id="register_form" action="login_action.php" method="post">
+    				<div class="form_content">
+    					Username <br />
+    					<input type="text" class="form_field" name="username" />
+    					<br /><br />
+    					Password <br />
+    					<input type="password" class="form_field" name="password" />
+    					<br /><br />
+              Password confirmation<br />
+    					<input type="password" class="form_field" name="password_confirmation" />
     					<br /><br />
     					<input id="OK" type="submit" value="OK" />
     				</div>
