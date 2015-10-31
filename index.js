@@ -66,6 +66,7 @@ function hideElements() {
 								}
 
 								else {
+									// In case the user press the button too fast too many times.
 									$('#login_error_message').stop(true);
 									$('#login_error_message').text('Wrong credentials').fadeIn().delay(1000).fadeOut();
 								}
