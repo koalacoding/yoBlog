@@ -23,11 +23,9 @@ Blog interface coded in PHP.
 18. "About" page added.
 19. "Contact" page added.
 20. Categories module in the right core.
+21. Modified the login and register interfaces design
+    and added Javascript input verification to them.
 
 ## To do.
-
 * Originally limit the number of posts shown on a blog page. If the user scrolls down, more posts are shown. jQuery and / or Javascript will be used for this.
-* Modify the register page design, and add live input verification.
-* Add live input verification to the login page.
-
-## To commit.
+* Adapt CSS to Firefox and IE.
