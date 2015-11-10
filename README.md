@@ -28,5 +28,6 @@ Blog interface coded in PHP.
 22. Improved index.php related files organization.
 
 ## To do.
-* Originally limit the number of posts shown on a blog page. If the user scrolls down, more posts are shown. jQuery and / or Javascript will be used for this.
-* Adapt CSS to Firefox and IE.
+* Allow the user to confirm login/registration by pressing "enter".
+* Originally limit the number of posts shown on a blog page. If the user scrolls down,
+  more posts are shown. jQuery and / or Javascript will be used for this.

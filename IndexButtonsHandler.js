@@ -3,6 +3,7 @@ function IndexButtonsHandler() {
   by clicking too fast on both of the buttons. */
 var allowClick = true;
 
+
 /*--------------------------------------
 ----------------------------------------
 --------------SHOW BUTTONS--------------
@@ -19,16 +20,17 @@ var allowClick = true;
                               Manage your blog\
                             </button>\
                             <button class="index_button" id="logout_button">Logout</button>';
-    var object = {};
 
     $('#buttons').fadeOut();
     $('#login_form').fadeOut();
     $('#register_form').fadeOut(function() {
       $('.form input').val('');
 
-      $('#buttons').empty(); // In case there was already buttons.
-      $('#buttons').append(connectedButtons);
-      $('#buttons').fadeIn();
+      setTimeout(function() {
+        $('#buttons').empty(); // In case there was already buttons.
+        $('#buttons').append(connectedButtons);
+        $('#buttons').fadeIn();
+      }, 500);
     });
   }
 
@@ -50,18 +52,6 @@ var allowClick = true;
     });
   }
 
-
-/*----------------------------------------------------
-------------------------------------------------------
---------------HIDE NON CONNECTED BUTTONS--------------
-------------------------------------------------------
-----------------------------------------------------*/
-
-this.hideNonConnectedButtons = function() {
-  $('#login_form').hide();
-  $('#register_form').hide();
-  $('#login_error_message').hide();
-}
 
 /*-------------------------------------------
 ---------------------------------------------
@@ -119,6 +109,8 @@ this.hideNonConnectedButtons = function() {
     --------------------------------------------------*/
 
     this.loginFormSubmitButtonHandler = function() {
+      var loginHandler = new LoginHandler();
+
       $('#login_form_submit_button').click(function() {
         loginHandler.login();
       });
@@ -143,6 +135,23 @@ this.hideNonConnectedButtons = function() {
   -------------------------------------------------------
   -----------------------------------------------------*/
 
+  this.connectedButtonsHandler = function() {
+    this.manageBlogButtonHandler();
+    this.logoutButtonHandler();
+  }
+
+
+    /*--------------------------------------------
+    ----------MANAGE BLOG BUTTON HANDLER----------
+    --------------------------------------------*/
+
+    this.manageBlogButtonHandler = function() {
+      var manageBlogHandler = new ManageBlogHandler();
+
+      $(document).on('click', '#manage_your_blog_button', function() {
+        manageBlogHandler.showMain();
+      });
+    }
 
     /*---------------------------------------
     ----------LOGOUT BUTTON HANDLER----------
@@ -156,3 +165,10 @@ this.hideNonConnectedButtons = function() {
       });
     }
 }
+
+$(function() {
+  var indexButtonsHandler = new IndexButtonsHandler();
+
+	indexButtonsHandler.nonConnectedButtonsHandler();
+  indexButtonsHandler.connectedButtonsHandler();
+});

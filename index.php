@@ -12,7 +12,11 @@
   </head>
 
   <body>
-    <div id="header"></div>
+    <div id="header">
+      <div id="white_arrow">
+        <img src="http://image.noelshack.com/fichiers/2015/46/1447180207-arrow.png">
+      </div>
+    </div>
 
     <div id="core">
       <h1>PHP Blog</h1>
@@ -59,10 +63,10 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="main.js"></script>
     <script src="IndexButtonsHandler.js"></script>
     <script src="login/LoginHandler.js"></script>
     <script src="logout/logoutHandler.js"></script>
     <script src="register/RegistrationHandler.js"></script>
+    <script src="manage_blog/ManageBlogHandler.js"></script>
   </body>
 </html>
