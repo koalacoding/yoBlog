@@ -63,6 +63,6 @@
     <script src="IndexButtonsHandler.js"></script>
     <script src="login/LoginHandler.js"></script>
     <script src="logout/logoutHandler.js"></script>
-    <script src="register/register.js"></script>
+    <script src="register/RegistrationHandler.js"></script>
   </body>
 </html>

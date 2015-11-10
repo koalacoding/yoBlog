@@ -25,6 +25,7 @@ Blog interface coded in PHP.
 20. Categories module in the right core.
 21. Modified the login and register interfaces design
     and added Javascript input verification to them.
+22. Improved index.php related files organization.
 
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down, more posts are shown. jQuery and / or Javascript will be used for this.

@@ -5,11 +5,5 @@ $(function() {
 
 	indexButtonsHandler.nonConnectedButtonsHandler();
 
-	var loginHandler = new LoginHandler();
-  loginHandler.confirmLoginHandler();
-
-  var logoutHandler = new LogoutHandler();
-  logoutHandler.logoutOnLogoutButtonClick();
-
-	confirmRegistrationHandler();
+  indexButtonsHandler.logoutButtonHandler();
 });
