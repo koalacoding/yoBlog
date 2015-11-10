@@ -8,22 +8,23 @@ function ManageBlogHandler() {
   -------------------------------*/
 
 
-    /*---------------------------
-    ----------SHOW MAIN----------
-    ---------------------------*/
+    /*----------------------------------
+    ----------SHOW MANAGE BLOG----------
+    ----------------------------------*/
 
-    this.showMain = function() {
+    this.showManageBlog = function() {
       $('#core').fadeOut(function() {
         $('#core').empty();
 
-        $.post("manage_blog/manage_blog.php",
-               function(data, status) {
-                 $('#core').append(data);
-                 $('#core').fadeIn();
-                 that.modifyBackArrowTargetLink(that.showMain);
-                 $('#back_arrow').fadeIn();
-               }
-        );
+        $.post("manage_blog/manage_blog.php", function(data, status) {
+           var startPage = new StartPage();
+           var startPageButtonsHandler = new StartPageButtonsHandler();
+
+           $('#core').append(data);
+           that.modifyBackArrowTargetLink(startPage.showStartPage);
+           $('#core').fadeIn();
+           $('#back_arrow').fadeIn();
+        });
       });
     }
 
@@ -33,15 +34,9 @@ function ManageBlogHandler() {
 
     this.handleManageBlogPostsButtonClick = function() {
       $(document).on('click', '#manage_blog_articles_button', function() {
-        $('#core').fadeOut(function() {
-          $('#core').empty();
-
-          $.post("manage_blog/manage_blog_articles/manage_blog_articles.php",
-                 function(data, status) {
-                   $('#core').append(data);
-                   $('#core').fadeIn();
-                 }
-          );
+        $.getScript("manage_blog/manage_blog_posts/ManageBlogPosts.js", function() {
+          var manageBlogPosts = new ManageBlogPosts();
+          manageBlogPosts.showManageBlogPosts();
         });
       });
     }
@@ -54,7 +49,8 @@ function ManageBlogHandler() {
   --------------------------------------------------------*/
 
   this.modifyBackArrowTargetLink = function(myfunction) {
-    $(document).on('click', '#back_arrow', function() {
+    $('#back_arrow').unbind('click');
+    $('#back_arrow').click(function() {
       myfunction();
     });
   }

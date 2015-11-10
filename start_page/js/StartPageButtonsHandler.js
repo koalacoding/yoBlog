@@ -149,7 +149,7 @@ var allowClick = true;
       var manageBlogHandler = new ManageBlogHandler();
 
       $(document).on('click', '#manage_your_blog_button', function() {
-        manageBlogHandler.showMain();
+        manageBlogHandler.showManageBlog();
       });
     }
 
