@@ -7,7 +7,7 @@ Blog interface coded in PHP.
 2. Verification of fields during registration.
 3. Give the ability to post comments on blog posts.
 4. Show comments of a blog post.
-5. manage_blog/index.php : Only apply the 3 points shortcut to the posts with a content of over 164 characters.
+5. manage_blog/index.html : Only apply the 3 points shortcut to the posts with a content of over 164 characters.
 6. Show the last comments in view_blog.php.
 7. Only show the 5 last comments in "Last comments".
 8. Last comments are also shown in "view_post.php".
@@ -25,7 +25,7 @@ Blog interface coded in PHP.
 20. Categories module in the right core.
 21. Modified the login and register interfaces design
     and added Javascript input verification to them.
-22. Improved index.php related files organization.
+22. Improved index.html related files organization.
 
 ## To do.
 * Allow the user to confirm login/registration by pressing "enter".

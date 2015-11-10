@@ -7,7 +7,7 @@
 	</head>
 
 	<body>
-		<a href="index.php">Return to the blog manager</a>
+		<a href="index.html">Return to the blog manager</a>
 		<center>
 			<?php
 				// If the user is connected to an account.
@@ -47,7 +47,7 @@
 
 				else {
 					echo 'You must be connected to access this page. Redirection in 2 seconds...';
-					header("refresh:2;url=../index.php");
+					header("refresh:2;url=../index.html");
 				}
 			?>
 

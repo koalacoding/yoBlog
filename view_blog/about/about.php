@@ -29,7 +29,7 @@
 								<a href="../contact/contact.php?username=<?php echo $_GET['username']; ?>" class="menu_element_left">Contact</a>
 							</div>
 							<div class="menu_element_right">
-								<a href="../../index.php">Return to index</a>
+								<a href="../../index.html">Return to index</a>
 							</div>
 						</div>
 
@@ -96,13 +96,13 @@
 
 				else {
 					echo "This blog doesn't exist. Redirection in 2 seconds...";
-					header("refresh:2;url=index.php");
+					header("refresh:2;url=index.html");
 				}
 			}
 
 			else {
 				echo "No blog name specified. Redirection in 2 seconds...";
-				header("refresh:2;url=index.php");
+				header("refresh:2;url=index.html");
 			}
 		?>
 	</body>

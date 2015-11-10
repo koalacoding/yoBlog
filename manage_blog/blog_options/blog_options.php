@@ -12,7 +12,7 @@
 			include_once('blog_options_functions.php');
 	?>
 		<body>
-			<a href="../index.php">Return to the blog manager</a>
+			<a href="../index.html">Return to the blog manager</a>
 			<center>
 				<form action="blog_options_action.php" method="post">
 					Short description of your blog :

@@ -1,4 +1,4 @@
-function IndexButtonsHandler() {
+function StartPageButtonsHandler() {
 /* Used to prevent the user to show both the register and login forms
   by clicking too fast on both of the buttons. */
 var allowClick = true;
@@ -111,7 +111,7 @@ var allowClick = true;
     this.loginFormSubmitButtonHandler = function() {
       var loginHandler = new LoginHandler();
 
-      $('#login_form_submit_button').click(function() {
+      $(document).on('click', '#login_form_submit_button', function() {
         loginHandler.login();
       });
     }
@@ -165,10 +165,3 @@ var allowClick = true;
       });
     }
 }
-
-$(function() {
-  var indexButtonsHandler = new IndexButtonsHandler();
-
-	indexButtonsHandler.nonConnectedButtonsHandler();
-  indexButtonsHandler.connectedButtonsHandler();
-});

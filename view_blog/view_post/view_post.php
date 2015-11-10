@@ -171,13 +171,13 @@
 
 				else {
 					echo "This post doesn't exist. Redirection in 2 seconds...";
-					header("refresh:2;url=index.php");
+					header("refresh:2;url=index.html");
 				}
 			}
 
 			else {
 				echo "No post id specified. Redirection in 2 seconds...";
-				header("refresh:2;url=index.php");
+				header("refresh:2;url=index.html");
 			}
 		?>
 	</body>

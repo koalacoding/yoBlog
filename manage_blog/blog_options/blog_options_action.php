@@ -21,7 +21,7 @@
 
 
 			echo 'Options successfully modified. Redirection in 2 seconds...';
-			header("refresh:2;url=../index.php");
+			header("refresh:2;url=../index.html");
 		}
 
 		else { // If $_POST['about'] is not defined.

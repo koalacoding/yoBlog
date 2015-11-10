@@ -32,7 +32,7 @@
 							$request->closeCursor();
 							
 							echo 'Post deleted. Redirection in 2 seconds...';
-							header("refresh:2;url=index.php");								
+							header("refresh:2;url=index.html");								
 						}
 
 						else { // If the user has not confirmed yet.
@@ -40,7 +40,7 @@
 							<p>Are you sure you want to delete this article ?</p>
 							<p><a href="delete_post.php?id=<?php echo $_GET['id']; ?>
 										&delete_confirmation=1">Yes</a>
-							   <a href="index.php">No</a>
+							   <a href="index.html">No</a>
 							</p>
 			<?php
 						}
@@ -48,13 +48,13 @@
 
 					else { // If no post matches.
 						echo 'Error. Redirection in 2 seconds...';
-						header("refresh:2;url=index.php");								
+						header("refresh:2;url=index.html");								
 					}
 				}
 
 				else {
 					echo 'Error. Redirection in 2 seconds...';
-					header("refresh:2;url=index.php");				
+					header("refresh:2;url=index.html");				
 				}
 			?>
 		</center>
