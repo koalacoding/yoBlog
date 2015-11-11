@@ -12,8 +12,9 @@ class StartPage {
     ---------------------------------*/
 
     function showCommonContentTop() {
-      echo '<h1>PHP Blog</h1>
-            <h2>An easy way to make your own blog.</h2>';
+      echo '<div id="start_page">
+              <h1>PHP Blog</h1>
+              <h2>An easy way to make your own blog.</h2>';
     }
 
     /*------------------------------------
@@ -21,35 +22,36 @@ class StartPage {
     ------------------------------------*/
 
     function showCommonContentBottom() {
-      echo '<div id="login_form" class="form">
-              <div class="form_content">
-                Username <br />
-                <input type="text" class="form_field" name="login_username" />
-                <br /><br />
-                Password <br />
-                <input type="password" class="form_field" name="login_password" />
-                <br /><br />
-                <button id="login_form_submit_button">OK</button>
+      echo '  <div id="login_form" class="form">
+                <div class="form_content">
+                  Username <br />
+                  <input type="text" class="form_field" name="login_username" />
+                  <br /><br />
+                  Password <br />
+                  <input type="password" class="form_field" name="login_password" />
+                  <br /><br />
+                  <button id="login_form_submit_button">OK</button>
+                </div>
+
+                <p id="login_error_message" style="color: red;"></p>
               </div>
 
-              <p id="login_error_message" style="color: red;"></p>
-            </div>
+              <div id="register_form" class="form">
+                <div class="form_content">
+                  Username <br />
+                  <input type="text" class="form_field" name="register_username" />
+                  <br /><br />
+                  Password <br />
+                  <input type="password" class="form_field" name="register_password" />
+                  <br /><br />
+                  Password confirmation<br />
+                  <input type="password" class="form_field" name="register_password_confirmation" />
+                  <br /><br />
+                  <button id="register_form_submit_button">OK</button>
+                </div>
 
-            <div id="register_form" class="form">
-              <div class="form_content">
-                Username <br />
-                <input type="text" class="form_field" name="register_username" />
-                <br /><br />
-                Password <br />
-                <input type="password" class="form_field" name="register_password" />
-                <br /><br />
-                Password confirmation<br />
-                <input type="password" class="form_field" name="register_password_confirmation" />
-                <br /><br />
-                <button id="register_form_submit_button">OK</button>
+                <p id="register_error_message" style="color: red;"></p>
               </div>
-
-              <p id="register_error_message" style="color: red;"></p>
             </div>';
     }
 

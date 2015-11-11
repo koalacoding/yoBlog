@@ -16,7 +16,7 @@ function BlogManager() {
       $('#core').fadeOut(function() {
         $('#core').empty();
 
-        $.post("manage_blog/manage_blog.php", function(data, status) {
+        $.post("blog_manager/blog_manager.php", function(data, status) {
            var startPage = new StartPage();
            var startPageButtonsHandler = new StartPageButtonsHandler();
 
@@ -28,15 +28,40 @@ function BlogManager() {
       });
     }
 
-    /*----------------------------------------
-    ----------SHOW MANAGE BLOG POSTS----------
-    ----------------------------------------*/
 
-    this.handleManageBlogPostsButtonClick = function() {
-      $(document).on('click', '#manage_blog_articles_button', function() {
-        $.getScript("manage_blog/manage_blog_posts/ManageBlogPosts.js", function() {
-          var manageBlogPosts = new ManageBlogPosts();
-          manageBlogPosts.showManageBlogPosts();
+  /*------------------------------------------
+  --------------------------------------------
+  --------------BUTTONS HANDLER---------------
+  --------------------------------------------
+  ------------------------------------------*/
+
+  this.handleButtons = function() {
+    this.handleManageBlogPostsButtonHandler();
+    this.viewBlogButtonHandler();
+  }
+
+    /*---------------------------------------------------
+    ----------MANAGER BLOG POSTS BUTTON HANDLER----------
+    ---------------------------------------------------*/
+
+    this.handleManageBlogPostsButtonHandler = function() {
+      $(document).on('click', '#manage_blog_posts_button', function() {
+        $.getScript("blog_manager/blog_posts_manager/BlogPostsManager.js", function() {
+          var blogPostsManager = new BlogPostsManager();
+          blogPostsManager.showBlogPostsManager();
+        });
+      });
+    }
+
+    /*------------------------------------------
+    ----------VIEW BLOG BUTTON HANDLER----------
+    ------------------------------------------*/
+
+    this.viewBlogButtonHandler = function() {
+      $(document).on('click', '#view_blog_button', function() {
+        $.getScript("blog_manager/blog_viewer/BlogViewer.js", function() {
+          var blogViewer = new BlogViewer();
+          blogViewer.showBlog();
         });
       });
     }

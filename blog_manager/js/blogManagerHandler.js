@@ -1,4 +1,6 @@
 $(function() {
-  var manageBlogHandler = new ManageBlogHandler();
-	manageBlogHandler.handleManageBlogPostsButtonClick();
+  $.getScript("blog_manager/js/BlogManager.js", function() {
+    var blogManager = new BlogManager();
+  	blogManager.handleButtons();
+  });
 });

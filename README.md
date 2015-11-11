@@ -26,8 +26,8 @@ Blog interface coded in PHP.
 21. Modified the login and register interfaces design
     and added Javascript input verification to them.
 22. Improved index.html related files organization.
+23. The user can now confirm login/registration by pressing the Enter key.
 
 ## To do.
-* Allow the user to confirm login/registration by pressing "enter".
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
   more posts are shown. jQuery and / or Javascript will be used for this.

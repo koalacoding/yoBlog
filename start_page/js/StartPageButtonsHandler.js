@@ -169,10 +169,10 @@ var allowClick = true;
     --------------------------------------------*/
 
     this.manageBlogButtonHandler = function() {
-      var manageBlogHandler = new ManageBlogHandler();
+      var blogManager = new BlogManager();
 
       $(document).on('click', '#manage_your_blog_button', function() {
-        manageBlogHandler.showManageBlog();
+        blogManager.showBlogManager();
       });
     }
 
