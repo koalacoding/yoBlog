@@ -9,7 +9,7 @@
 	<body>
 		<?php
 			if (isset($_GET['username'])) {
-				require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
+				require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php');
 				include_once ('../view_blog_functions.php');
 
 				$blog_exists = check_if_blog_exists($bdd, $_GET['username']);

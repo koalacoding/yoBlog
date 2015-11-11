@@ -17,7 +17,7 @@
 					<select name="category">
 						<option value="No category" selected>No category</option>
 						<?php
-							require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
+							require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php');
 							include_once('new_post_functions.php');
 							$data_array = get_categories_list($bdd, $_SESSION['username']);
 

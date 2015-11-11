@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/php_blog/include/session.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
 require_once('BlogOptionsManager.php');
 
 if (isset($_SESSION['username'], $_POST['requestType'])) {

@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/php_blog/include/session.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
 require_once('StartPage.php');
 
 $startPage = new StartPage;

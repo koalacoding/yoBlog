@@ -1,4 +1,4 @@
-# php_blog
+# yoBlog
 Blog interface coded in PHP.
 
 ## Steps finished.

@@ -7,7 +7,7 @@ class BlogViewer {
   -------------------------------------------*/
 
   function getBlogOptions($username) {
-		require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
+		require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php');
 
     $request = $bdd->prepare("SELECT title, description FROM blog_options
                             WHERE username=?");
@@ -24,7 +24,7 @@ class BlogViewer {
     -------------------------------------------------*/
 
     function getTitleAndDescriptionColor($username) {
-		  require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
+		  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php');
 
       $request = $bdd->prepare("SELECT titleAndDescriptionColor FROM blog_options
                                 WHERE username=?");

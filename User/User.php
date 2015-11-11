@@ -8,7 +8,7 @@ class User {
 ---------------------------------*/
 
 function login($username) {
-  require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/include/session.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
   $_SESSION['username'] = $username;
 }
 

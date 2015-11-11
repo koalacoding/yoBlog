@@ -38,7 +38,7 @@ class BlogOptionsManager {
   ----------------------------------------------*/
 
   function updateBlogOptions($title, $description, $titleAndDescriptionColor, $username) {
-		require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/sql/sql_connexion.php');
+		require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php');
 
     $title = htmlspecialchars($title);
     $description = htmlspecialchars($description);

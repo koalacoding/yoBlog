@@ -1,5 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/php_blog/include/session.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
 
 if (isset($_SESSION['username'])) { // If the user is connected.
   echo '<div id="blog_manager">

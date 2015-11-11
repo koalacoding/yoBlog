@@ -1,6 +1,6 @@
 <?php
 require_once('LoginHandler.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/php_blog/User/User.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/User/User.php');
 
 if (isset($_POST['username'], $_POST['password'])) {
   $loginHandler = new LoginHandler;
