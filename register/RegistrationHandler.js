@@ -14,7 +14,7 @@ this.register = function() {
             function(data, status){
               if (data == 'ok') {
                 var loginHandler = new LoginHandler;
-                
+
                 /* Putting the freshly registered username and password in the login fields
                    so the LoginHandler can use them to login. */
                 $('[name="login_username"]').val(username);

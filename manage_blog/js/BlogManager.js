@@ -1,4 +1,4 @@
-function ManageBlogHandler() {
+function BlogManager() {
   that = this;
 
   /*-------------------------------
@@ -12,7 +12,7 @@ function ManageBlogHandler() {
     ----------SHOW MANAGE BLOG----------
     ----------------------------------*/
 
-    this.showManageBlog = function() {
+    this.showBlogManager = function() {
       $('#core').fadeOut(function() {
         $('#core').empty();
 
@@ -55,8 +55,3 @@ function ManageBlogHandler() {
     });
   }
 }
-
-$(function() {
-  var manageBlogHandler = new ManageBlogHandler();
-	manageBlogHandler.handleManageBlogPostsButtonClick();
-});

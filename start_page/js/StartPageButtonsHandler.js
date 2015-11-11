@@ -70,6 +70,7 @@ var allowClick = true;
     this.loginAndRegisterButtonsHandler();
     this.loginFormSubmitButtonHandler();
     this.registerFormSubmitButtonHandler();
+    this.confirmFormsWithEnterKeyHandler();
   }
 
 
@@ -123,9 +124,31 @@ var allowClick = true;
     this.registerFormSubmitButtonHandler = function() {
       var registrationHandler = new RegistrationHandler;
 
-      $('#register_form_submit_button').click(function() {
+      $(document).on('click', '#register_form_submit_button', function() {
         registrationHandler.register();
     	});
+    }
+
+
+    /*------------------------------------------------------
+    ----------CONFIRM FORMS WITH ENTER KEY HANDLER----------
+    ------------------------------------------------------*/
+
+    this.confirmFormsWithEnterKeyHandler = function() {
+      function confirmFormsWithEnterKeyMiniHandler(formName) {
+        $(document).on('keydown', function(event) {
+          if (event.keyCode == 13) { // If the user presses the Enter key.
+            // If the login form is visible.
+            if ($('#'+formName+'_form').css('display') != 'none') {
+              // We click on the submit form button.
+              $('#'+formName+'_form_submit_button').click();
+            }
+          }
+        });
+      }
+
+      confirmFormsWithEnterKeyMiniHandler('login');
+      confirmFormsWithEnterKeyMiniHandler('register');
     }
 
 
