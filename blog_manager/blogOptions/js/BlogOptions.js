@@ -14,9 +14,14 @@ function BlogOptions() {
       $.post("blog_manager/blogOptions/controller/controller.php",
         {requestType: requestType},
         function(data, status) {
+          var headerTextColor = '';
+
           var blogManager = new BlogManager();
 
+          headerTextColor = $('#headerTextColor').data('color');
+
           $('#core').append(data);
+
           $('#colorpicker').spectrum({color: "#FFFFFF"});
 
           blogManager.modifyBackArrowTargetLink(blogManager.showBlogManager);
@@ -53,7 +58,7 @@ function BlogOptions() {
         function(data, status) {
           if (data == 'ok') {
             $('#blogOptionsUpdateResult').hide(function() {
-              $('#blogOptionsUpdateResult').css('color', '#00AA00');              
+              $('#blogOptionsUpdateResult').css('color', '#00AA00');
               $('#blogOptionsUpdateResult').text('Modifications were successful');
               $('#blogOptionsUpdateResult').fadeIn().delay(1000).fadeOut();
             });

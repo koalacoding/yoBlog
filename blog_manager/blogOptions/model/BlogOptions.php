@@ -9,9 +9,13 @@ class BlogOptions {
   function getBlogOptions($username) {
 		require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
-    $request = $bdd->prepare("SELECT backgroundImage, title, description, headerTextColor
-                              FROM blogOptions WHERE user=?");
-    }
+    $request = $bdd->prepare("SELECT headerBackgroundImage, headerTextColor, title, description
+                              FROM blogOptions WHERE username=?");
+    $request->execute(array($username));
+    $fetch = $request->fetch();
+
+    return $fetch;
+  }
 
   /*----------------------------------------------
   ------------------------------------------------
