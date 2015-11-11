@@ -7,6 +7,8 @@ if (isset($_SESSION['username'])) { // If the user is connected.
           <button class="index_button" id="manage_blog_posts_button">
             Manage your blog posts
           </button>
-          <button class="index_button">Manage your blog options</button>
+          <button class="index_button" id="manage_blog_options_button">
+            Manage your blog options
+          </button>
         </div>';
 }

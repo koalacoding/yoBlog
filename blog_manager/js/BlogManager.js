@@ -36,22 +36,11 @@ function BlogManager() {
   ------------------------------------------*/
 
   this.handleButtons = function() {
-    this.handleManageBlogPostsButtonHandler();
     this.viewBlogButtonHandler();
+    this.handleManageBlogPostsButtonHandler();
+    this.manageBlogOptionsButtonHandler();
   }
 
-    /*---------------------------------------------------
-    ----------MANAGER BLOG POSTS BUTTON HANDLER----------
-    ---------------------------------------------------*/
-
-    this.handleManageBlogPostsButtonHandler = function() {
-      $(document).on('click', '#manage_blog_posts_button', function() {
-        $.getScript("blog_manager/blog_posts_manager/BlogPostsManager.js", function() {
-          var blogPostsManager = new BlogPostsManager();
-          blogPostsManager.showBlogPostsManager();
-        });
-      });
-    }
 
     /*------------------------------------------
     ----------VIEW BLOG BUTTON HANDLER----------
@@ -59,10 +48,30 @@ function BlogManager() {
 
     this.viewBlogButtonHandler = function() {
       $(document).on('click', '#view_blog_button', function() {
-        $.getScript("blog_manager/blog_viewer/BlogViewer.js", function() {
-          var blogViewer = new BlogViewer();
-          blogViewer.showBlog();
-        });
+        var blogViewer = new BlogViewer();
+        blogViewer.showBlog();
+      });
+    }
+
+    /*---------------------------------------------------
+    ----------MANAGER BLOG POSTS BUTTON HANDLER----------
+    ---------------------------------------------------*/
+
+    this.handleManageBlogPostsButtonHandler = function() {
+      $(document).on('click', '#manage_blog_posts_button', function() {
+        var blogPostsManager = new BlogPostsManager();
+        blogPostsManager.showBlogPostsManager();
+      });
+    }
+
+    /*------------------------------------------
+    ----------VIEW BLOG BUTTON HANDLER----------
+    ------------------------------------------*/
+
+    this.manageBlogOptionsButtonHandler = function() {
+      $(document).on('click', '#manage_blog_options_button', function() {
+          var blogOptionsManager = new BlogOptionsManager();
+          blogOptionsManager.showContent();
       });
     }
 

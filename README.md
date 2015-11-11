@@ -27,6 +27,7 @@ Blog interface coded in PHP.
     and added Javascript input verification to them.
 22. Improved index.html related files organization.
 23. The user can now confirm login/registration by pressing the Enter key.
+24. The user can now modify his blog's title, description and their color.
 
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,

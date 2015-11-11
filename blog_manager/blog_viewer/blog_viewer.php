@@ -1,9 +1,9 @@
 <?php
 echo '
-<div class="jumbotron">
+<div class="jumbotron vertical-center">
   <div class="container">
-    <h1>My first Bootstrap website !</h1>
-    <p>This page will grow as we add more and more components from Bootstrap...</p>
+    <h1>Bootstrap</h1>
+    <p>This page will grow...</p>
   </div>
 </div>
 
