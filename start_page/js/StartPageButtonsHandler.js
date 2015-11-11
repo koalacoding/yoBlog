@@ -93,7 +93,11 @@ var allowClick = true;
               if ($('#'+contrary+'_form').css('display') == 'none') {
                 $('#'+loginOrRegister+'_form').fadeIn(
                   function() {
-                    allowClick = true; // When every animation is finished, we allow the user to click.
+                    // The first input of the form in automatically focused.
+                    $('#'+loginOrRegister+'_form input').first().focus();
+                    
+                    // When every animation is finished, we allow the user to click.
+                    allowClick = true;
                   });
               }
             });

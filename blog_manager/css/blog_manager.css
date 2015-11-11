@@ -1,5 +1,5 @@
 @import url('../blog_posts_manager/blog_posts_manager.css');
-@import url('../blog_options_manager/blog_options_manager.css');
+@import url('../blogOptions/css/style.css');
 
 #blog_manager {
   margin-top: 30px;

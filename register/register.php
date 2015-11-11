@@ -25,7 +25,7 @@ function is_username_valid($username) {
 -------------------------------*/
 
 function check_if_username_already_taken($username) {
-	require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php'); // We connect to the SQL database.
+	require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php'); // We connect to the SQL database.
 
 	$request = $bdd->prepare("SELECT username FROM users WHERE username=?");
 	$request->execute(array($username));
@@ -82,7 +82,7 @@ function check_if_username_already_taken($username) {
 ----------------------------------------*/
 
 function insert_account_in_db($username, $password) {
-	require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php'); // We connect to the SQL database.
+	require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php'); // We connect to the SQL database.
 
 	$password = hash('sha256', 'er4t94e4r5' . $password); // Hashing password + salt to SHA-256;
 

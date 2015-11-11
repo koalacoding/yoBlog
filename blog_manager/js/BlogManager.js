@@ -49,7 +49,7 @@ function BlogManager() {
     this.viewBlogButtonHandler = function() {
       $(document).on('click', '#view_blog_button', function() {
         var blogViewer = new BlogViewer();
-        blogViewer.showBlog();
+        blogViewer.showView();
       });
     }
 
@@ -70,8 +70,8 @@ function BlogManager() {
 
     this.manageBlogOptionsButtonHandler = function() {
       $(document).on('click', '#manage_blog_options_button', function() {
-          var blogOptionsManager = new BlogOptionsManager();
-          blogOptionsManager.showContent();
+          var blogOptions = new BlogOptions();
+          blogOptions.showView();
       });
     }
 

@@ -18,7 +18,7 @@ private function hashAndSaltString($string) {
 --------------------------------------------------------*/
 
 function checkIfPasswordMatchesUser($username, $password) {
-  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/sql/sql_connexion.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
   // Getting the username's password.
   $request = $bdd->prepare("SELECT password FROM users WHERE username=?");
