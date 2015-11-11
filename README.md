@@ -32,3 +32,6 @@ Blog interface coded in PHP.
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
   more posts are shown. jQuery and / or Javascript will be used for this.
+* Move session.php.
+* Modify "blog_manager" to "blogManager".
+* Modify "blog_manager" architecture.
