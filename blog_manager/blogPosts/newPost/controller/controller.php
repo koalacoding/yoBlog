@@ -17,7 +17,9 @@ if (isset($_SESSION['username'], $_POST['requestType'])) {
       if (isset($_POST['request'])) {
         $request = $_POST['request'];
 
-        if (isset($request['title'], $request['content'])) $newPost->addNewPost();
+        if (isset($request['title'], $request['content'])) {
+          $newPost->addNewPost($_SESSION['username'], $request['title'], $request['content']);
+        }
       }
 
       break;

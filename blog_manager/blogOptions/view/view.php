@@ -28,6 +28,6 @@ function showView($headerBackgroundImage, $headerTextColor, $headerTitle, $heade
           <button id="confirmForm">OK</button>
           <br />
           <br />
-          <span id="blogOptionsUpdateResult"></span>
+          <span id="actionResult"></span>
         </div>';
 }

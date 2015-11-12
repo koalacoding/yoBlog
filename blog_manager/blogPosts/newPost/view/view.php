@@ -12,9 +12,9 @@ function showView() {
           <br />
           <br />
           <br />
-          <button id="confirmForm">OK</button>
+          <button id="addNewForm">OK</button>
           <br />
           <br />
-          <span class="result"></span>
+          <span id="actionResult"></span>
         </div>';
 }

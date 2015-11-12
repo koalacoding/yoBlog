@@ -56,21 +56,7 @@ function BlogOptions() {
       $.post("blog_manager/blogOptions/controller/controller.php",
         {requestType: requestType, request: request},
         function(data, status) {
-          if (data == 'ok') {
-            $('#blogOptionsUpdateResult').hide(function() {
-              $('#blogOptionsUpdateResult').css('color', '#00AA00');
-              $('#blogOptionsUpdateResult').text('Modifications were successful');
-              $('#blogOptionsUpdateResult').fadeIn().delay(1000).fadeOut();
-            });
-          }
-
-          else {
-            $('#blogOptionsUpdateResult').hide(function() {
-              $('#blogOptionsUpdateResult').css('color', '#AA0000');
-              $('#blogOptionsUpdateResult').text('Error');
-              $('#blogOptionsUpdateResult').fadeIn().delay(1000).fadeOut();
-            });
-          }
+          actionResult(data, 'ok');
         }
       );
     });

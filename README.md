@@ -37,3 +37,4 @@ Blog interface coded in PHP.
 * Modify "blog_manager" to "blogManager".
 * Modify "blog_manager" architecture.
 * Delete all JS "getScript" and include all the scripts to load in index.html.
+* Show the posted posts in 'blogViewer'.
