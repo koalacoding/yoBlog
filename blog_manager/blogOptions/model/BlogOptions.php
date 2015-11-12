@@ -27,10 +27,11 @@ class BlogOptions {
                              $username) {
 		require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
-    $headerBackgroundImage = htmlspecialchars($headerBackgroundImage);
-    $headerTextColor = htmlspecialchars($headerTextColor);
-    $title = htmlspecialchars($title);
-    $description = htmlspecialchars($description);
+
+    $headerBackgroundImage = htmlentities($headerBackgroundImage, ENT_QUOTES);
+    $headerTextColor = htmlentities($headerTextColor, ENT_QUOTES);
+    $title = htmlentities($title, ENT_QUOTES);
+    $description = htmlentities($description, ENT_QUOTES);
 
 		$request = $bdd->prepare("UPDATE blogOptions SET headerBackgroundImage=?, headerTextColor=?,
                                                       title=?, description=? WHERE username=?");

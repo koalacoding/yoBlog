@@ -49,7 +49,7 @@ class BlogViewer {
     $tempString = '';
     $string = '';
 
-    $username = htmlspecialchars($username);
+    $username = htmlentities($username, ENT_QUOTES);
 
     $request = $bdd->prepare("SELECT title, content, postDate FROM posts WHERE username=?
                             ORDER BY timeSinceEpoch DESC");
