@@ -30,6 +30,7 @@ Blog interface coded in PHP.
 24. The user can now modify his blog's title, description and their color.
 25. Added the "newPost" view.
 26. User's posts are now shown in 'blogViewer'.
+27. Added 'deleteBlog' view.
 
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
