@@ -1,18 +1,22 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
 require_once '../model/BlogViewer.php';
 require_once '../view/view.php';
 
-if (isset($_POST['requestType'])) {
+if (isset($_SESSION['username'], $_POST['requestType'])) {
   $blogViewer = new BlogViewer;
+  $titleAndDescription = array();
+  $posts = '';
 
   switch ($_POST['requestType']) {
     case 'showView':
-      $blogViewer = $blogViewer->getBlogTitleAndDescription('admin');
-      showView($blogViewer['title'], $blogViewer['description']);
+      $titleAndDescription = $blogViewer->getBlogTitleAndDescription($_SESSION['username']);
+      $posts = $blogViewer->getPosts($_SESSION['username']);
+      showView($titleAndDescription['title'], $titleAndDescription['description'], $posts);
       break;
 
     case 'getHeaderCss':
-      $blogViewer->getHeaderCss('admin');
+      $blogViewer->getHeaderCss($_SESSION['username']);
       break;
   }
 }

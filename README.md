@@ -29,6 +29,7 @@ Blog interface coded in PHP.
 23. The user can now confirm login/registration by pressing the Enter key.
 24. The user can now modify his blog's title, description and their color.
 25. Added the "newPost" view.
+26. User's posts are now shown in 'blogViewer'.
 
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
@@ -37,4 +38,3 @@ Blog interface coded in PHP.
 * Modify "blog_manager" to "blogManager".
 * Modify "blog_manager" architecture.
 * Delete all JS "getScript" and include all the scripts to load in index.html.
-* Show the posted posts in 'blogViewer'.

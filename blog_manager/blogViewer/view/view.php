@@ -1,5 +1,5 @@
 <?php
-function showView($title, $description) {
+function showView($title, $description, $posts) {
   echo '<div class="jumbotron vertical-center">
           <div class="container">
             <h1>'.$title.'</h1>
@@ -7,9 +7,5 @@ function showView($title, $description) {
           </div>
         </div>
 
-        <div class="container">
-          <p>This is another paragraphee.</p>
-          <p>This is a paragraph.</p>
-          <p>This is another paragraph.</p>
-        </div>';
+        <div id="posts">'.$posts.'</div>';
 }
