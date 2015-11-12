@@ -1,6 +1,6 @@
 <?php
 function showView($headerBackgroundImage, $headerTextColor, $headerTitle, $headerDescription) {
-  echo '<div id="blog_options_manager_form">
+  echo '<div id="coreCore">
           <span>Header background image link :</span>
           <br />
           <input type="text" class="form_field" name="headerBackgroundImage"

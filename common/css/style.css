@@ -1,3 +1,32 @@
-.buttonsContainer {
+/*----------------------------------------------
+------------------------------------------------
+---------------INPUT AND TEXTAREA---------------
+------------------------------------------------
+----------------------------------------------*/
+
+input, textarea {
+  margin-top: 6px;
+
+  font-size: 12px;
+}
+
+/*------------------------------------
+--------------------------------------
+--------------CORE CORE---------------
+--------------------------------------
+------------------------------------*/
+
+#coreCore {
   margin-top: 30px;
 }
+
+
+  /*-------------------------------
+  ----------ACTION RESULT----------
+  -------------------------------*/
+
+  /* Action result is a message shown to the user after he makes an action
+     like posting or modifying a blog post. It shows him if the operation was successful or not. */
+  #actionResult {
+    font-size: 12px;
+  }

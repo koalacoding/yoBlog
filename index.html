@@ -4,18 +4,45 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="description" content="Start your own blog now ! Simple and fast.">
 
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'
-          type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
-          integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX"
-          crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.css">
-    <link rel="stylesheet" type="text/css" href="common/css/style.css">
-    <link rel="stylesheet" type="text/css" href="start_page/css/start_page.css">
-    <link rel="stylesheet" type="text/css" href="blog_manager/blogViewer/css/style.css">
+    <!--............................
+    ................................
+    ..............CSS...............
+    ................................
+    .............................-->
+
+      <!--.....................
+      ..........FONTS..........
+      ......................-->
+
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'
+            type='text/css'>
+
+      <!--.........................
+      ..........BOOTSTRAP..........
+      ..........................-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+            integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+            crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
+            integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX"
+            crossorigin="anonymous">
+
+      <!--........................
+      ..........SPECTRUM..........
+      .........................-->
+
+      <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.css">
+
+      <!--...................
+      ..........APP..........
+      ....................-->
+
+      <link rel="stylesheet" type="text/css" href="common/css/style.css">
+      <link rel="stylesheet" type="text/css" href="start_page/css/start_page.css">
+      <link rel="stylesheet" type="text/css" href="blog_manager/css/style.css">
 
     <title>Your blog</title>
   </head>
@@ -30,19 +57,46 @@
     <div id="core">
     </div>
 
+    <!--...................................
+    .......................................
+    ..............JAVASCRIPT...............
+    .......................................
+    ....................................-->
+
+    <!--......................
+    ..........JQUERY..........
+    .......................-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" defer></script>
+
+    <!--.........................
+    ..........BOOTSTRAP..........
+    ..........................-->
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
             integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
             crossorigin="anonymous" defer></script>
+
+    <!--........................
+    ..........SPECTRUM..........
+    .........................-->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.js" defer>
     </script>
+
+    <!--...................
+    ..........APP..........
+    ....................-->
+
     <script src="start_page/js/startPageHandler.js" defer></script>
     <script src="login/LoginHandler.js" defer></script>
     <script src="logout/LogoutHandler.js" defer></script>
     <script src="register/RegistrationHandler.js" defer></script>
     <script src="blog_manager/js/blogManagerHandler.js" defer></script>
     <script src="blog_manager/blogViewer/js/BlogViewer.js" defer></script>
+    <script src="blog_manager/blogPosts/js/controller.js" defer></script>
     <script src="blog_manager/blogPosts/js/BlogPosts.js" defer></script>
+    <script src="blog_manager/blogPosts/newPost/js/NewPost.js" defer></script>
     <script src="blog_manager/blogOptions/js/controller.js" defer></script>
   </body>
 </html>

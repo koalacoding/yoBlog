@@ -2,7 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
 
 if (isset($_SESSION['username'])) { // If the user is connected.
-  echo '<div class="buttonsContainer">
+  echo '<div id="coreCore">
           <button class="index_button" id="view_blog_button">View your blog</button>
           <button class="index_button" id="manage_blog_posts_button">
             Manage your blog posts
