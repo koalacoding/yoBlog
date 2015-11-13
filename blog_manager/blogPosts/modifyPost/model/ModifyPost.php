@@ -39,6 +39,26 @@ class ModifyPost {
     return $string;
   }
 
+  /*-----------------------------------------------------
+  -------------------------------------------------------
+  --------------GET POST TITLE AND CONTENT---------------
+  -------------------------------------------------------
+  -----------------------------------------------------*/
+
+  function getPostTitleAndContent($username, $postDate) {
+	  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
+    
+    $username = htmlentities($username, ENT_QUOTES);
+    $postDate = htmlentities($postDate, ENT_QUOTES);
+
+    $request = $bdd->prepare("SELECT title, content FROM posts WHERE username=? AND postDate=?");
+    $request->execute(array($username, $postDate));
+    $fetch = $request->fetch();
+    $request->closeCursor();
+
+    echo json_encode($fetch);
+  }
+
   /*--------------------------------------
   ----------------------------------------
   --------------MODIFY POST---------------

@@ -28,6 +28,36 @@ function ModifyPost() {
     });
   }
 
+  /*-----------------------------------------------------
+  -------------------------------------------------------
+  --------------GET POST TITLE AND CONTENT---------------
+  -------------------------------------------------------
+  -----------------------------------------------------*/
+
+  this.getPostTitleAndContent = function(postDate) {
+    var requestType = 'getPostTitleAndContent';
+
+    var request = {postDate: postDate};
+
+    var jsonObject = {};
+
+    $.post("blog_manager/blogPosts/modifyPost/controller/controller.php",
+      {requestType: requestType, request: request},
+      function(data, status) {
+        $( "#dialog-confirm div" ).html('<span>Title :</span>\
+                                          <br />\
+                                          <input type="text" class="form_field" name="title">\
+                                          <br />\
+                                          <br />\
+                                          <span>Content :</span>\
+                                          <br />\
+                                          <textarea name="content" rows="8" cols="28"></textarea>');        
+        $('input[name="title"]').val(data['title']);
+        $('textarea').val(data['content']);
+      }
+    );
+  }
+
   /*--------------------------------------
   ----------------------------------------
   --------------MODIFY POST---------------
