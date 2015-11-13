@@ -1,15 +1,19 @@
 function ModifyPost() {
+  var that = this;
+
   /*------------------------------------
   --------------------------------------
   --------------SHOW VIEW---------------
   --------------------------------------
   ------------------------------------*/
 
-  this.showView = function() {
+  this.showView = function(callback) {
     $('#core').fadeOut(function() {
       var requestType = 'showView';
 
       $('#core').empty();
+      $('.ui-dialog').remove();
+      $('#dialog-confirm').remove();
 
       $.post("blog_manager/blogPosts/modifyPost/controller/controller.php",
         {requestType: requestType},
@@ -23,6 +27,8 @@ function ModifyPost() {
 
           $('#core').fadeIn();
           $('#back_arrow').fadeIn();
+
+          callback();
         }
       );
     });
@@ -75,7 +81,7 @@ function ModifyPost() {
     $.post("blog_manager/blogPosts/modifyPost/controller/controller.php",
       {requestType: requestType, request: request},
       function(data, status) {
-        actionResult(data, 'ok');
+        that.showView(function() { actionResult(data, 'ok'); });
       }
     );
   }

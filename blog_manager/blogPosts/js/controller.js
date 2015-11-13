@@ -8,7 +8,7 @@ $(function() {
   });
 
   $(document).on('click', 'button[name="modifyPost"]', function() {
-    modifyPost.showView();
+    modifyPost.showView(function() {});
   });
 
   $(document).on('click', 'button[name="deletePost"]', function() {
