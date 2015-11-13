@@ -31,7 +31,10 @@ Blog interface coded in PHP.
 25. Added the "newPost" view.
 26. User's posts are now shown in 'blogViewer'.
 27. Added 'deleteBlog' view.
-
+28. Fixed 'addNewPost'.
+29. The user can now delete posts, and the posts list is dynamically refreshed
+    in the 'deleteBlog' view.
+    
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
   more posts are shown. jQuery and / or Javascript will be used for this.

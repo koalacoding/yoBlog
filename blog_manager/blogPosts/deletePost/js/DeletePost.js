@@ -27,4 +27,23 @@ function DeletePost() {
       );
     });
   }
+
+  /*--------------------------------------
+  ----------------------------------------
+  --------------DELETE POST---------------
+  ----------------------------------------
+  --------------------------------------*/
+
+  this.deletePost = function(postDate) {
+    var requestType = 'deletePost';
+
+    var request = {postDate: postDate};
+
+    $.post("blog_manager/blogPosts/deletePost/controller/controller.php",
+      {requestType: requestType, request: request},
+      function(data, status) {
+        actionResult(data, 'ok');
+      }
+    );
+  }
 }

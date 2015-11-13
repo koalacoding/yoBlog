@@ -64,6 +64,8 @@ class BlogViewer {
       $string .= $tempString;
     }
 
+    $request->closeCursor();
+
     return $string;
   }
 }

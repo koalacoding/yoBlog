@@ -1,6 +1,7 @@
 <?php
 function showView($posts) {
   echo '<div id="coreCore">
+          <div id="actionResult">&nbsp;</div>
           <div class="table-responsive">
             <table class="table">
               <thead>

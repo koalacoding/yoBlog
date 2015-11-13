@@ -1,17 +1,13 @@
 function actionResult(dataReceived, resultWanted) {
   if (dataReceived == resultWanted) {
-    $('#actionResult').hide(function() {
-      $('#actionResult').css('color', '#00AA00');
-      $('#actionResult').text('Success');
-      $('#actionResult').fadeIn().delay(1000).fadeOut();
-    });
+    $('#actionResult').css('color', '#00AA00');
+    $('#actionResult').text('Success');
+    $('#actionResult').animate({opacity: 1}, 500).delay(1000).animate({opacity: 0}, 500);
   }
 
   else {
-    $('#actionResult').hide(function() {
-      $('#actionResult').css('color', '#AA0000');
-      $('#actionResult').text('Error');
-      $('#actionResult').fadeIn().delay(1000).fadeOut();
-    });
+    $('#actionResult').css('color', '#AA0000');
+    $('#actionResult').text('Error');
+    $('#actionResult').animate({opacity: 1}, 500).delay(1000).animate({opacity: 0}, 500);
   }
 }

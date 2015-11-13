@@ -15,6 +15,6 @@ function showView() {
           <button id="addNewForm">OK</button>
           <br />
           <br />
-          <span id="actionResult"></span>
+          <div id="actionResult"></div>
         </div>';
 }

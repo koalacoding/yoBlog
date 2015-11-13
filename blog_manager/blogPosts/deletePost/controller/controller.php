@@ -5,12 +5,20 @@ require_once '../view/view.php';
 
 if (isset($_SESSION['username'], $_POST['requestType'])) {
   $deletePost = new DeletePost;
-  $posts = '';
 
   switch ($_POST['requestType']) {
     case 'showView':
       $posts = $deletePost->getPosts($_SESSION['username']);
       showView($posts);
+      break;
+    case 'deletePost':
+      if (isset($_POST['request'])) {
+        $request = $_POST['request'];
+
+        if (isset($request['postDate'])) $deletePost->deletePostAction($_SESSION['username'],
+                                                                 $request['postDate']);
+      }
+
       break;
   }
 }
