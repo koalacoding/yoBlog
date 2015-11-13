@@ -44,6 +44,7 @@ function ModifyPost() {
     $.post("blog_manager/blogPosts/modifyPost/controller/controller.php",
       {requestType: requestType, request: request},
       function(data, status) {
+        data = JSON.parse(data);
         $( "#dialog-confirm div" ).html('<span>Title :</span>\
                                           <br />\
                                           <input type="text" class="form_field" name="title">\
@@ -51,7 +52,7 @@ function ModifyPost() {
                                           <br />\
                                           <span>Content :</span>\
                                           <br />\
-                                          <textarea name="content" rows="8" cols="28"></textarea>');        
+                                          <textarea name="content" rows="8" cols="28"></textarea>');
         $('input[name="title"]').val(data['title']);
         $('textarea').val(data['content']);
       }
