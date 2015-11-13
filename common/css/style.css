@@ -10,6 +10,9 @@ input, textarea {
   font-size: 12px;
 }
 
+.ui-dialog {
+  font-size: 12px;
+}
 
   /*--------------------
   ----------TH----------
@@ -55,6 +58,6 @@ input, textarea {
   #actionResult {
     opacity: 0;
     margin-bottom: 10px;
-    
+
     font-size: 12px;
   }

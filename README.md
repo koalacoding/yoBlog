@@ -34,7 +34,8 @@ Blog interface coded in PHP.
 28. Fixed 'addNewPost'.
 29. The user can now delete posts, and the posts list is dynamically refreshed
     in the 'deleteBlog' view.
-    
+30. Added a jQuery UI Dialog to confirm a post's deletion.
+
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
   more posts are shown. jQuery and / or Javascript will be used for this.
@@ -42,3 +43,4 @@ Blog interface coded in PHP.
 * Modify "blog_manager" to "blogManager".
 * Modify "blog_manager" architecture.
 * Delete all JS "getScript" and include all the scripts to load in index.html.
+* Add bruteforce and flood protections to user's input to database.
