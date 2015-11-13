@@ -38,6 +38,7 @@ Blog interface coded in PHP.
 31. It is now possible to modify a post.
 32. When modifying a post, post's initial title and content is put in the inputs.
 33. If the user modifies a post, the post's informations in the view are dynamically refreshed.
+34. Changed 'start_page' name to 'startPage'.
 
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
@@ -51,3 +52,5 @@ Blog interface coded in PHP.
 * Put the website in HTTPS are improve the security of PHP sessions.
 * To fix : When clicking on the "Delete" button in deletePost,
   no message is shown in the ui-dialog or it shows "modifyPost" "Modify" button action.
+* Allow the user to search a blog by its name, and to watch it.
+* Put 'startPage' under the MVC model.
