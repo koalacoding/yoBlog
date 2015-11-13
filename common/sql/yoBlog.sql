@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2015 at 09:50 PM
+-- Generation Time: Nov 13, 2015 at 08:59 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -44,23 +44,25 @@ INSERT INTO `archives_months` (`id`, `month`, `year`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog_options`
+-- Table structure for table `blogOptions`
 --
 
-CREATE TABLE IF NOT EXISTS `blog_options` (
+CREATE TABLE IF NOT EXISTS `blogOptions` (
 `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `headerBackgroundImage` text NOT NULL,
+  `headerTextColor` varchar(30) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `titleAndDescriptionColor` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `blog_options`
+-- Dumping data for table `blogOptions`
 --
 
-INSERT INTO `blog_options` (`id`, `username`, `title`, `description`, `titleAndDescriptionColor`) VALUES
-(2, 'admin', 'Sup foos !', 'Be ready to rumble', 'rgb(241, 255, 0)');
+INSERT INTO `blogOptions` (`id`, `username`, `headerBackgroundImage`, `headerTextColor`, `title`, `description`) VALUES
+(2, 'admin', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Center_of_the_Milky_Way_Galaxy_III_%E2%80%93_Chandra_(X-ray).jpg', 'rgb(255, 255, 255)', 'The up and comin''', 'The background-image property sets one or more background images for an element.'),
+(3, 'johndoe', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Center_of_the_Milky_Way_Galaxy_III_%E2%80%93_Chandra_(X-ray).jpg', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -96,38 +98,20 @@ INSERT INTO `comments` (`id`, `post_id`, `author`, `email`, `comment`, `post_dat
 
 CREATE TABLE IF NOT EXISTS `posts` (
 `id` int(11) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `category` varchar(36) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `post` text NOT NULL,
-  `post_date` datetime NOT NULL,
-  `time_since_unix_epoch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `postDate` datetime NOT NULL,
+  `timeSinceEpoch` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `author`, `category`, `title`, `post`, `post_date`, `time_since_unix_epoch`) VALUES
-(10, 'admin', '', 'test', 'koko', '2015-02-20 04:46:02', 1424403962),
-(12, 'admin', '', 'Elle Effect', 'have been sitting on reporting this best blog for a little while now (work, school, and such has kept me distracted) but now it is time to let it out of the box.\r\n\r\nAbout a week and a half ago I was browsing around the tag surfer when I (happily) stumbled across Elle Effect. Lauren, the author, is an eighteen year old artist who not only gives us a glimpse into her artistic works but also into the thoughts and situations of her daily life.\r\n\r\nWhat I quickly discoved is that this young girl possesses a mind able to delve into the deeper end of life through both the visual arts as well as the written word.\r\n\r\nAll this is why I consider Elle Effect a best blog.', '2015-02-21 22:16:04', 1424553364),
-(13, 'admin', '', 'Tiny Cat Pants', 'According to the Blog Stats sidebar widget, Tiny Cat Pants — a very smart, funny, idiosyncratic blog — has tallied more than 23,000 hits since coming to WordPress March 03, 2007. Written semi-anonymously, by someone who calls herself Aunt B., Tiny Cat Pants takes on all comers, doles out sharp criticism for idiot politicians, picks fights with other bloggers, periodically redefines feminism to suit its author’s mood, and in general, has a heck of a good time not taking itself very seriously.', '2015-02-21 22:17:30', 1424553450),
-(14, 'admin', '', 'test', 'test', '2015-02-21 22:40:22', 1424554822),
-(15, 'admin', '', 'koko', 'kaka', '2015-02-21 22:40:50', 1424554850),
-(16, 'admin', '', 'zz', 'zz', '2015-02-21 22:43:13', 1424554993),
-(17, 'admin', '', 'ee', 'zz', '2015-02-21 22:43:25', 1424555005),
-(18, 'admin', '', '3', '3', '2015-02-22 03:30:21', 1424572221),
-(19, 'admin', '', '4', '4', '2015-02-22 03:30:53', 1424572253),
-(20, 'admin', '', '5', '5', '2015-02-22 03:31:11', 1424572271),
-(21, 'admin', '', '6', '6', '2015-02-22 03:31:23', 1424572283),
-(22, 'admin', '', '7', '7', '2015-02-22 03:32:05', 1424572325),
-(23, 'admin', '', '8', '8', '2015-02-22 03:33:03', 1424572383),
-(24, 'admin', '', 'january article', 'some sh', '2015-01-22 03:33:03', 1421961364),
-(25, 'admin', 'No category', 'rr', 'rr', '2015-03-04 12:09:56', 1425467396),
-(26, 'admin', 'No category', 'tt', 'yy', '2015-03-04 12:10:52', 1425467452),
-(27, 'admin', 'No category', 'rtr', 'rr', '2015-03-04 12:11:14', 1425467474),
-(28, 'admin', 'cat2', 'test cat2', 'cat2 post\r\n', '2015-03-04 18:15:35', 1425489335),
-(29, 'admin', 'cat66', 'Elle Effect', 'I have been sitting on reporting this best blog for a little while now (work, school, and such has kept me distracted) but now it is time to let it out of the box.\r\n\r\nAbout a week and a half ago I was browsing around the tag surfer when I (happily) stumbled across Elle Effect. Lauren, the author, is an eighteen year old artist who not only gives us a glimpse into her artistic works but also into the thoughts and situations of her daily life.\r\n\r\nWhat I quickly discoved is that this young girl possesses a mind able to delve into the deeper end of life through both the visual arts as well as the written word.\r\n\r\nAll this is why I consider Elle Effect a best blog.\r\n', '2015-03-04 18:21:31', 1425489691);
+INSERT INTO `posts` (`id`, `username`, `title`, `content`, `postDate`, `timeSinceEpoch`) VALUES
+(81, 'admin', 'my first posters', 'sup yo', '2015-11-13 02:59:49', 1447379989),
+(82, 'admin', 'retaaa6666', 'zaa', '2015-11-13 03:00:08', 1447380008);
 
 -- --------------------------------------------------------
 
@@ -164,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `registration_date` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -177,7 +161,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `registration_date`)
 (16, 'BIGBOSS88', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', 'test@test.fr', '2015-02-10 16:42:35'),
 (17, 'jeang', '689856308efb50cf3b1250c2327b17ecf12e9d6d5fa2b0615fb398c827a4cf7b', 'test@cococococococ.fr', '2015-02-10 16:43:39'),
 (18, 'johnny', '0988f4a1ebe478008013721c00b4853783648c37b5ca1e901ba1a6811942a124', 'john@gmail.com', '2015-03-14 14:06:00'),
-(19, 'admin', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-11 14:44:04');
+(19, 'admin', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-11 14:44:04'),
+(20, 'johndoe', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-11 23:04:04');
 
 --
 -- Indexes for dumped tables
@@ -190,9 +175,9 @@ ALTER TABLE `archives_months`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `blog_options`
+-- Indexes for table `blogOptions`
 --
-ALTER TABLE `blog_options`
+ALTER TABLE `blogOptions`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -229,10 +214,10 @@ ALTER TABLE `users`
 ALTER TABLE `archives_months`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `blog_options`
+-- AUTO_INCREMENT for table `blogOptions`
 --
-ALTER TABLE `blog_options`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `blogOptions`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -242,7 +227,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=83;
 --
 -- AUTO_INCREMENT for table `post_categories`
 --
@@ -252,7 +237,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
