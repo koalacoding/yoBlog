@@ -16,5 +16,5 @@ function showView($posts) {
             </table>
           </div>
         </div>
-        <div id="dialog-confirm"><p></p></div>';
+        <div id="dialog-confirm"><div></div></div>';
 }
