@@ -49,7 +49,7 @@ Blog interface coded in PHP.
 
 ## To do.
 * Limit the number of posts shown on a blog page and allow the user to view the next posts.
-* Add bruteforce and flood protections to user's input to database.
+* Add bruteforce and flood protections.
 * To fix : when clicking on buttons two times fast, it will perform its action x2.
 * Put the website in HTTPS are improve the security of PHP sessions.
 * Allow the user to search a blog by its name, and to watch it.

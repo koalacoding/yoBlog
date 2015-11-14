@@ -13,7 +13,7 @@ function Login() {
        else { // If there is an error.
          // In case the user press the button too fast too many times.
          $('.errorMessage').stop(true);
-         
+
          $('.errorMessage').hide(0, function() {
            $('.errorMessage').text('Wrong credentials').fadeIn().delay(1000).fadeOut();
          });
