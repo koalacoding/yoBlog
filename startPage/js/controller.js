@@ -3,6 +3,7 @@ $(function() {
   var login = new Login();
   var register = new Register();
   var logout = new Logout();
+  var blogManager = new BlogManager();
 
   startPage.showView(); // When the user first enters.
 
@@ -59,5 +60,13 @@ $(function() {
 
   $(document).on('click', '#logoutButton', function() {
     logout.logout();
+  });
+
+  /*------------------------------------
+  ----------MANAGE BLOG BUTTON----------
+  ------------------------------------*/
+
+  $(document).on('click', '#manageBlogButton', function() {
+    blogManager.showView();
   });
 });

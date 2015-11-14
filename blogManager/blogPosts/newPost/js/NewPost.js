@@ -22,7 +22,7 @@ function NewPost() {
           blogManager.modifyBackArrowTargetLink(blogPostsManager.showBlogPostsManager);
 
           $('#core').fadeIn();
-          $('#back_arrow').fadeIn();
+          $('#backArrow').fadeIn();
         }
       );
     });

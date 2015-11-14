@@ -9,7 +9,7 @@ function BlogPostsManager() {
         $('#core').append(data);
         blogManager.modifyBackArrowTargetLink(blogManager.showBlogManager);
         $('#core').fadeIn();
-        $('#back_arrow').fadeIn();
+        $('#backArrow').fadeIn();
       });
     });
   }

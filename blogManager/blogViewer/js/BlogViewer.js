@@ -22,7 +22,7 @@ function BlogViewer() {
           blogManager.modifyBackArrowTargetLink(blogManager.showBlogManager);
 
           $('#core').fadeIn();
-          $('#back_arrow').fadeIn();
+          $('#backArrow').fadeIn();
         }
       );
     });

@@ -8,22 +8,21 @@ function BlogManager() {
   -------------------------------*/
 
 
-    /*----------------------------------
-    ----------SHOW MANAGE BLOG----------
-    ----------------------------------*/
+    /*---------------------------
+    ----------SHOW VIEW----------
+    ---------------------------*/
 
-    this.showBlogManager = function() {
+    this.showView = function() {
       $('#core').fadeOut(function() {
         $('#core').empty();
 
-        $.post("blogManager/blogManager.php", function(data, status) {
+        $.post("blogManager/controller/controller.php", function(data, status) {
            var startPage = new StartPage();
-           var startPageButtonsHandler = new StartPageButtonsHandler();
 
            $('#core').append(data);
-           that.modifyBackArrowTargetLink(startPage.showStartPage);
+           that.modifyBackArrowTargetLink(startPage.showView);
            $('#core').fadeIn();
-           $('#back_arrow').fadeIn();
+           $('#backArrow').fadeIn();
         });
       });
     }
@@ -47,7 +46,7 @@ function BlogManager() {
     ------------------------------------------*/
 
     this.viewBlogButtonHandler = function() {
-      $(document).on('click', '#view_blog_button', function() {
+      $(document).on('click', '#viewBlogButton', function() {
         var blogViewer = new BlogViewer();
         blogViewer.showView();
       });
@@ -58,7 +57,7 @@ function BlogManager() {
     ---------------------------------------------------*/
 
     this.handleManageBlogPostsButtonHandler = function() {
-      $(document).on('click', '#manage_blog_posts_button', function() {
+      $(document).on('click', '#manageBlogPostsButton', function() {
         var blogPostsManager = new BlogPostsManager();
         blogPostsManager.showBlogPostsManager();
       });
@@ -69,7 +68,7 @@ function BlogManager() {
     ------------------------------------------*/
 
     this.manageBlogOptionsButtonHandler = function() {
-      $(document).on('click', '#manage_blog_options_button', function() {
+      $(document).on('click', '#manageBlogOptionsButton', function() {
           var blogOptions = new BlogOptions();
           blogOptions.showView();
       });
@@ -83,8 +82,8 @@ function BlogManager() {
   --------------------------------------------------------*/
 
   this.modifyBackArrowTargetLink = function(myfunction) {
-    $('#back_arrow').unbind('click');
-    $('#back_arrow').click(function() {
+    $('#backArrow').unbind('click');
+    $('#backArrow').click(function() {
       myfunction();
     });
   }
