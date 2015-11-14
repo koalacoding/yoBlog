@@ -45,12 +45,11 @@ Blog interface coded in PHP.
 38. Move session.php.
 39. Modify 'blogManager' architecture.
 40. Delete all JS 'getScript' and include all the scripts to load in index.html.
+41. When clicking on the 'Delete' button in deletePost, the warning message is now correctly shown.
 
 ## To do.
 * Limit the number of posts shown on a blog page and allow the user to view the next posts.
 * Add bruteforce and flood protections to user's input to database.
 * To fix : when clicking on buttons two times fast, it will perform its action x2.
 * Put the website in HTTPS are improve the security of PHP sessions.
-* To fix : When clicking on the "Delete" button in deletePost,
-  no message is shown in the ui-dialog or it shows 'modifyPost' 'Modify' button action.
 * Allow the user to search a blog by its name, and to watch it.

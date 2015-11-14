@@ -6,7 +6,7 @@ $(function() {
 
     $( "#dialog-confirm" ).attr('title', 'Delete post');
 		$( ".ui-dialog-title" ).text('Delete post');
-    $( "#dialog-confirm p" ).text('Are you sure you want to delete this post ?');
+    $( "#dialog-confirm div" ).text('Are you sure you want to delete this post ?');
 		$( "#dialog-confirm" ).dialog({
 			resizable: false,
 			height: 150,

@@ -117,7 +117,7 @@ function StartPage() {
         var blogManager = new BlogManager();
 
         $(document).on('click', '#manage_your_blog_button', function() {
-          blogManager.showBlogManager();
+          blogManager.showView();
         });
       }
 

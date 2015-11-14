@@ -7,7 +7,7 @@ function BlogPostsManager() {
         var blogManager = new BlogManager();
 
         $('#core').append(data);
-        blogManager.modifyBackArrowTargetLink(blogManager.showBlogManager);
+        blogManager.modifyBackArrowTargetLink(blogManager.showView);
         $('#core').fadeIn();
         $('#backArrow').fadeIn();
       });

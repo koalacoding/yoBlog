@@ -24,7 +24,7 @@ function BlogOptions() {
 
           $('#colorpicker').spectrum({color: "#FFFFFF"});
 
-          blogManager.modifyBackArrowTargetLink(blogManager.showBlogManager);
+          blogManager.modifyBackArrowTargetLink(blogManager.showView);
 
           $('#core').fadeIn();
           $('#backArrow').fadeIn();
