@@ -1,33 +1,76 @@
 <?php
 class AntiFlood {
   /*---------------------------------------
-  ----------GET LAST REQUEST TIME----------
+  -----------------------------------------
+  --------------FIRST REQUEST--------------
+  -----------------------------------------
   ---------------------------------------*/
 
-  function getLastRequestTime($ip) {
-		require $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php';
 
-    $request = $bdd->prepare("SELECT last_request_time FROM anti_flood WHERE ip_address=?");
+    /*----------------------------------------
+    ----------GET FIRST REQUEST TIME----------
+    ----------------------------------------*/
+
+    function getFirstRequestTime($ip) {
+  		require $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php';
+
+      $request = $bdd->prepare("SELECT first_request_time FROM anti_flood WHERE ip_address=?");
+      $request->execute(array($ip));
+
+      if ($request->rowCount() == 0) $fetch['first_request_time'] = 0; // If no result has been found
+      else $fetch = $request->fetch();
+
+      $request->closeCursor();
+
+      return $fetch['first_request_time'];
+    }
+
+    /*------------------------------------------
+    ----------RESET FIRST REQUEST TIME----------
+    ------------------------------------------*/
+
+    function resetFirstRequestTime($ip) {
+  		require $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php';
+
+      $request = $bdd->prepare("INSERT INTO anti_flood(ip_address, first_request_time,
+                                                       number_of_requests)
+                                VALUES (?, ?, ?) ON DUPLICATE KEY
+                                UPDATE first_request_time = VALUES(first_request_time),
+                                number_of_requests = VALUES(number_of_requests)");
+      $request->execute(array($ip, time(), 1));
+      $request->closeCursor();
+    }
+
+
+  /*----------------------------------------
+  ----------GET NUMBER OF REQUESTS----------
+  ----------------------------------------*/
+
+  function getNumberOfRequests($ip) { // Number of requests the IP did in the last second.
+    require $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php';
+
+    $request = $bdd->prepare("SELECT number_of_requests FROM anti_flood WHERE ip_address=?");
     $request->execute(array($ip));
 
-    if ($request->rowCount() == 0) $fetch['last_request_time'] = 0; // If no result has been found
+    // If no result has been found.
+    if ($request->rowCount() == 0) $fetch['number_of_requests'] = 0;
     else $fetch = $request->fetch();
 
     $request->closeCursor();
 
-    return $fetch['last_request_time'];
+    return $fetch['number_of_requests'];
   }
 
-  /*---------------------------------------
-  ----------SET LAST REQUEST TIME----------
-  ---------------------------------------*/
 
-  function setLastRequestTime($ip) {
-		require $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php';
+  /*----------------------------------------------
+  ----------INCREMENT NUMBER OF REQUESTS----------
+  ----------------------------------------------*/
 
-    $request = $bdd->prepare("INSERT INTO anti_flood(ip_address, last_request_time) VALUES (?, ?)
-                              ON DUPLICATE KEY UPDATE last_request_time = VALUES(last_request_time)");
-    $request->execute(array($ip, time()));
-    $request->closeCursor();
+  function incrementNumberOfRequests($ip) {
+    require $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php';
+
+    $request = $bdd->prepare("UPDATE anti_flood SET number_of_requests = number_of_requests + 1
+                              WHERE ip_address = ?");
+    $request->execute(array($ip));
   }
 }

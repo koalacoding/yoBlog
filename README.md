@@ -47,6 +47,7 @@ Blog interface coded in PHP.
 40. Delete all JS 'getScript' and include all the scripts to load in index.html.
 41. When clicking on the 'Delete' button in deletePost, the warning message is now correctly shown.
 42. Add bruteforce/flood protections.
+43. Modify antiFlood to allow 5 requests per second per IP.
 
 ## To do.
 * Limit the number of posts shown on a blog page and allow the user to view the next posts.
