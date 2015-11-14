@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/include/session.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/session/session.php');
 require_once('../model/BlogOptions.php');
 require_once('../view/view.php');
 

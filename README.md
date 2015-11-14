@@ -42,11 +42,10 @@ Blog interface coded in PHP.
 35. Modified "blog_manager" to "blogManager".
 36. Don't allow to flood 'errorMessage' button in forms.
 37. Put 'startPage' under the MVC model.
+38. Move session.php.
 
 ## To do.
-* Originally limit the number of posts shown on a blog page. If the user scrolls down,
-  more posts are shown. jQuery and / or Javascript will be used for this.
-* Move session.php.
+* Limit the number of posts shown on a blog page and allow the user to view the next posts.
 * Modify "blog_manager" architecture.
 * Delete all JS "getScript" and include all the scripts to load in index.html.
 * Add bruteforce and flood protections to user's input to database.
