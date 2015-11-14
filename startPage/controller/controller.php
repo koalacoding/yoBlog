@@ -28,6 +28,14 @@ if (isset($_POST['requestType'])) {
 
       break;
 
+    case 'getNotConnectedButtons':
+      if (!isset($_SESSION['username'])) { // If the user is not connected.
+        $buttons = $startPage->getNotConnectedButtons();
+        echo $buttons;
+      }
+
+      break;
+
     case 'getLoginForm':
       if (!isset($_SESSION['username'])) { // If the user is not connected.
         $form = $startPage->getLoginForm();

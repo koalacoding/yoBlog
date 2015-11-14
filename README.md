@@ -39,12 +39,14 @@ Blog interface coded in PHP.
 32. When modifying a post, post's initial title and content is put in the inputs.
 33. If the user modifies a post, the post's informations in the view are dynamically refreshed.
 34. Changed 'start_page' name to 'startPage'.
+35. Modified "blog_manager" to "blogManager".
+36. Don't allow to flood 'errorMessage' button in forms.
+37. Put 'startPage' under the MVC model.
 
 ## To do.
 * Originally limit the number of posts shown on a blog page. If the user scrolls down,
   more posts are shown. jQuery and / or Javascript will be used for this.
 * Move session.php.
-* Modify "blog_manager" to "blogManager".
 * Modify "blog_manager" architecture.
 * Delete all JS "getScript" and include all the scripts to load in index.html.
 * Add bruteforce and flood protections to user's input to database.
@@ -53,4 +55,3 @@ Blog interface coded in PHP.
 * To fix : When clicking on the "Delete" button in deletePost,
   no message is shown in the ui-dialog or it shows "modifyPost" "Modify" button action.
 * Allow the user to search a blog by its name, and to watch it.
-* Put 'startPage' under the MVC model.

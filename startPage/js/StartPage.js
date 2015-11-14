@@ -26,9 +26,9 @@ function StartPage() {
   --------------------------------------*/
 
 
-    /*-------------------------------------
-    ----------SHOW CONNECTED BUTTONS-------
-    -------------------------------------*/
+    /*----------------------------------------
+    ----------SHOW CONNECTED BUTTONS----------
+    ----------------------------------------*/
 
     this.showConnectedButtons = function() {
       var requestType = 'getConnectedButtons';
@@ -47,21 +47,21 @@ function StartPage() {
       });
     }
 
-    /*-------------------------------------
-    ----------SHOW CONNECTED BUTTONS-------
-    -------------------------------------*/
+    /*-----------------------------------------
+    ----------SHOW NOT CONNECTED BUTTONS-------
+    -----------------------------------------*/
 
     this.showNotConnectedButtons = function() {
-      var notConnectedButtons = '<button class="index_button" id="login_button">\
-                                   Login to an account\
-                                 </button>\
-                                 <button class="index_button" id="register_button">\
-                                   Register a new account\
-                                 </button>';
+      var requestType = 'getNotConnectedButtons';
+
       $('#buttons').fadeOut(function() {
-        $('#buttons').empty(); // In case there was already buttons.
-        $('#buttons').append(notConnectedButtons);
-        $('#buttons').fadeIn();
+        $.post("startPage/controller/controller.php", {requestType: requestType},
+          function(data) {
+            $('#buttons').empty();
+            $('#buttons').append(data);
+            $('#buttons').fadeIn();
+          }
+        );
       });
     }
 

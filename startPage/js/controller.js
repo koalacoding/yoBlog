@@ -1,7 +1,8 @@
 $(function() {
   var startPage = new StartPage();
   var login = new Login();
-  var registrationHandler = new RegistrationHandler();
+  var register = new Register();
+  var logout = new Logout();
 
   startPage.showView(); // When the user first enters.
 
@@ -27,11 +28,11 @@ $(function() {
   ----------------------------------------*/
 
   $(document).on('click', '#loginFormButton', function() {
-    login.login();
+    login.login('', '');
   });
 
   $(document).on('click', '#registerFormButton', function() {
-    registrationHandler.register();
+    register.register();
 	});
 
 
@@ -42,12 +43,21 @@ $(function() {
     $(document).on('keydown', function(event) {
       if (event.keyCode == 13) { // If the user presses the Enter key.
         if ($('#loginFormButton').length) { // If the login form is visible.
-          login.login();
+          login.login('', '');
         }
 
         else if ($('#registerFormButton').length) {
-          registrationHandler.register();
+          register.register();
         }
       }
     });
+
+
+  /*-------------------------------
+  ----------LOGOUT BUTTON----------
+  -------------------------------*/
+
+  $(document).on('click', '#logoutButton', function() {
+    logout.logout();
+  });
 });
