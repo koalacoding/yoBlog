@@ -2,6 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/session/session.php');
 require_once('../model/NewPost.php');
 require_once('../view/view.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/antiFlood/controller/controller.php';
 
 // If the user is connected and if the type of the request has been received.
 if (isset($_SESSION['username'], $_POST['requestType'])) {

@@ -1,5 +1,6 @@
 <?php
 require_once '../model/Register.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/antiFlood/controller/controller.php';
 
 $register = new Register;
 
