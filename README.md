@@ -62,3 +62,5 @@ Example : http://littlebighippo.16mb.com/
 
 ## To do.
 * Put the website in HTTPS are improve the security of PHP sessions.
+* Find a way to prevent a content to show multiple times by clicking too fast on a button
+  without limiting the antiFlood.
