@@ -18,8 +18,12 @@ function BlogViewer() {
           $.post("blogManager/blogViewer/controller/controller.php", {requestType: requestType},
             function(data, status) {
               data = data.split(";");
-              $('.jumbotron').css('background', 'url("'+data[0]+'")');
-              $('.jumbotron').css('color', data[1]);
+              $('<img/>').attr('src', data[0]).load(function() {
+                 $(this).remove(); // Prevent memory leak.
+                 $('.jumbotron').css('background', 'url("'+data[0]+'")');
+                 $('.jumbotron').css('color', data[1]);
+                 $('.jumbotron').fadeTo(1500, 1);
+              });
             }
           );
 

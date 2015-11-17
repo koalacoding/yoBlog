@@ -53,9 +53,8 @@ Blog interface coded in PHP.
 45. Fix : when clicking on buttons multiple times too fast,
     it won't perform its action more than one time thanks to the antiFlood.
 46. Modify antiFlood to handle milliseconds.
+47. The blog's jumbotron (header) fades in when it has finished loading.
 
 ## To do.
 * Put the website in HTTPS are improve the security of PHP sessions.
 * Allow the user to search a blog by its name, and to watch it.
-* Find if it is possible to fadeIn() the blog's header background-image
-  when it has finished loading.
