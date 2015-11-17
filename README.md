@@ -1,5 +1,5 @@
 # yoBlog
-Blog interface coded in PHP.
+Blog CMS coded with PHP, MySQL and jQuery.
 
 Example : http://littlebighippo.16mb.com/
 
