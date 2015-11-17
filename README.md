@@ -54,7 +54,7 @@ Blog interface coded in PHP.
     it won't perform its action more than one time thanks to the antiFlood.
 46. Modify antiFlood to handle milliseconds.
 47. The blog's jumbotron (header) fades in when it has finished loading.
+48. Allow the user to search and watch a blog by its name.
 
 ## To do.
 * Put the website in HTTPS are improve the security of PHP sessions.
-* Allow the user to search and watch a blog by its name.

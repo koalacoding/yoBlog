@@ -3,19 +3,21 @@ function BlogViewer() {
   ----------SHOW VIEW----------
   ---------------------------*/
 
-  this.showView = function() {
+  this.showView = function(blogName) {
     $('#core').fadeOut(function() {
       var requestType = 'showView';
       $('#core').empty();
 
-      $.post("blogManager/blogViewer/controller/controller.php", {requestType: requestType},
+      $.post("blogManager/blogViewer/controller/controller.php",
+        {requestType: requestType, blogName: blogName},
         function(data, status) {
           var blogManager = new BlogManager();
 
           $('#core').append(data);
 
           requestType = 'getHeaderCss';
-          $.post("blogManager/blogViewer/controller/controller.php", {requestType: requestType},
+          $.post("blogManager/blogViewer/controller/controller.php",
+            {requestType: requestType, blogName: blogName},
             function(data, status) {
               data = data.split(";");
               $('<img/>').attr('src', data[0]).load(function() {
@@ -26,8 +28,6 @@ function BlogViewer() {
               });
             }
           );
-
-          blogManager.modifyBackArrowTargetLink(blogManager.showView);
 
           $('#core').fadeIn();
           $('#backArrow').fadeIn();
@@ -44,6 +44,7 @@ function BlogViewer() {
     var requestType = 'getPosts';
     var postOffset = $('#posts').data('post-offset');
     var request = {};
+    var blogName = $('.jumbotron').data('blog-name');
     var newPageIsEmpty = false;
 
     postOffset = parseInt(postOffset) + postOffsetModifier;
@@ -51,7 +52,7 @@ function BlogViewer() {
 
     // A first request to check if there is any post to show on the new page.
     $.post('blogManager/blogViewer/controller/controller.php',
-      {requestType: requestType, request: request},
+      {requestType: requestType, request: request, blogName: blogName},
       function (data) {
         if (data != '') { // If the new page has any post to show.
           $('#posts').fadeOut(function() {
@@ -59,7 +60,7 @@ function BlogViewer() {
             $('#posts').data('post-offset', postOffset);
 
             $.post('blogManager/blogViewer/controller/controller.php',
-              {requestType: requestType, request: request},
+              {requestType: requestType, request: request, blogName: blogName},
               function (data) {
                 $('#posts').append(data);
                 $('#posts').fadeIn();

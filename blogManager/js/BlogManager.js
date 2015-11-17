@@ -42,7 +42,8 @@ function BlogManager() {
     this.viewBlogButtonHandler = function() {
       $(document).on('click', '#viewBlogButton', function() {
         var blogViewer = new BlogViewer();
-        blogViewer.showView();
+        blogViewer.showView('');
+        that.modifyBackArrowTargetLink(that.showView);
       });
     }
 

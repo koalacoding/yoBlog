@@ -9,6 +9,7 @@ function StartPage() {
     $.post("startPage/controller/controller.php", {requestType: requestType},
       function(data, status) {
        $('#backArrow').fadeOut();
+
        $('#core').fadeOut(function() {
          $('#core').empty();
          $('#core').append(data);

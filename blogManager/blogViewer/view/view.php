@@ -1,6 +1,6 @@
 <?php
-function showView($title, $description, $postOffset, $posts) {
-  echo '<div class="jumbotron vertical-center">
+function showView($blogName, $title, $description, $postOffset, $posts) {
+  echo '<div class="jumbotron vertical-center" data-blog-name="'.$blogName.'">
           <div class="container">
             <h1>'.$title.'</h1>
             <p>'.$description.'</p>
