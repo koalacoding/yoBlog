@@ -10,7 +10,7 @@ class BlogOptions {
 		require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
     $request = $bdd->prepare("SELECT headerBackgroundImage, headerTextColor, title, description
-                              FROM blogOptions WHERE username=?");
+                              FROM blog_options WHERE username=?");
     $request->execute(array($username));
     $fetch = $request->fetch();
 
@@ -33,7 +33,7 @@ class BlogOptions {
     $title = htmlentities($title, ENT_QUOTES);
     $description = htmlentities($description, ENT_QUOTES);
 
-		$request = $bdd->prepare("UPDATE blogOptions SET headerBackgroundImage=?, headerTextColor=?,
+		$request = $bdd->prepare("UPDATE blog_options SET headerBackgroundImage=?, headerTextColor=?,
                                                       title=?, description=? WHERE username=?");
     $request->execute(array($headerBackgroundImage, $headerTextColor, $title, $description,
                             $username));

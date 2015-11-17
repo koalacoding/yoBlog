@@ -9,7 +9,7 @@ class BlogViewer {
   function getBlogTitleAndDescription($username) {
 		require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
-    $request = $bdd->prepare("SELECT title, description FROM blogOptions
+    $request = $bdd->prepare("SELECT title, description FROM blog_options
                             WHERE username=?");
     $request->execute(array($username));
     $fetch = $request->fetch();
@@ -28,7 +28,7 @@ class BlogViewer {
   function getHeaderCss($username) {
 	  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
-    $request = $bdd->prepare("SELECT headerBackgroundImage, headerTextColor FROM blogOptions
+    $request = $bdd->prepare("SELECT headerBackgroundImage, headerTextColor FROM blog_options
                               WHERE username=?");
     $request->execute(array($username));
     $fetch = $request->fetch();
@@ -43,7 +43,7 @@ class BlogViewer {
   --------------------------------------
   ------------------------------------*/
 
-  function getPosts($username) {
+  function getPosts($username, $offset) {
 	  require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
     $fetch = array();
     $tempString = '';
@@ -51,9 +51,10 @@ class BlogViewer {
 
     $username = htmlentities($username, ENT_QUOTES);
 
+    // Only getting the first x posts.
     $request = $bdd->prepare("SELECT title, content, postDate FROM posts WHERE username=?
-                            ORDER BY timeSinceEpoch DESC");
-    $request->execute(array($username));
+                              ORDER BY timeSinceEpoch DESC LIMIT 5 OFFSET ?");
+    $request->execute(array($username, $offset));
 
     while ($fetch = $request->fetch()) {
       $tempString = '<div class="post">

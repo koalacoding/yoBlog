@@ -1,7 +1,7 @@
 <?php
 class NewPost {
   function addNewPost($username, $title, $content) {
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/yoBlog/common/sql/connexion.php');
 
     $username = htmlentities($username, ENT_QUOTES);
     $title = htmlentities($title, ENT_QUOTES);

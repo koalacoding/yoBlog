@@ -12,12 +12,18 @@ if (isset($_SESSION['username'], $_POST['requestType'])) {
   switch ($_POST['requestType']) {
     case 'showView':
       $titleAndDescription = $blogViewer->getBlogTitleAndDescription($_SESSION['username']);
-      $posts = $blogViewer->getPosts($_SESSION['username']);
-      showView($titleAndDescription['title'], $titleAndDescription['description'], $posts);
+      $posts = $blogViewer->getPosts($_SESSION['username'], 0);
+      showView($titleAndDescription['title'], $titleAndDescription['description'], 0, $posts);
       break;
 
     case 'getHeaderCss':
       $blogViewer->getHeaderCss($_SESSION['username']);
       break;
+
+    case 'getPosts':
+      if (isset($_POST['request']['postOffset'])) {
+        $posts = $blogViewer->getPosts($_SESSION['username'], $_POST['request']['postOffset']);
+        echo $posts;
+      }
   }
 }
