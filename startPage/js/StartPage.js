@@ -13,6 +13,7 @@ function StartPage() {
          $('#core').empty();
          $('#core').append(data);
          $('#core').fadeIn();
+         $('#magnifyingGlass').fadeIn();
        });
       }
     );

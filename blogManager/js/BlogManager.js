@@ -1,31 +1,25 @@
 function BlogManager() {
   that = this;
 
-  /*-------------------------------
-  ---------------------------------
-  --------------SHOW---------------
-  ---------------------------------
-  -------------------------------*/
+  /*---------------------------
+  ----------SHOW VIEW----------
+  ---------------------------*/
 
+  this.showView = function() {
+    $('#magnifyingGlass').fadeOut();
+    $('#core').fadeOut(function() {
+      $('#core').empty();
 
-    /*---------------------------
-    ----------SHOW VIEW----------
-    ---------------------------*/
+      $.post("blogManager/controller/controller.php", function(data, status) {
+         var startPage = new StartPage();
 
-    this.showView = function() {
-      $('#core').fadeOut(function() {
-        $('#core').empty();
-
-        $.post("blogManager/controller/controller.php", function(data, status) {
-           var startPage = new StartPage();
-
-           $('#core').append(data);
-           that.modifyBackArrowTargetLink(startPage.showView);
-           $('#core').fadeIn();
-           $('#backArrow').fadeIn();
-        });
+         $('#core').append(data);
+         that.modifyBackArrowTargetLink(startPage.showView);
+         $('#core').fadeIn();
+         $('#backArrow').fadeIn();
       });
-    }
+    });
+  }
 
 
   /*------------------------------------------

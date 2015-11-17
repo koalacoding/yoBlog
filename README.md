@@ -57,4 +57,4 @@ Blog interface coded in PHP.
 
 ## To do.
 * Put the website in HTTPS are improve the security of PHP sessions.
-* Allow the user to search a blog by its name, and to watch it.
+* Allow the user to search and watch a blog by its name.

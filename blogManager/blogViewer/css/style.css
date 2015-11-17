@@ -65,6 +65,7 @@
 
   #newerPostsArrow, #olderPostsArrow {
     display: inline-block;
+    cursor: pointer;
   }
 
 
