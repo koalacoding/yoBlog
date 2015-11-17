@@ -1,39 +1,48 @@
 function BlogViewer() {
+  that = this;
+
+  this.actionInProgress = false;
+
   /*---------------------------
   ----------SHOW VIEW----------
   ---------------------------*/
 
   this.showView = function(blogName) {
-    $('#core').fadeOut(function() {
-      var requestType = 'showView';
-      $('#core').empty();
+    if (that.actionInProgress == false) {
+      that.actionInProgress = true;
 
-      $.post("blogManager/blogViewer/controller/controller.php",
-        {requestType: requestType, blogName: blogName},
-        function(data, status) {
-          var blogManager = new BlogManager();
+      $('#core').fadeOut(function() {
+        var requestType = 'showView';
+        $('#core').empty();
 
-          $('#core').append(data);
+        $.post("blogManager/blogViewer/controller/controller.php",
+          {requestType: requestType, blogName: blogName},
+          function(data, status) {
+            var blogManager = new BlogManager();
 
-          requestType = 'getHeaderCss';
-          $.post("blogManager/blogViewer/controller/controller.php",
-            {requestType: requestType, blogName: blogName},
-            function(data, status) {
-              data = data.split(";");
-              $('<img/>').attr('src', data[0]).load(function() {
-                 $(this).remove(); // Prevent memory leak.
-                 $('.jumbotron').css('background', 'url("'+data[0]+'")');
-                 $('.jumbotron').css('color', data[1]);
-                 $('.jumbotron').fadeTo(1500, 1);
-              });
-            }
-          );
+            $('#core').append(data);
 
-          $('#core').fadeIn();
-          $('#backArrow').fadeIn();
-        }
-      );
-    });
+            requestType = 'getHeaderCss';
+            $.post("blogManager/blogViewer/controller/controller.php",
+              {requestType: requestType, blogName: blogName},
+              function(data, status) {
+                data = data.split(";");
+                $('<img/>').attr('src', data[0]).load(function() {
+                   $(this).remove(); // Prevent memory leak.
+                   $('.jumbotron').css('background', 'url("'+data[0]+'")');
+                   $('.jumbotron').css('color', data[1]);
+                   $('.jumbotron').fadeTo(1500, 1);
+                   that.actionInProgress = false;
+                });
+              }
+            );
+
+            $('#core').fadeIn();
+            $('#backArrow').fadeIn();
+          }
+        );
+      });
+    }
   }
 
   /*-----------------------------------

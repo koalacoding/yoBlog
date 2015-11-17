@@ -1,24 +1,32 @@
 function BlogManager() {
   that = this;
 
+  this.actionInProgress = false;
+
   /*---------------------------
   ----------SHOW VIEW----------
   ---------------------------*/
 
   this.showView = function() {
-    $('#magnifyingGlass').fadeOut();
-    $('#core').fadeOut(function() {
-      $('#core').empty();
+    if (that.actionInProgress == false) {
+      that.actionInProgress = true;
+      
+      $('#magnifyingGlass').fadeOut();
+      $('#core').fadeOut(function() {
+        $('#core').empty();
 
-      $.post("blogManager/controller/controller.php", function(data, status) {
-         var startPage = new StartPage();
+        $.post("blogManager/controller/controller.php", function(data, status) {
+           var startPage = new StartPage();
 
-         $('#core').append(data);
-         that.modifyBackArrowTargetLink(startPage.showView);
-         $('#core').fadeIn();
-         $('#backArrow').fadeIn();
+           $('#core').append(data);
+           that.modifyBackArrowTargetLink(startPage.showView);
+           $('#core').fadeIn();
+           $('#backArrow').fadeIn(function() {
+             that.actionInProgress = false;
+           });
+        });
       });
-    });
+    }
   }
 
 

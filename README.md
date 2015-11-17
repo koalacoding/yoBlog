@@ -61,6 +61,8 @@ Example : http://littlebighippo.16mb.com/
 50. Fix the bug 'Wrong credentials' when registering a new account.
 
 ## To do.
-* Put the website in HTTPS are improve the security of PHP sessions.
+* Put the website in HTTPS are improve the security of PHP sessions (must first find a host with SSL).
 * Find a way to prevent a content to show multiple times by clicking too fast on a button
   without limiting the antiFlood.
+* To fix when clicking on 'Manage your blog' : 'Uncaught TypeError: that.modifyBackArrowTargetLink
+  is not a function'.
