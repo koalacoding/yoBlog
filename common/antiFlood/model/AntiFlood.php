@@ -17,12 +17,13 @@ class AntiFlood {
       $request = $bdd->prepare("SELECT first_request_time FROM anti_flood WHERE ip_address=?");
       $request->execute(array($ip));
 
-      if ($request->rowCount() == 0) $fetch['first_request_time'] = 0; // If no result has been found
+      // If no result has been found
+      if ($request->rowCount() == 0) $fetch['first_request_time'] = 0;
       else $fetch = $request->fetch();
 
       $request->closeCursor();
 
-      return $fetch['first_request_time'];
+      return intval($fetch['first_request_time']);
     }
 
     /*------------------------------------------
@@ -37,7 +38,8 @@ class AntiFlood {
                                 VALUES (?, ?, ?) ON DUPLICATE KEY
                                 UPDATE first_request_time = VALUES(first_request_time),
                                 number_of_requests = VALUES(number_of_requests)");
-      $request->execute(array($ip, time(), 1));
+      // Using round(microtime(true) * 1000) to get Unix timestamp in milliseconds.
+      $request->execute(array($ip, round(microtime(true) * 1000), 1));
       $request->closeCursor();
     }
 

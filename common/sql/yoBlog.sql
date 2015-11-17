@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2015 at 01:54 AM
+-- Generation Time: Nov 17, 2015 at 04:05 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `anti_flood` (
   `ip_address` varchar(50) NOT NULL,
-  `first_request_time` int(11) NOT NULL,
+  `first_request_time` varchar(20) NOT NULL,
   `number_of_requests` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS `anti_flood` (
 --
 
 INSERT INTO `anti_flood` (`ip_address`, `first_request_time`, `number_of_requests`) VALUES
-('127.0.0.1', 1447721554, 3),
-('::1', 1447475044, 0);
+('127.0.0.1', '1447729325805', 1),
+('::1', '21474836475964', 0);
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `postDate` datetime NOT NULL,
   `timeSinceEpoch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
@@ -131,7 +131,11 @@ CREATE TABLE IF NOT EXISTS `posts` (
 
 INSERT INTO `posts` (`id`, `username`, `title`, `content`, `postDate`, `timeSinceEpoch`) VALUES
 (81, 'admin', 'my first posters', 'sup yo', '2015-11-13 02:59:49', 1447379989),
-(83, 'admin', 'bonjour', 'aurevoir', '2015-11-14 04:05:24', 1447470324);
+(83, 'admin', 'bonjour', 'aurevoir', '2015-11-14 04:05:24', 1447470324),
+(84, 'admin', 'fdg', 'dfg', '2015-11-17 01:56:54', 1447721814),
+(85, 'admin', 'Bootstrap 4 alpha ', 'Today is a special day for Bootstrap. Not only is it our fourth birthday, but after a year of development, we&rsquo;re finally shipping the first alpha release of Bootstrap 4. Hell yeah!\n\nBootstrap 4 has been a massive undertaking that touches nearly every line of code. We&rsquo;re stoked to share it with you and hear your feedback. We&rsquo;ve got a lot of news to share with you, so let&rsquo;s jump right into it.', '2015-11-17 01:57:31', 1447721851),
+(86, 'admin', 'Introducing No Carrier', 'Say hello to our newest bot, No Carrier. Inspired by the classic modem disconnection error message of yesteryear, No Carrier helps us track issues that appear to have been abandoned by the original poster. Issues that go without a reply to our questions for two weeks are closed with a friendly explanation by No Carrier.\n\nTo date, we&rsquo;ve handled abandoned issues just like any other issues&mdash;with ad-hoc reviews. We felt that could be improved, so we made a bot to automate the process. No Carrier appears on our issue tracker as @twbs-closer and will monitor issues we tag with awaiting-reply. Should no one reply within two weeks, @twbs-closer will post a final comment explaining the situation and our policy, and then automatically close the issue. If someone later replies after the cutoff, a member of our team will happily reopen the issue manually and continue pursuing it.\n\nNo Carrier is available for any GitHub project, not just Bootstrap. If you have a project on GitHub that might benefit from this automation, we invite you to try out No Carrier. For more details, usage instructions, and feedback, check out the No Carrier project on GitHub. You can download the assembly JAR from the &ldquo;Downloads&rdquo; section of the v1.0.0 release page.\n\n&lt;3,', '2015-11-17 01:57:50', 1447721870),
+(87, 'admin', 'Bootstrap 3.3.5 released', 'Bootstrap 3.3.5 is here! This release has focused on bug fixes, accessibility improvements, and documentation updates. We&rsquo;ve had over 330 commits and 160 closed issues and pull requests from over 40 contributors since our last release! Hell yeah.\n\nHere are some of the highlights:\n\n    Updated to Normalize.css v3.0.3.\n    Updated main in bower.json to comply with recent update to the bower.json specification\n    List groups now support &lt;button&gt; elements.\n    Cleaned up some extraneous padding on jumbotrons across various viewports.\n    Fixed input group sizing classes on all supported elements for real this time.\n    Applied a few tooltip and popover positioning fixes.\n    Fixed behavior when using tooltips and popovers that are triggered by multiple events.\n    Fixed some memory leakage in the tooltip and popover plugins.\n    Fixed incorrect Affix positioning when a webpage has a sticky footer.\n    Fixed npm package to include all Grunt scripts, so that grunt dist works if you installed Bootstrap from npm.\n\nFor a complete breakdown, read the release changelog and the v3.3.5 milestone.', '2015-11-17 01:58:07', 1447721887);
 
 -- --------------------------------------------------------
 
@@ -257,7 +261,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=84;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT for table `post_categories`
 --
