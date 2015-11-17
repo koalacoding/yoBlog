@@ -32,12 +32,16 @@ class BlogOptions {
     $headerTextColor = htmlentities($headerTextColor, ENT_QUOTES);
     $title = htmlentities($title, ENT_QUOTES);
     $description = htmlentities($description, ENT_QUOTES);
+    $username = htmlentities($username, ENT_QUOTES);
 
-		$request = $bdd->prepare("UPDATE blog_options SET headerBackgroundImage=?, headerTextColor=?,
-                                                      title=?, description=? WHERE username=?");
-    $request->execute(array($headerBackgroundImage, $headerTextColor, $title, $description,
-                            $username));
-    $request->closeCursor();
+		$request = $bdd->prepare("INSERT INTO blog_options(username, headerBackgroundImage, headerTextColor, title, description)
+                              VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY
+                              UPDATE headerBackgroundImage = VALUES(headerBackgroundImage),
+                              headerTextColor = VALUES(headerTextColor),
+                              title = VALUES(title),
+                              description = VALUES(description)");
+    $request->execute(array($username, $headerBackgroundImage, $headerTextColor, $title,
+                            $description));
 
     echo 'ok';
   }

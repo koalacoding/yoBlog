@@ -55,7 +55,8 @@ Blog interface coded in PHP.
 46. Modify antiFlood to handle milliseconds.
 47. The blog's jumbotron (header) fades in when it has finished loading.
 48. Allow the user to search and watch a blog by its name.
+49. Make blogOptions work.
 
 ## To do.
 * Put the website in HTTPS are improve the security of PHP sessions.
-* Make blogOptions work.
+* Fix the bug "Wrong credentials" when registering a new account.

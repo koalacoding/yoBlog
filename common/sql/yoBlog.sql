@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2015 at 04:05 AM
+-- Generation Time: Nov 17, 2015 at 05:50 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS `anti_flood` (
 --
 
 INSERT INTO `anti_flood` (`ip_address`, `first_request_time`, `number_of_requests`) VALUES
-('127.0.0.1', '1447729325805', 1),
-('::1', '21474836475964', 0);
+('127.0.0.1', '1447734140076', 1),
+('::1', '1447778981857', 1);
 
 -- --------------------------------------------------------
 
@@ -68,21 +68,21 @@ INSERT INTO `archives_months` (`id`, `month`, `year`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `blog_options` (
-`id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `headerBackgroundImage` text NOT NULL,
   `headerTextColor` varchar(30) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `blog_options`
 --
 
-INSERT INTO `blog_options` (`id`, `username`, `headerBackgroundImage`, `headerTextColor`, `title`, `description`) VALUES
-(2, 'admin', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Center_of_the_Milky_Way_Galaxy_III_%E2%80%93_Chandra_(X-ray).jpg', 'rgb(255, 255, 255)', 'The up and comin''', 'The background-image property sets one or more background images for an element.'),
-(3, 'johndoe', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Center_of_the_Milky_Way_Galaxy_III_%E2%80%93_Chandra_(X-ray).jpg', '', '', '');
+INSERT INTO `blog_options` (`username`, `headerBackgroundImage`, `headerTextColor`, `title`, `description`) VALUES
+('admin', 'http://wallpapercave.com/wp/OH1Cf1c.jpg', 'rgb(255, 255, 255)', 'The up and comin&#039;', 'The background-image property sets one or more background images for an element.'),
+('johndoe', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Center_of_the_Milky_Way_Galaxy_III_%E2%80%93_Chandra_(X-ray).jpg', '', '', ''),
+('youngrider', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Center_of_the_Milky_Way_Galaxy_III_%E2%80%93_Chandra_(X-ray).jpg', 'rgb(253, 0, 0)', 'YO LOCS', 'WUDDUP');
 
 -- --------------------------------------------------------
 
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `registration_date` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -190,7 +190,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `registration_date`)
 (21, 'tyu', '86063db2ef0e73e592fd0b182cf40bab0bd4eb56dee469f76a87db9c9849b4ba', '', '2015-11-14 03:25:27'),
 (22, 'lilg', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-14 03:28:13'),
 (23, 'admin3', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-14 05:22:04'),
-(24, 'admin4', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-17 01:48:22');
+(24, 'admin4', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-17 01:48:22'),
+(25, 'youngrider', 'cd678cdb5a3c5e70f29805f1c864111a6ff354f6d18dae076a08ab1a46cf846e', '', '2015-11-17 17:48:33');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +213,7 @@ ALTER TABLE `archives_months`
 -- Indexes for table `blog_options`
 --
 ALTER TABLE `blog_options`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `comments`
@@ -248,11 +249,6 @@ ALTER TABLE `users`
 ALTER TABLE `archives_months`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `blog_options`
---
-ALTER TABLE `blog_options`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
@@ -271,7 +267,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

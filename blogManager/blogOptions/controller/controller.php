@@ -9,7 +9,7 @@ if (isset($_SESSION['username'], $_POST['requestType'])) {
 
   switch ($_POST['requestType']) {
     case 'showView':
-      $array = $blogOptions->getBlogOptions('admin');
+      $array = $blogOptions->getBlogOptions($_SESSION['username']);
       showView($array['headerBackgroundImage'], $array['headerTextColor'], $array['title'],
                $array['description']);
       break;
