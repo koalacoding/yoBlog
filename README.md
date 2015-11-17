@@ -1,6 +1,8 @@
 # yoBlog
 Blog interface coded in PHP.
 
+Example : http://littlebighippo.16mb.com/
+
 ## Steps finished.
 
 1. Give the ability to the user to delete his own posts.
