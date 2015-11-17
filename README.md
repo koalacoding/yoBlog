@@ -58,3 +58,4 @@ Blog interface coded in PHP.
 
 ## To do.
 * Put the website in HTTPS are improve the security of PHP sessions.
+* Make blogOptions work.
