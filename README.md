@@ -66,3 +66,4 @@ Example : http://littlebighippo.16mb.com/
   without limiting the antiFlood.
 * To fix when clicking on 'Manage your blog' : 'Uncaught TypeError: that.modifyBackArrowTargetLink
   is not a function'.
+* To fix : when modifying a post, transform html character codes into readable text.
